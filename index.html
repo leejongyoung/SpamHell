@@ -14,31 +14,23 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
     </head>
 
-    <body>
-        <form id="spam-form">
-        <div class="form-group">
-            <textarea id="text-source" name="text" class="form-control" rows="7" maxlength="300" placeholder="바꾸려는 글귀를 입력하세요." style="resize:none;"></textarea>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-5 col-sm-5 col-4">
-            <button type="button" class="btn-transform btn btn-info btn-block" data-mode="spam">스팸체</button> </div>
-            <div class="form-group col-md-5 col-sm-5 col-4">
-            <button type="button" class="btn-transform btn btn-info btn-block" data-mode="korean">한국인전용체</button>
+    <body class="container">
+        <form>
+            <h1 style="padding: 20px 0px;">💌 SPAM MAKER</h1>
+            <div class="form-group">
+              <label for="text-source">INPUT</label>
+              <textarea class="form-control" id="text-source" rows="7" maxlength="300" aria-describedby="text" placeholder="Please Typing Text"></textarea>
+              <small id="text" class="form-text text-muted">Support Korean and English</small>
             </div>
-            <div class="form-group col-md-2 col-sm-2 col-4">
-            <button id="btn-reset" type="button" class="btn btn-danger btn-block">
-                다시쓰기
-            </button>
+            <br>
+            <div class="form-group">
+              <label for="text-transformed">RESULT</label>
+              <textarea class="form-control" id="text-transformed" rows="7" maxlength="300" aria-describedby="text"></textarea>
             </div>
-        </div>
-        <div class="form-group"><textarea id="text-transformed" class="form-control" rows="7" style="resize:none;"></textarea></div>
-        <div class="form-row">
-            <div class="form-group col-md-12 col-sm-12 col-12">
-            <button id="btn-copy" type="button" class="btn btn-info btn-block" data-clipboard-target="#text-transformed">
-                복사하기
-            </button>
-            </div>
-        </div>
+            <br>
+            <button type="button" class="btn btn-primary btn-transform" data-mode="spam">SPAM TEXT</button>
+            <button type="button" class="btn btn-primary btn-transform" data-mode="korean">KOREAN TEXT</button>
+            <button type="button" class="btn btn-primary" id="btn-reset">REWRITE</button>
         </form>
 
         <script type="text/javascript" src="kotlin.js"></script>
