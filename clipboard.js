@@ -17,7 +17,7 @@ const clipboard = new ClipboardJS('#btn-copy');
             $(".btn-transform").click(function (e) {
             const source = $('#text-source').val();
             if (!source) {
-                alert("입력이 제대로 안된거 같은데요");
+                alert("입력이 안되었어요");
                 return;
             }
 
