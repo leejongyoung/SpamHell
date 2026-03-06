@@ -1,64 +1,94 @@
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1>
-        <title>스팸체 생성기</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-        <link rel="manifest" href="assets/favicon/site.webmanifest">
-        <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#00cc00">
-        <meta name="msapplication-TileColor" content="#000000">
-        <meta name="theme-color" content="#000000">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css" integrity="sha384-z4tVnCr80ZcL0iufVdGQSUzNvJsKjEtqYZjiQrrYKlpGow+btDHDfQWkFjoaz/Zr" crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
-    </head>
-    <body class="container">
-        <section class="row">
-            <form>
-                <svg style="float: left; margin: 16px;" width="48" height="45" viewBox="0 0 562 559" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M138.778 256C124.971 256 113.778 267.193 113.778 281C113.778 294.807 124.971 306 138.778 306V256ZM423.222 306C437.029 306 448.222 294.807 448.222 281C448.222 267.193 437.029 256 423.222 256V306ZM138.778 142.222C124.971 142.222 113.778 153.415 113.778 167.222C113.778 181.029 124.971 192.222 138.778 192.222V142.222ZM309.444 192.222C323.252 192.222 334.444 181.029 334.444 167.222C334.444 153.415 323.252 142.222 309.444 142.222V192.222ZM121.697 444.573L102.176 428.955L102.176 428.955L121.697 444.573ZM55.3935 527.451L35.8718 511.834L35.8715 511.834L55.3935 527.451ZM138.778 306H423.222V256H138.778V306ZM138.778 192.222H309.444V142.222H138.778V192.222ZM50 516.79V81.8889H0V516.79H50ZM50 81.8889C50 64.2771 64.2771 50 81.8889 50V0C36.6629 0 0 36.6629 0 81.8889H50ZM81.8889 50H480.111V0H81.8889V50ZM480.111 50C497.723 50 512 64.2769 512 81.8889H562C562 36.6631 525.338 0 480.111 0V50ZM512 81.8889V366.333H562V81.8889H512ZM512 366.333C512 383.946 497.724 398.222 480.111 398.222V448.222C525.338 448.222 562 411.56 562 366.333H512ZM480.111 398.222H166.12V448.222H480.111V398.222ZM166.12 398.222C141.243 398.222 117.716 409.531 102.176 428.955L141.218 460.191C147.271 452.626 156.433 448.222 166.12 448.222V398.222ZM102.176 428.955L35.8718 511.834L74.9151 543.069L141.219 460.19L102.176 428.955ZM35.8715 511.834C40.555 505.98 50 509.29 50 516.79H0C0 556.558 50.0756 574.119 74.9154 543.068L35.8715 511.834Z" fill="#00CC00"/>
-                </svg>
-                <h1 style="padding: 16px;">스팸체 생성기</h1>
-                <div class="form-group">
-                  <label for="text-source">입력창</label>
-                  <textarea class="form-control" id="text-source" rows="7" maxlength="300" aria-describedby="text" placeholder="글자를 입력해주세요"></textarea>
-                  <small id="text" class="form-text text-muted">오직 한국어만 지원합니다.</small>
-                </div>
-                <br>
-                <div class="form-group">
-                  <label for="text-transformed">결과창</label>
-                  <textarea class="form-control" id="text-transformed" rows="7" maxlength="300" aria-describedby="text"></textarea>
-                </div>
-                <br>
-                <button type="button" class="btn btn-primary btn-transform" data-mode="spam">스팸체</button>
-                <button type="button" class="btn btn-primary btn-transform" data-mode="korean">한국인체</button>
-                <button type="button" class="btn btn-primary" id="btn-reset">다시쓰기</button>
-                <button type="button" class="btn btn-primary" id="btn-copy" data-clipboard-target="#text-transformed">복사하기</button>
-            </form>
-        </section>
-        <footer>
-            <br>
-            <p style="text-align: center">
-                <span style="padding: 8px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000000" class="bi bi-instagram" viewBox="0 0 16 16">
-                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                    </svg>
-                    <a href="https://instagram.com/leejongyoungg">Instagrm</a>
-                </span>
-                <span style="padding: 8px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0000000" class="bi bi-github" viewBox="0 0 16 16">
-                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                    </svg>
-                    <a href="https://github.com/leejongyoung">Github</a>
-                </span>
-            </p>
-        </footer>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>SpamHell - 사이버 보안 워크벤치</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <meta name="theme-color" content="#0a0b0d">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid slim-blog-layout">
+        <!-- Ultra Slim Header -->
+        <header class="dashboard-header mb-2">
+            <div class="header-brand">
+                <h1 class="brand-logo">SpamHell</h1>
+                <span class="status-text">SYSTEM ACTIVE</span>
+            </div>
+            <a href="https://github.com/leejongyoung" target="_blank" class="github-link">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            </a>
+        </header>
 
-        <script type="text/javascript" src="kotlin.js"></script>
-        <script type="text/javascript" src="spammaker.js"></script>
-        <script type="text/javascript" src="clipboard.js"></script>
-    </body>
+        <main class="main-content">
+            <!-- 1. 메시지 입력하기 -->
+            <div class="cyber-card mb-2">
+                <div class="section-label">
+                    <span class="label-icon"></span>
+                    <span class="label-text">메시지 입력하기</span>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3 mb-2">
+                    <div class="sub-label">퀵 템플릿:</div>
+                    <div class="template-list">
+                        <button class="template-chip template-btn" data-template="typeA">🎁 당첨</button>
+                        <button class="template-chip template-btn" data-template="typeB">🤖 AI</button>
+                        <button class="template-chip template-btn" data-template="typeC">💀 공포</button>
+                    </div>
+                </div>
+
+                <textarea class="cyber-input mb-2" id="text-source" rows="3" placeholder="메시지 입력..."></textarea>
+
+                <div class="action-grid-triple">
+                    <button class="cyber-btn btn-primary-glow btn-transform" data-mode="spam">스팸체 변환</button>
+                    <button class="cyber-btn btn-outline btn-transform" data-mode="korean">한국인 최적화</button>
+                    <button class="cyber-btn btn-outline" id="btn-reset">초기화</button>
+                </div>
+            </div>
+
+            <!-- 2. 메시지 출력 결과 -->
+            <div class="cyber-card mb-2">
+                <div class="section-label">
+                    <span class="label-icon accent"></span>
+                    <span class="label-text">메시지 출력 결과</span>
+                </div>
+                <textarea class="cyber-input result-box mb-2" id="text-transformed" rows="3" readonly placeholder="변환 대기 중..."></textarea>
+                <button class="cyber-btn btn-accent-glow w-100" id="btn-copy" data-clipboard-target="#text-transformed">데이터 복사</button>
+            </div>
+
+            <!-- 3. 이미지 출력 결과 -->
+            <div class="cyber-card">
+                <div class="section-label">
+                    <span class="label-icon accent"></span>
+                    <span class="label-text">이미지 출력 결과</span>
+                </div>
+                <div id="combined-card-area" class="mms-card-frame mb-2">
+                    <div class="mms-photo">
+                        <img src="assets/images/police.png" alt="POLICE">
+                    </div>
+                    <div class="mms-content" id="preview-text-target">변환된 메시지 미리보기</div>
+                </div>
+                <button class="cyber-btn btn-primary-glow w-100" id="btn-save-image">이미지 저장</button>
+            </div>
+        </main>
+
+        <footer class="dashboard-footer mt-2">
+            <p class="footer-text">&copy; 2026 SPAMHELL. 보이스피싱 근절을 응원합니다.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="js/spammaker.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>
