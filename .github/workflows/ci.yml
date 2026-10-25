@@ -26,6 +26,11 @@ jobs:
             diff -q NOTICE "$dir/NOTICE"
           done
 
+      - name: Web logo and icon match the asset masters
+        run: |
+          diff -q assets/logo.svg apps/web/public/logo.svg
+          diff -q assets/icon.svg apps/web/public/favicon/favicon.svg
+
       - uses: actions/setup-node@v7
         with:
           node-version: 22
@@ -40,6 +45,7 @@ jobs:
         run: |
           npm pack --dry-run -w spamhell
           npm pack --dry-run -w spamhell-cli
+          npm pack --dry-run -w spamhell-mcp
 
       - name: Upload Pages artifact
         if: github.ref == 'refs/heads/main'
