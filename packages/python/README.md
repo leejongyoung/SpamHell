@@ -7,7 +7,7 @@ npm 패키지 [`spamhell`](../core)과 **같은 시드에서 같은 결과**를 
 ## 설치
 
 ```bash
-pip install spamhell
+pip install spamhell   # PyPI 공개 준비 중입니다. 지금은 저장소에서: pip install ./packages/python
 ```
 
 ## 사용

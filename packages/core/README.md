@@ -2,7 +2,7 @@
 
 보이스피싱범에게 보내는 역공 메시지를 **스팸체**로 바꾸는 TypeScript/JavaScript 라이브러리입니다. 의존성이 없고 Node.js 20 이상과 번들러 환경에서 동작하는 ESM 패키지입니다.
 
-Python 패키지 [`spamhell`](https://pypi.org/project/spamhell/)과 **같은 시드에서 같은 결과**를 냅니다. 명령줄에서는 [`spamhell-cli`](https://www.npmjs.com/package/spamhell-cli)를 쓰세요.
+[Python 패키지](https://github.com/leejongyoung/SpamHell/tree/main/packages/python)와 **같은 시드에서 같은 결과**를 냅니다. 명령줄에서는 [`spamhell-cli`](https://www.npmjs.com/package/spamhell-cli)를 쓰세요.
 
 ## 설치
 

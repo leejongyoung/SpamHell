@@ -1,6 +1,6 @@
 # spamhell-cli
 
-보이스피싱범에게 보내는 역공 메시지를 **스팸체**로 바꾸는 명령줄 도구입니다. 변환 엔진은 [`spamhell`](https://www.npmjs.com/package/spamhell) 패키지이고, Python 버전([`spamhell` on PyPI](https://pypi.org/project/spamhell/))과 같은 옵션, 같은 시드에서 같은 결과를 냅니다.
+보이스피싱범에게 보내는 역공 메시지를 **스팸체**로 바꾸는 명령줄 도구입니다. 변환 엔진은 [`spamhell`](https://www.npmjs.com/package/spamhell) 패키지이고, [Python 버전](https://github.com/leejongyoung/SpamHell/tree/main/packages/python)과 같은 옵션, 같은 시드에서 같은 결과를 냅니다.
 
 ## 설치
 

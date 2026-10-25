@@ -28,7 +28,7 @@
 | Python | [`packages/python`](./packages/python) | PyPI `spamhell` | Python 3.9+ 라이브러리와 CLI (의존성 없음) |
 | 웹 | [`apps/web`](./apps/web) | 없음 | 문자처럼 쓰고 내 문자 앱으로 보내는 홈페이지 |
 
-> 레지스트리(npm, PyPI) 공개는 아직 하지 않았습니다. 아래 `npm install`, `pip install`, `npx` 명령은 공개 후에 동작하고, 공개 전에는 [개발](#개발)의 로컬 설치를 쓰세요.
+> npm 패키지(`spamhell`, `spamhell-cli`, `spamhell-mcp`)는 공개되어 바로 설치할 수 있습니다. Python 패키지(PyPI)는 준비 중이라 `pip install spamhell`은 아직 동작하지 않고, 지금은 `pip install ./packages/python`을 쓰세요.
 
 ## 웹: 문자처럼 쓰고 보내기
 
@@ -73,7 +73,7 @@ getReply('loan', { seed: 7 });
 ### Python
 
 ```bash
-pip install spamhell
+pip install ./packages/python   # PyPI 공개 후에는: pip install spamhell
 ```
 
 ```python
@@ -100,7 +100,7 @@ get_reply("loan", seed=7)
 npm(`spamhell-cli`)과 Python(`spamhell`)이 같은 이름의 명령과 같은 옵션을 제공합니다.
 
 ```bash
-npm install -g spamhell-cli    # 또는: pip install spamhell
+npm install -g spamhell-cli    # Python 버전은 pip install ./packages/python (PyPI 공개 후 pip install spamhell)
 
 spamhell "입금 확인 바랍니다"
 echo "지금 바로 입금하세요" | spamhell --mode korean --seed 7
@@ -163,27 +163,29 @@ cd packages/python
 uv run --with pytest python -m pytest   # golden 포함
 ```
 
-공개 전 로컬 설치:
+Python을 PyPI 공개 전에 설치하려면 저장소에서 설치합니다. npm 패키지를 저장소에서 직접 쓰고 싶을 때도 아래처럼 합니다.
 
 ```bash
-npm run build && npm install -g ./packages/cli   # CLI (core는 같은 저장소에서 연결)
 pip install ./packages/python                    # Python
+npm run build && npm install -g ./packages/cli   # CLI (core는 같은 저장소에서 연결)
 ```
 
 처음 클론한 뒤에는 `npm run build`를 한 번 실행하고 `npm install`을 다시 실행해야 워크스페이스에서 `spamhell` 명령이 `node_modules/.bin`에 연결됩니다. 연결 없이 쓰려면 `node packages/cli/dist/bin.js`를 실행하면 됩니다. 웹 개발 서버는 먼저 빌드한 뒤 `npm run dev -w @spamhell/web`입니다.
 
 변환 규칙이나 템플릿을 바꾸면 TS와 Python을 함께 고치고 골든 파일을 다시 만듭니다(`npm run build -w spamhell && node scripts/gen-golden.mjs`). 한쪽만 고치면 다른 쪽 골든 테스트가 실패합니다.
 
-### 릴리스 (공개할 때)
+### 릴리스
 
-네 패키지의 버전(`packages/core`, `packages/cli`, `packages/mcp`, `packages/python`의 `pyproject.toml`과 `__init__.py`)을 맞추고 CI가 통과한 상태에서 합니다.
+네 패키지의 버전(`packages/core`, `packages/cli`, `packages/mcp`, `packages/python`의 `pyproject.toml`과 `__init__.py`)을 맞추고 CI가 통과한 상태에서 합니다. `spamhell`이 먼저 올라가야 `spamhell-cli`와 `spamhell-mcp`가 설치됩니다.
 
 ```bash
-npm login
 npm publish -w spamhell && npm publish -w spamhell-cli && npm publish -w spamhell-mcp
 ```
 
-PyPI는 토큰 대신 Trusted Publishing을 씁니다. PyPI에서 Publisher(저장소 `leejongyoung/SpamHell`, 워크플로 `publish-python.yml`, 환경 `pypi`)를 등록한 뒤 Actions의 **Publish Python package**를 수동 실행하면 테스트, 빌드, 공개를 합니다.
+- npm 계정의 2단계 인증이 패스키이면 터미널에서 OTP를 받을 수 없으므로, TTY 안에서 웹 인증으로 올립니다: `script -q /dev/null npm publish -w <패키지> --auth-type=web`. 출력된 주소를 브라우저에서 열어 패스키로 인증하며, 주소는 몇 분만 유효합니다.
+- `package.json`의 `bin` 경로는 `./`로 시작하면 안 됩니다(`dist/bin.js`). npm이 게시할 때 그런 항목을 조용히 지웁니다. 올리기 전에 `npm publish -w <패키지> --dry-run`에 `auto-corrected` 경고가 없는지 확인하세요.
+
+PyPI는 토큰 대신 Trusted Publishing을 씁니다. PyPI에서 Publisher(저장소 `leejongyoung/SpamHell`, 워크플로 `publish-python.yml`, 환경 `pypi`)를 등록한 뒤 Actions의 **Publish Python package**를 수동 실행하면 테스트, 빌드, 공개를 합니다. 아직 등록 전이라 PyPI 공개는 보류 중입니다.
 
 `main`에 push하면 GitHub Actions가 검사와 테스트, 빌드(`npm pack` 드라이런과 `twine check` 포함)를 거쳐 웹을 GitHub Pages에 배포합니다.
 
