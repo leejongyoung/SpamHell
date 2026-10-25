@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Spam-style (스팸체) text transformer for voice-phishing counter-messages.",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "private": true,
   "sideEffects": false,
   "main": "./dist/index.js",

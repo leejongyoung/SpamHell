@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Command-line interface for spamhell: transform text into spam-style (스팸체).",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "private": true,
   "bin": {
     "spamhell": "./dist/bin.js"
