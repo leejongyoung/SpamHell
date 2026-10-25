@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "spamhell"
+version = "1.0.0"
+description = "Spam-style (스팸체) text transformer for voice-phishing counter-messages."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.9"
+authors = [{ name = "Lee Jongyoung" }]
+keywords = ["spam", "korean", "hangul", "voice-phishing", "anti-phishing", "cli"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Natural Language :: Korean",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://leejongyoung.github.io/SpamHell/"
+Repository = "https://github.com/leejongyoung/SpamHell"
+Issues = "https://github.com/leejongyoung/SpamHell/issues"
+
+[project.scripts]
+spamhell = "spamhell.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/spamhell"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

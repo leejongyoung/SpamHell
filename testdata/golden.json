@@ -1,0 +1,2345 @@
+{
+ "version": 1,
+ "cases": [
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 0,
+   "options": {},
+   "expected": "(축) 입금 ㅎㅘㄱ인 바랍니ㄷㅏ 영i0-123※4-5육7팔\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 0,
+   "options": {
+    "frame": false
+   },
+   "expected": "입금 ㅎㅘㄱ인 바랍니ㄷㅏ 영i0-123※4-5육7팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 0,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "ㅇㅣㅂㄱㅡㅁ ㅎㅘㄱㅇㅣㄴ ㅂㅏㄹㅏㅂㄴㅣㄷㅏ 영i0-123※4-5육7팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 0,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "입.금 확.인 바.랍.니.다 영i0-12※34-5육7팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 0,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "(주) 입금 ㅎㅘㄱ인 바랍니ㄷㅏ 영iㅇ-iㄹ삼사-오육칠팔\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 0,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "(축) 입금 ㅎㅘㄱ인 바랍니ㄷㅏ 영i0-123※4-5육7팔\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 1,
+   "options": {},
+   "expected": "[광.고] 입ㄱㅡㅁ 확인 _바랍니.다 O!ㅇ-1ㄹE사-오67팔\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 1,
+   "options": {
+    "frame": false
+   },
+   "expected": "입ㄱㅡㅁ 확인 _바랍니.다 O!ㅇ-1ㄹE사-오67팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 1,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "ㅇㅣㅂㄱㅡㅁ ㅎㅘㄱㅇㅣㄴ _ㅂㅏㄹㅏㅂㄴㅣㄷㅏ O!ㅇ-1ㄹE사-오67팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 1,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "입.금 확.인_ 바.랍.니.다 O!ㅇ-1ㄹE사-오67팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 1,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "(축) 입ㄱㅡㅁ 확인 바랍니.다 O!ㅇ-!이삼사-오육칠팔\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 1,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "[광.고] 입ㄱㅡㅁ 확인 _바랍니.다 O!ㅇ-1ㄹE사-오67팔\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 42,
+   "options": {},
+   "expected": "◈ 입금 확.ㅇㅣㄴ ㅂㅏ랍.니다 ㅇ1영-12E4-오육7팔\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 42,
+   "options": {
+    "frame": false
+   },
+   "expected": "입금 확.ㅇㅣㄴ ㅂㅏ랍.니다 ㅇ1영-12E4-오육7팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 42,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "ㅇㅣㅂㄱㅡㅁ ㅎㅘㄱㅇㅣㄴ ㅂㅏㄹㅏㅂㄴㅣㄷㅏ ㅇ1영-12E4-오육7팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 42,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "입.금 확.인 바.랍.니.다 ㅇ1영-12E4-오육7팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 42,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "(축) 입금 확.ㅇㅣㄴ ㅂㅏ랍.니다 ㅇ!ㅇ-!ㄹE사-오육칠팔\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": 42,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "(축) 입금 확.ㅇㅣㄴ ㅂㅏ랍.니다 ㅇ1영▶-12E4-오육7팔\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "abc",
+   "options": {},
+   "expected": "[광.고] 입금 ㅎㅘㄱ인 바랍니다 0!O-l2E4-오6칠8\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "abc",
+   "options": {
+    "frame": false
+   },
+   "expected": "입금 ㅎㅘㄱ인 바랍니다 0!O-l2E4-오6칠8"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "abc",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "ㅇㅣㅂㄱㅡㅁ ㅎㅘㄱㅇㅣㄴ ㅂㅏㄹㅏㅂㄴㅣㄷㅏ 0!O-l2E4-오6칠8"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "abc",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "입.금 확.인 바.랍.니.다 0!O-l2E4-오6칠8"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "abc",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "◈ 입금 ㅎㅘㄱ인 바랍니다 Oㅣ영-ㅣㄹ삼사-오육칠팔\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "abc",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "◈ 입.금 ㅎㅘㄱ인 바랍니다 0!O-l2E4-오6칠8\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "한글",
+   "options": {},
+   "expected": "[광.고] ㅇㅣㅂ금 ㅎㅘㄱ인 바랍니다 ㅇㅣ0-i2E사-오67팔\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "한글",
+   "options": {
+    "frame": false
+   },
+   "expected": "ㅇㅣㅂ금 ㅎㅘㄱ인 바랍니다 ㅇㅣ0-i2E사-오67팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "한글",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "ㅇㅣㅂㄱㅡㅁ ㅎㅘㄱㅇㅣㄴ ㅂㅏㄹㅏㅂㄴㅣㄷㅏ ㅇㅣ0-i2E사-오67팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "한글",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "입.금 확.인 바.랍.니.다 ㅇㅣ0-i2E사-오67팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "한글",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "[광.고] ㅇㅣㅂ금 ㅎㅘㄱ인 바랍니다 ㅇㅣO-iㄹ삼사-오육칠팔\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "한글",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "[광.고] ㅇㅣㅂ금◈ ㅎㅘㄱ인 바랍니다 ㅇㅣ0-i2E사-오67팔\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "😀",
+   "options": {},
+   "expected": "▼ 입금 확ㅇㅣㄴ 바ㄹㅏㅂ니.다 O!0-1ㄹ3사-오육칠팔\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "😀",
+   "options": {
+    "frame": false
+   },
+   "expected": "입금 확ㅇㅣㄴ 바ㄹㅏㅂ니.다 O!0-1ㄹ3사-오육칠팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "😀",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "ㅇㅣㅂㄱㅡㅁ ㅎㅘㄱㅇㅣㄴ ㅂㅏㄹㅏㅂㄴㅣㄷㅏ O!0-1ㄹ3사-오육칠팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "😀",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "입.금 확.인 바.랍.니.다 O!0-1ㄹ3사-오육칠팔"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "😀",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "(주) 입금 확ㅇㅣㄴ 바ㄹㅏㅂ니.다 O!ㅇ-i이E사-오육칠팔\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "입금 확인 바랍니다 010-1234-5678",
+   "seed": "😀",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "(주) 입금 확ㅇㅣㄴ 바ㄹㅏㅂ니.다 ▶O!0-1ㄹ3사-오육칠팔\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 0,
+   "options": {},
+   "expected": "※ Hello iㄹ3 world\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 0,
+   "options": {
+    "frame": false
+   },
+   "expected": "Hello iㄹ3 world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 0,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "Hello iㄹ3 world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 0,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "Hello iㄹ3 world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 0,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "(주) Hello iㄹE world\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 0,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "(주) Hello iㄹ3 ◈world\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 1,
+   "options": {},
+   "expected": "(축) Hello 1ㄹ3 world\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 1,
+   "options": {
+    "frame": false
+   },
+   "expected": "Hello 1ㄹ3 world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 1,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "Hello 1ㄹ3 world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 1,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "Hello 1ㄹ3 world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 1,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "◈ Hello lㄹE world\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 1,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "◈ Hello 1ㄹ3 worl▶d\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 42,
+   "options": {},
+   "expected": "◈ Hello !이삼 world\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 42,
+   "options": {
+    "frame": false
+   },
+   "expected": "Hello !이삼 world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 42,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "Hello !이삼 world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 42,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "Hello !이삼 world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 42,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "◈ Hello !이삼 world\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": 42,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "(축) Hello !이▶삼 world\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "abc",
+   "options": {},
+   "expected": "※ Hello ㅣㄹ3 worl/d\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "abc",
+   "options": {
+    "frame": false
+   },
+   "expected": "Hello ㅣㄹ3 worl/d"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "abc",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "Hello ㅣㄹ3 worl/d"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "abc",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "Hello ㅣㄹ3 worl/d"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "abc",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "◈ Hello ㅣㄹ삼 world\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "abc",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "※ Hello ㅣㄹ3 worl/d\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "한글",
+   "options": {},
+   "expected": "[Web발신] Hello ㅣㄹE world\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "한글",
+   "options": {
+    "frame": false
+   },
+   "expected": "Hello ㅣㄹE world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "한글",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "Hello ㅣㄹE world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "한글",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "Hello ㅣㄹE world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "한글",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "[Web발신] Hello ㅣㄹE world\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "한글",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "※ Hello ㅣㄹE wo/rld\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "😀",
+   "options": {},
+   "expected": "▼ Hel.lo 1이E world\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "😀",
+   "options": {
+    "frame": false
+   },
+   "expected": "Hel.lo 1이E world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "😀",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "Hel.lo 1이E world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "😀",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "Hel.lo 1이E world"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "😀",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "[Web발신] Hello ㅣ이삼 world\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "Hello 123 world",
+   "seed": "😀",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "▼ Hel.lo 1이E world\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 0,
+   "options": {},
+   "expected": "◈ 안녕.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 0,
+   "options": {
+    "frame": false
+   },
+   "expected": "안녕."
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 0,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "ㅇㅏㄴㄴㅕㅇ."
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 0,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "안.녕."
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 0,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "(축) 안녕\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 0,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "◈ 안녕.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 1,
+   "options": {},
+   "expected": "※ 안ㄴㅕㅇ\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 1,
+   "options": {
+    "frame": false
+   },
+   "expected": "안ㄴㅕㅇ"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 1,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "ㅇㅏㄴㄴㅕㅇ"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 1,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "안.녕"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 1,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "※ 안ㄴㅕㅇ\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 1,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "(축) 안ㄴㅕㅇ/\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 42,
+   "options": {},
+   "expected": "(주) ◈안녕\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 42,
+   "options": {
+    "frame": false
+   },
+   "expected": "◈안녕"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 42,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "◈ㅇㅏㄴㄴㅕㅇ"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 42,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "◈안.녕"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 42,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "[광.고] 안녕\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": 42,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "(주) ◈안녕\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "abc",
+   "options": {},
+   "expected": "▼ 안녕.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "abc",
+   "options": {
+    "frame": false
+   },
+   "expected": "안녕."
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "abc",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "ㅇㅏㄴㄴㅕㅇ."
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "abc",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "안.녕."
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "abc",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "(축) 안녕\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "abc",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "▼ 안녕.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "한글",
+   "options": {},
+   "expected": "※ ㅇㅏㄴ녕/\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "한글",
+   "options": {
+    "frame": false
+   },
+   "expected": "ㅇㅏㄴ녕/"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "한글",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "ㅇㅏㄴㄴㅕㅇ/"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "한글",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "안./녕"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "한글",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "※ ㅇㅏㄴ녕\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "한글",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "※ ㅇㅏㄴ녕/\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "😀",
+   "options": {},
+   "expected": "[광.고] _안녕\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "😀",
+   "options": {
+    "frame": false
+   },
+   "expected": "_안녕"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "😀",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "_ㅇㅏㄴㄴㅕㅇ"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "😀",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "_안.녕"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "😀",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "[광.고] 안녕\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "안녕",
+   "seed": "😀",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "[광.고] _안녕\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 0,
+   "options": {},
+   "expected": "◈ 😀입금😀.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 0,
+   "options": {
+    "frame": false
+   },
+   "expected": "😀입금😀."
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 0,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "😀ㅇㅣㅂㄱㅡㅁ😀."
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 0,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "😀입.금😀."
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 0,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "(축) 😀입금😀\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 0,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "◈ 😀입금😀.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 1,
+   "options": {},
+   "expected": "※ 😀입ㄱㅡㅁ😀\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 1,
+   "options": {
+    "frame": false
+   },
+   "expected": "😀입ㄱㅡㅁ😀"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 1,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "😀ㅇㅣㅂㄱㅡㅁ😀"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 1,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "😀입.금😀"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 1,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "※ 😀입ㄱㅡㅁ😀\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 1,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "(축) 😀입ㄱㅡㅁ/😀\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 42,
+   "options": {},
+   "expected": "(주) ◈😀입금😀\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 42,
+   "options": {
+    "frame": false
+   },
+   "expected": "◈😀입금😀"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 42,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "◈😀ㅇㅣㅂㄱㅡㅁ😀"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 42,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "◈😀입.금😀"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 42,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "[광.고] 😀입금😀\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": 42,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "(주) ◈😀입금😀\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "abc",
+   "options": {},
+   "expected": "▼ 😀입금😀.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "abc",
+   "options": {
+    "frame": false
+   },
+   "expected": "😀입금😀."
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "abc",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "😀ㅇㅣㅂㄱㅡㅁ😀."
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "abc",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "😀입.금😀."
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "abc",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "(축) 😀입금😀\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "abc",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "▼ 😀입금😀.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "한글",
+   "options": {},
+   "expected": "※ 😀ㅇㅣㅂ금/😀\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "한글",
+   "options": {
+    "frame": false
+   },
+   "expected": "😀ㅇㅣㅂ금/😀"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "한글",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "😀ㅇㅣㅂㄱㅡㅁ/😀"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "한글",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "😀입.금/😀"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "한글",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "※ 😀ㅇㅣㅂ금😀\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "한글",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "※ 😀ㅇㅣㅂ금/😀\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "😀",
+   "options": {},
+   "expected": "[광.고] _😀입금😀\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "😀",
+   "options": {
+    "frame": false
+   },
+   "expected": "_😀입금😀"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "😀",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "_😀ㅇㅣㅂㄱㅡㅁ😀"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "😀",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "_😀입.금😀"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "😀",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "[광.고] 😀입금😀\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "😀입금😀",
+   "seed": "😀",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "[광.고] _😀입금😀\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 0,
+   "options": {},
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 0,
+   "options": {
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 0,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 0,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 0,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 0,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 1,
+   "options": {},
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 1,
+   "options": {
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 1,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 1,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 1,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 1,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 42,
+   "options": {},
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 42,
+   "options": {
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 42,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 42,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 42,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": 42,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "abc",
+   "options": {},
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "abc",
+   "options": {
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "abc",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "abc",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "abc",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "abc",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "한글",
+   "options": {},
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "한글",
+   "options": {
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "한글",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "한글",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "한글",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "한글",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "😀",
+   "options": {},
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "😀",
+   "options": {
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "😀",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "😀",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "😀",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "",
+   "seed": "😀",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": ""
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 0,
+   "options": {},
+   "expected": "(축) a◈\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 0,
+   "options": {
+    "frame": false
+   },
+   "expected": "a◈"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 0,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "a◈"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 0,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "a◈"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 0,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "(축) a\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 0,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "(축) a◈\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 1,
+   "options": {},
+   "expected": "[광.고] a\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 1,
+   "options": {
+    "frame": false
+   },
+   "expected": "a"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 1,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "a"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 1,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "a"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 1,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "[광.고] a\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 1,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "※ .a\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 42,
+   "options": {},
+   "expected": "[광.고] ▶a\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 42,
+   "options": {
+    "frame": false
+   },
+   "expected": "▶a"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 42,
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "▶a"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 42,
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "▶a"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 42,
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "▶ a\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": 42,
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "[광.고] ▶a\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "abc",
+   "options": {},
+   "expected": "※ a\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "abc",
+   "options": {
+    "frame": false
+   },
+   "expected": "a"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "abc",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "a"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "abc",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "a"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "abc",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "※ a\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "abc",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "(축) a◈\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "한글",
+   "options": {},
+   "expected": "※ a◈\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "한글",
+   "options": {
+    "frame": false
+   },
+   "expected": "a◈"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "한글",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "a◈"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "한글",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "a◈"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "한글",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "◈ a\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "한글",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "※ a◈\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "😀",
+   "options": {},
+   "expected": "◈ a\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "😀",
+   "options": {
+    "frame": false
+   },
+   "expected": "a"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "😀",
+   "options": {
+    "disassembleRate": 1,
+    "frame": false
+   },
+   "expected": "a"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "😀",
+   "options": {
+    "disassembleRate": 0,
+    "dotRate": 1,
+    "frame": false
+   },
+   "expected": "a"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "😀",
+   "options": {
+    "numberRate": 1,
+    "noiseRate": 0
+   },
+   "expected": "◈ a\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "toSpam",
+   "input": "a",
+   "seed": "😀",
+   "options": {
+    "noiseRate": 1
+   },
+   "expected": "[광.고] a※\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "toKorean",
+   "input": "지금 바로 입금하세요",
+   "seed": 0,
+   "expected": "지금 ㄹㅇ 바로 입금하세요 ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "지금 바로 입금하세요",
+   "seed": 1,
+   "expected": "지금 바로 ㄹㅇ 입금하세요 ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "지금 바로 입금하세요",
+   "seed": 42,
+   "expected": "지금 ㄹㅇ 바로 입금하세요 ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "지금 바로 입금하세요",
+   "seed": "abc",
+   "expected": "지금 바로 ㄹㅇ 입금하세요 ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "지금 바로 입금하세요",
+   "seed": "한글",
+   "expected": "지금 ㄹㅇ 바로 입금하세요 ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "지금 바로 입금하세요",
+   "seed": "😀",
+   "expected": "지금 바로 ㄹㅇ 입금하세요 ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "안녕",
+   "seed": 0,
+   "expected": "안녕 ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "안녕",
+   "seed": 1,
+   "expected": "안녕 ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "안녕",
+   "seed": 42,
+   "expected": "안녕 ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "안녕",
+   "seed": "abc",
+   "expected": "안녕 ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "안녕",
+   "seed": "한글",
+   "expected": "안녕 ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "안녕",
+   "seed": "😀",
+   "expected": "안녕 ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "a b c d e",
+   "seed": 0,
+   "expected": "a b ㄹㅇ c d e ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "a b c d e",
+   "seed": 1,
+   "expected": "a b c d ㄹㅇ e ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "a b c d e",
+   "seed": 42,
+   "expected": "a b ㄹㅇ c d e ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "a b c d e",
+   "seed": "abc",
+   "expected": "a b c ㄹㅇ d e ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "a b c d e",
+   "seed": "한글",
+   "expected": "a ㄹㅇ b c d e ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "a b c d e",
+   "seed": "😀",
+   "expected": "a b c d ㄹㅇ e ㅠㅠ"
+  },
+  {
+   "fn": "toKorean",
+   "input": "",
+   "seed": 0,
+   "expected": ""
+  },
+  {
+   "fn": "toKorean",
+   "input": "",
+   "seed": 1,
+   "expected": ""
+  },
+  {
+   "fn": "toKorean",
+   "input": "",
+   "seed": 42,
+   "expected": ""
+  },
+  {
+   "fn": "toKorean",
+   "input": "",
+   "seed": "abc",
+   "expected": ""
+  },
+  {
+   "fn": "toKorean",
+   "input": "",
+   "seed": "한글",
+   "expected": ""
+  },
+  {
+   "fn": "toKorean",
+   "input": "",
+   "seed": "😀",
+   "expected": ""
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "prize",
+   "seed": 0,
+   "expected": "[광/고] (경) 보이스피싱 구속 1주년 기념 홈커밍 데이 초대\n\n◈ 대상: 전국 보이스피싱 종사자 및 관계자\n▶ 장소: 반성의 방 (입장료 무료)\n▶ 혜택: 10년 만기 무이자 할부 징역권 증정\n※ 준비물: 본인의 비양심과 반성하지 않는 마음\n[거/부] 080-징역-생활"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "prize",
+   "seed": 1,
+   "expected": "[광/고] (축) 2026년 상반기 '최악의 비양심인' 당첨 안내\n\n◈ 고객님의 끈질긴 사기 전화 시도가 드디어 결실을 맺었습니다.\n▶ 상품: 24시간 실시간 양심 추적 서비스 (무료)\n▶ 발신: 양심 감시 위원회\n▶ 경고: 오늘 밤 12시 이전까지 파출소에 자진 신고 시 '콩밥' 곱빼기 제공!\n[수/신/차/단] 112-전화-한통"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "prize",
+   "seed": 2,
+   "expected": "[광/고] (축) 2026년 상반기 '최악의 비양심인' 당첨 안내\n\n◈ 고객님의 끈질긴 사기 전화 시도가 드디어 결실을 맺었습니다.\n▶ 상품: 24시간 실시간 양심 추적 서비스 (무료)\n▶ 발신: 양심 감시 위원회\n▶ 경고: 오늘 밤 12시 이전까지 파출소에 자진 신고 시 '콩밥' 곱빼기 제공!\n[수/신/차/단] 112-전화-한통"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "prize",
+   "seed": 3,
+   "expected": "[광/고] (축) 2026년 상반기 '최악의 비양심인' 당첨 안내\n\n◈ 고객님의 끈질긴 사기 전화 시도가 드디어 결실을 맺었습니다.\n▶ 상품: 24시간 실시간 양심 추적 서비스 (무료)\n▶ 발신: 양심 감시 위원회\n▶ 경고: 오늘 밤 12시 이전까지 파출소에 자진 신고 시 '콩밥' 곱빼기 제공!\n[수/신/차/단] 112-전화-한통"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "prize",
+   "seed": 4,
+   "expected": "[광/고] (축) 보이스-피싱 업계 종사자 대상 특별 혜택 안내\n\n◈ 고.객.님.의 성실한 사기 행각에 감동하여 '지옥행 특급 열차' 티켓 l매가 발권되었습니다.\n▶ 발권 번호: 4444-8282-1818\n▶ 혜택 내용: 수사관과의 1:1 심층 면담권 (무료)\n※ 주의: 본 혜택은 거절할 수 없으며, 거절 시 양심이 직접 방문합니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "prize",
+   "seed": 5,
+   "expected": "[광/고] (축) 보이스-피싱 업계 종사자 대상 특별 혜택 안내\n\n◈ 고.객.님.의 성실한 사기 행각에 감동하여 '지옥행 특급 열차' 티켓 l매가 발권되었습니다.\n▶ 발권 번호: 4444-8282-1818\n▶ 혜택 내용: 수사관과의 1:1 심층 면담권 (무료)\n※ 주의: 본 혜택은 거절할 수 없으며, 거절 시 양심이 직접 방문합니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "prize",
+   "seed": 6,
+   "expected": "[광/고] (축) 보이스-피싱 업계 종사자 대상 특별 혜택 안내\n\n◈ 고.객.님.의 성실한 사기 행각에 감동하여 '지옥행 특급 열차' 티켓 l매가 발권되었습니다.\n▶ 발권 번호: 4444-8282-1818\n▶ 혜택 내용: 수사관과의 1:1 심층 면담권 (무료)\n※ 주의: 본 혜택은 거절할 수 없으며, 거절 시 양심이 직접 방문합니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "prize",
+   "seed": 7,
+   "expected": "[광/고] (경) 보이스피싱 구속 1주년 기념 홈커밍 데이 초대\n\n◈ 대상: 전국 보이스피싱 종사자 및 관계자\n▶ 장소: 반성의 방 (입장료 무료)\n▶ 혜택: 10년 만기 무이자 할부 징역권 증정\n※ 준비물: 본인의 비양심과 반성하지 않는 마음\n[거/부] 080-징역-생활"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "prize",
+   "seed": 8,
+   "expected": "[광/고] (경) 보이스피싱 구속 1주년 기념 홈커밍 데이 초대\n\n◈ 대상: 전국 보이스피싱 종사자 및 관계자\n▶ 장소: 반성의 방 (입장료 무료)\n▶ 혜택: 10년 만기 무이자 할부 징역권 증정\n※ 준비물: 본인의 비양심과 반성하지 않는 마음\n[거/부] 080-징역-생활"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "prize",
+   "seed": 9,
+   "expected": "[광/고] (축) 보이스-피싱 업계 종사자 대상 특별 혜택 안내\n\n◈ 고.객.님.의 성실한 사기 행각에 감동하여 '지옥행 특급 열차' 티켓 l매가 발권되었습니다.\n▶ 발권 번호: 4444-8282-1818\n▶ 혜택 내용: 수사관과의 1:1 심층 면담권 (무료)\n※ 주의: 본 혜택은 거절할 수 없으며, 거절 시 양심이 직접 방문합니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "bot",
+   "seed": 0,
+   "expected": "[AI 안내] 보이스피싱 감지 시스템이 가동되었습니다.\n\n● 현재 발신자의 음성 패턴 분석 결과: '거짓말' 확률 100%\n● 조치 사항: 해당 번호는 실시간으로 블랙리스트에 '사기꾼'으로 등록 중...\n● 경고: 3초 후 당신의 스마트폰에서 경고음이 울립니다. (삐이이익-)\n지금 즉시 도망가도 늦었습니다."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "bot",
+   "seed": 1,
+   "expected": "(알림) 보이스-피싱 전용 스팸 차단 봇입니다.\n\n상대방의 멘탈이 이미 파괴되었습니다.\n[차단 사유]: 인성 결격 사유로 인한 대화 불가\n[해제 방법]: 본인의 통장에 들어있는 모든 돈을 '전국 피해자 구제 협회'에 반납하기.\n※ 주의: 시도할 때마다 형량이 1년씩 추가됩니다."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "bot",
+   "seed": 2,
+   "expected": "(알림) 보이스-피싱 전용 스팸 차단 봇입니다.\n\n상대방의 멘탈이 이미 파괴되었습니다.\n[차단 사유]: 인성 결격 사유로 인한 대화 불가\n[해제 방법]: 본인의 통장에 들어있는 모든 돈을 '전국 피해자 구제 협회'에 반납하기.\n※ 주의: 시도할 때마다 형량이 1년씩 추가됩니다."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "bot",
+   "seed": 3,
+   "expected": "(알림) 보이스-피싱 전용 스팸 차단 봇입니다.\n\n상대방의 멘탈이 이미 파괴되었습니다.\n[차단 사유]: 인성 결격 사유로 인한 대화 불가\n[해제 방법]: 본인의 통장에 들어있는 모든 돈을 '전국 피해자 구제 협회'에 반납하기.\n※ 주의: 시도할 때마다 형량이 1년씩 추가됩니다."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "bot",
+   "seed": 4,
+   "expected": "(알림) 시_스템 점.검.중 입ㄴㅣㄷㅏ.\n\n현재 입력하신 목소리 데이터에서 [비.양.심] 수치가 99.9% 검출되었습니다.\n삐-빅! 사기꾼 감지기 작동.\n상담을 원하시면 본인의 주민등록번호 뒷자리를 크게 3번 외쳐주세요.\n(※ 주의: 목소리가 작으면 지옥 사자가 듣지 못합니다.)"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "bot",
+   "seed": 5,
+   "expected": "(알림) 시_스템 점.검.중 입ㄴㅣㄷㅏ.\n\n현재 입력하신 목소리 데이터에서 [비.양.심] 수치가 99.9% 검출되었습니다.\n삐-빅! 사기꾼 감지기 작동.\n상담을 원하시면 본인의 주민등록번호 뒷자리를 크게 3번 외쳐주세요.\n(※ 주의: 목소리가 작으면 지옥 사자가 듣지 못합니다.)"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "bot",
+   "seed": 6,
+   "expected": "(알림) 시_스템 점.검.중 입ㄴㅣㄷㅏ.\n\n현재 입력하신 목소리 데이터에서 [비.양.심] 수치가 99.9% 검출되었습니다.\n삐-빅! 사기꾼 감지기 작동.\n상담을 원하시면 본인의 주민등록번호 뒷자리를 크게 3번 외쳐주세요.\n(※ 주의: 목소리가 작으면 지옥 사자가 듣지 못합니다.)"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "bot",
+   "seed": 7,
+   "expected": "[AI 안내] 보이스피싱 감지 시스템이 가동되었습니다.\n\n● 현재 발신자의 음성 패턴 분석 결과: '거짓말' 확률 100%\n● 조치 사항: 해당 번호는 실시간으로 블랙리스트에 '사기꾼'으로 등록 중...\n● 경고: 3초 후 당신의 스마트폰에서 경고음이 울립니다. (삐이이익-)\n지금 즉시 도망가도 늦었습니다."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "bot",
+   "seed": 8,
+   "expected": "[AI 안내] 보이스피싱 감지 시스템이 가동되었습니다.\n\n● 현재 발신자의 음성 패턴 분석 결과: '거짓말' 확률 100%\n● 조치 사항: 해당 번호는 실시간으로 블랙리스트에 '사기꾼'으로 등록 중...\n● 경고: 3초 후 당신의 스마트폰에서 경고음이 울립니다. (삐이이익-)\n지금 즉시 도망가도 늦었습니다."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "bot",
+   "seed": 9,
+   "expected": "(알림) 시_스템 점.검.중 입ㄴㅣㄷㅏ.\n\n현재 입력하신 목소리 데이터에서 [비.양.심] 수치가 99.9% 검출되었습니다.\n삐-빅! 사기꾼 감지기 작동.\n상담을 원하시면 본인의 주민등록번호 뒷자리를 크게 3번 외쳐주세요.\n(※ 주의: 목소리가 작으면 지옥 사자가 듣지 못합니다.)"
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "horror",
+   "seed": 0,
+   "expected": "[경.고] 저승 사자의 메.세.지.가 도착했습니다.\n\n† 오늘 밤 12시, 당신의 발 밑을 조심하십시오. †\n피해자들의 눈물이 모여 당신의 발목을 잡을 것입니다.\n복구 코드: [참.회.하.라]\n미입력 시: 오늘부터 먹는 모든 밥이 모래알로 변하는 저주가 시작됩니다."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "horror",
+   "seed": 1,
+   "expected": "[긴.급] 당신의 죄책감이 실체화되어 접근 중입니다.\n\n▶ 현재 위치: 당신의 등 뒤 1m\n▶ 상태: 몹시 굶주림 (사기꾼의 영혼을 선호함)\n◑ 해결책: 당장 핸드폰을 버리고 산으로 들어가 3년간 도를 닦으십시오.\n▣ 실패 시: 평생 보이스피싱 전화를 받는 쪽으로 환생하게 됩니다."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "horror",
+   "seed": 2,
+   "expected": "[긴.급] 당신의 죄책감이 실체화되어 접근 중입니다.\n\n▶ 현재 위치: 당신의 등 뒤 1m\n▶ 상태: 몹시 굶주림 (사기꾼의 영혼을 선호함)\n◑ 해결책: 당장 핸드폰을 버리고 산으로 들어가 3년간 도를 닦으십시오.\n▣ 실패 시: 평생 보이스피싱 전화를 받는 쪽으로 환생하게 됩니다."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "horror",
+   "seed": 3,
+   "expected": "[긴.급] 당신의 죄책감이 실체화되어 접근 중입니다.\n\n▶ 현재 위치: 당신의 등 뒤 1m\n▶ 상태: 몹시 굶주림 (사기꾼의 영혼을 선호함)\n◑ 해결책: 당장 핸드폰을 버리고 산으로 들어가 3년간 도를 닦으십시오.\n▣ 실패 시: 평생 보이스피싱 전화를 받는 쪽으로 환생하게 됩니다."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "horror",
+   "seed": 4,
+   "expected": "[속.보] 0ㅣ것은 입에서 ㄴㅏ오느 ㄴ소ㄹㅣㄱㅏ ㅇㅏㄴㅣㄹㅏ.\n\n◑ ㄸㅏㄹㄹㅡㅇ ㄸㅏㄹㄹㅡㅇ ◑\n당신의 통장은 이미 '텅'장이 되었습니다.\n▣ 복구 방법: 가까운 파출소에 가서 \"나는 사기꾼이다\"라고 5분간 외치기.\n▣ 미이행 시: 오늘 밤 꿈에 당신이 가로챈 돈만큼의 귀신이 방문 서비스 예정."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "horror",
+   "seed": 5,
+   "expected": "[속.보] 0ㅣ것은 입에서 ㄴㅏ오느 ㄴ소ㄹㅣㄱㅏ ㅇㅏㄴㅣㄹㅏ.\n\n◑ ㄸㅏㄹㄹㅡㅇ ㄸㅏㄹㄹㅡㅇ ◑\n당신의 통장은 이미 '텅'장이 되었습니다.\n▣ 복구 방법: 가까운 파출소에 가서 \"나는 사기꾼이다\"라고 5분간 외치기.\n▣ 미이행 시: 오늘 밤 꿈에 당신이 가로챈 돈만큼의 귀신이 방문 서비스 예정."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "horror",
+   "seed": 6,
+   "expected": "[속.보] 0ㅣ것은 입에서 ㄴㅏ오느 ㄴ소ㄹㅣㄱㅏ ㅇㅏㄴㅣㄹㅏ.\n\n◑ ㄸㅏㄹㄹㅡㅇ ㄸㅏㄹㄹㅡㅇ ◑\n당신의 통장은 이미 '텅'장이 되었습니다.\n▣ 복구 방법: 가까운 파출소에 가서 \"나는 사기꾼이다\"라고 5분간 외치기.\n▣ 미이행 시: 오늘 밤 꿈에 당신이 가로챈 돈만큼의 귀신이 방문 서비스 예정."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "horror",
+   "seed": 7,
+   "expected": "[경.고] 저승 사자의 메.세.지.가 도착했습니다.\n\n† 오늘 밤 12시, 당신의 발 밑을 조심하십시오. †\n피해자들의 눈물이 모여 당신의 발목을 잡을 것입니다.\n복구 코드: [참.회.하.라]\n미입력 시: 오늘부터 먹는 모든 밥이 모래알로 변하는 저주가 시작됩니다."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "horror",
+   "seed": 8,
+   "expected": "[경.고] 저승 사자의 메.세.지.가 도착했습니다.\n\n† 오늘 밤 12시, 당신의 발 밑을 조심하십시오. †\n피해자들의 눈물이 모여 당신의 발목을 잡을 것입니다.\n복구 코드: [참.회.하.라]\n미입력 시: 오늘부터 먹는 모든 밥이 모래알로 변하는 저주가 시작됩니다."
+  },
+  {
+   "fn": "getTemplate",
+   "kind": "horror",
+   "seed": 9,
+   "expected": "[속.보] 0ㅣ것은 입에서 ㄴㅏ오느 ㄴ소ㄹㅣㄱㅏ ㅇㅏㄴㅣㄹㅏ.\n\n◑ ㄸㅏㄹㄹㅡㅇ ㄸㅏㄹㄹㅡㅇ ◑\n당신의 통장은 이미 '텅'장이 되었습니다.\n▣ 복구 방법: 가까운 파출소에 가서 \"나는 사기꾼이다\"라고 5분간 외치기.\n▣ 미이행 시: 오늘 밤 꿈에 당신이 가로챈 돈만큼의 귀신이 방문 서비스 예정."
+  }
+ ]
+}
