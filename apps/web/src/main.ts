@@ -16,6 +16,17 @@ import { renderCard } from './card';
 import { icon, type IconName } from './icons';
 import { LMS_LIMIT, SMS_LIMIT, detectSmsPlatform, smsBytes, smsHref, smsKind } from './sms';
 import { initTheme } from './theme';
+import {
+  LOSS_BARS,
+  PROMISES,
+  REPORT_STEPS,
+  STATS,
+  STORY,
+  TIMELINE,
+  formatEok,
+  growthPercent,
+  type Stat,
+} from './background';
 import { aiTabs, installTabs, mountTabs, ruleExamples } from './usage';
 import './style.css';
 
@@ -92,7 +103,7 @@ function syncAutoLine(): void {
   if (!state.situation || !inputIsAuto()) return;
   state.autoLine = getReplyLine(state.situation, { seed: currentSeed() });
   source.value = state.autoLine;
-  autoGrow();
+  growTextarea(source);
 }
 
 /** 지금 보낼 최종 문자. 입력도 템플릿도 없으면 빈 문자열. */
@@ -166,9 +177,11 @@ function render(): void {
   });
 }
 
-function autoGrow(): void {
-  source.style.height = 'auto';
-  source.style.height = `${Math.min(source.scrollHeight, 132)}px`;
+/** 입력창을 내용 높이에 맞춰 늘린다. 문자 앱처럼 안에서 스크롤하지 않고 창 자체가 커진다. */
+function growTextarea(element: HTMLTextAreaElement): void {
+  element.style.height = 'auto';
+  // border-box라서 scrollHeight에 테두리 두께를 더해야 줄이 잘리지 않는다.
+  element.style.height = `${element.scrollHeight + element.offsetHeight - element.clientHeight}px`;
 }
 
 function selectSituation(id: SituationId | null, options: { fill: boolean }): void {
@@ -216,8 +229,13 @@ for (const kind of TEMPLATE_KINDS) {
 
 source.addEventListener('input', () => {
   state.template = null;
-  autoGrow();
+  growTextarea(source);
   render();
+});
+// 화면 너비가 바뀌면 줄 바꿈이 달라지므로 높이를 다시 잰다.
+window.addEventListener('resize', () => {
+  growTextarea(source);
+  growTextarea(pasteInput);
 });
 seedInput.addEventListener('input', () => {
   syncAutoLine();
@@ -243,6 +261,7 @@ rerollButton.addEventListener('click', () => {
 // 받은 문자를 붙여넣으면 상황을 찾아 그에 맞게 고른다 (브라우저 안에서만 처리).
 let pasteTimer: number | undefined;
 pasteInput.addEventListener('input', () => {
+  growTextarea(pasteInput);
   window.clearTimeout(pasteTimer);
   pasteTimer = window.setTimeout(() => {
     state.pasted = pasteInput.value.trim();
@@ -390,8 +409,103 @@ for (const rule of ruleExamples()) {
 mountTabs(must('#use-tabs'), installTabs(), (text) => void copyText(text));
 mountTabs(must('#ai-tabs'), aiTabs(), (text) => void copyText(text));
 
+// "왜 만들었나": 숫자(카운트업), 막대 차트, 타임라인, 이야기, 약속, 신고 안내.
+function el<K extends keyof HTMLElementTagNameMap>(
+  tag: K,
+  className?: string,
+  text?: string,
+): HTMLElementTagNameMap[K] {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+
+/** 0에서 목표값까지 세어 올린다. 움직임 줄이기 설정이면 바로 최종 값을 보여 준다. */
+function countUp(target: HTMLElement, stat: Stat): void {
+  if (reducedMotion.matches) {
+    target.textContent = stat.format(stat.value);
+    return;
+  }
+  const duration = 1200;
+  const start = performance.now();
+  const tick = (now: number): void => {
+    const progress = Math.min(1, (now - start) / duration);
+    const eased = 1 - (1 - progress) ** 3;
+    target.textContent = stat.format(progress === 1 ? stat.value : Math.round(stat.value * eased));
+    if (progress < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+const counters = new Map<HTMLElement, Stat>();
+const statGrid = must<HTMLElement>('#stat-grid');
+STATS.forEach((stat, index) => {
+  const card = el('article', 'stat appear');
+  card.style.setProperty('--i', String(index));
+  const value = el('p', 'stat-value', stat.format(stat.value));
+  counters.set(card, stat);
+  card.append(value, el('p', 'stat-label', stat.label), el('p', 'stat-note', stat.note), el('p', 'stat-source', `출처: ${stat.source}`));
+  statGrid.append(card);
+});
+
+const lossChart = must<HTMLElement>('#loss-chart');
+const maxLoss = Math.max(...LOSS_BARS.map((bar) => bar.eok));
+const [firstBar, lastBar] = [LOSS_BARS[0]!, LOSS_BARS[LOSS_BARS.length - 1]!];
+const lossSummary = `${firstBar.year}년 ${formatEok(firstBar.eok)}원에서 ${lastBar.year}년 ${formatEok(lastBar.eok)}원으로 ${growthPercent(firstBar.eok, lastBar.eok)}% 늘었습니다.`;
+lossChart.classList.add('appear');
+lossChart.setAttribute('role', 'img');
+lossChart.setAttribute('aria-label', `연간 보이스피싱 피해액. ${lossSummary}`);
+const chartHead = el('div', 'chart-head');
+chartHead.append(el('h4', 'chart-title', '연간 피해액'), el('p', 'chart-delta', `+${growthPercent(firstBar.eok, lastBar.eok)}%`));
+const chartBars = el('div', 'chart-bars');
+for (const bar of LOSS_BARS) {
+  const column = el('div', 'bar-col');
+  const fill = el('div', 'bar');
+  fill.style.setProperty('--h', `${(bar.eok / maxLoss) * 100}%`);
+  fill.append(el('span', 'bar-value', `${formatEok(bar.eok)}원`));
+  column.append(fill, el('span', 'bar-year', `${bar.year}년`));
+  chartBars.append(column);
+}
+lossChart.append(chartHead, chartBars, el('p', 'chart-source', '출처: 금강일보 2025-07-15(2024년), 폴리스TV 2026-02-16 등(2025년). 두 해의 증가율은 이 두 수치로 계산했습니다.'));
+
+const timeline = must<HTMLElement>('#timeline');
+TIMELINE.forEach((item, index) => {
+  const row = el('li', 't-item appear');
+  row.style.setProperty('--i', String(index));
+  const card = el('div', 't-card');
+  const head = el('div', 't-head');
+  head.append(el('h4', 't-title', item.title), el('span', 't-chip', item.chip));
+  card.append(head, el('p', 't-body', item.body), el('p', 't-source', `출처: ${item.source}`));
+  row.append(el('span', 't-year', item.year), card);
+  timeline.append(row);
+});
+
+const story = must<HTMLElement>('#story');
+STORY.forEach((chapter, index) => {
+  const row = el('li', 's-item appear');
+  row.style.setProperty('--i', String(index));
+  row.append(el('span', 's-when', chapter.when), el('h4', 's-title', chapter.title), el('p', 's-body', chapter.body));
+  story.append(row);
+});
+
+const promises = must<HTMLElement>('#promises');
+for (const promise of PROMISES) {
+  const card = el('article', 'promise');
+  card.append(el('h4', 'promise-title', promise.title), el('p', 'promise-body', promise.body));
+  promises.append(card);
+}
+
+const reportSteps = must<HTMLElement>('#report-steps');
+for (const step of REPORT_STEPS) reportSteps.append(el('li', undefined, step));
+
+const sourceList = must<HTMLElement>('#source-list');
+for (const entry of [...STATS.map((s) => `${s.label}: ${s.source}`), ...TIMELINE.map((t) => `${t.year}년: ${t.source}`)]) {
+  sourceList.append(el('li', undefined, entry));
+}
+
 // 스크롤 진입 애니메이션: 보이는 순간 한 번만 재생한다. 움직임 줄이기 설정이면 바로 보인다.
-const revealTargets = document.querySelectorAll<HTMLElement>('.reveal');
+const revealTargets = document.querySelectorAll<HTMLElement>('.reveal, .appear');
 if (reducedMotion.matches || !('IntersectionObserver' in window)) {
   revealTargets.forEach((target) => target.classList.add('in'));
 } else {
@@ -399,14 +513,19 @@ if (reducedMotion.matches || !('IntersectionObserver' in window)) {
     (entries) => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
-        entry.target.classList.add('in');
-        observer.unobserve(entry.target);
+        const target = entry.target as HTMLElement;
+        target.classList.add('in');
+        const stat = counters.get(target);
+        const value = target.querySelector<HTMLElement>('.stat-value');
+        if (stat && value) countUp(value, stat);
+        observer.unobserve(target);
       }
     },
-    { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+    // 섹션이 화면보다 아주 길 수 있어, 비율이 아니라 "조금이라도 들어오면" 기준으로 한다.
+    { threshold: 0.02, rootMargin: '0px 0px -8% 0px' },
   );
   revealTargets.forEach((target) => observer.observe(target));
 }
 
-autoGrow();
+growTextarea(source);
 render();

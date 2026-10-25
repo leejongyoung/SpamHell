@@ -519,7 +519,8 @@ main > section {
   background: var(--surface-3);
   border: var(--line);
   border-radius: 12px;
-  resize: vertical;
+  resize: none;
+  overflow-y: hidden;
 }
 
 .paste-status {
@@ -684,7 +685,7 @@ main > section {
 .compose textarea {
   flex: 1;
   min-width: 0;
-  max-height: 132px;
+  overflow-y: hidden; /* 안에서 스크롤하지 않고 JS가 내용만큼 키운다 */
   padding: 11px 16px;
   font: inherit;
   font-size: 1rem; /* iOS 확대 방지 */
@@ -1498,4 +1499,456 @@ main > section {
 
 .ref-use:active {
   transform: scale(0.94);
+}
+
+/* ---- 왜 만들었나 ---------------------------------------------------------- */
+.sub-title {
+  margin: 36px 0 14px;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.sub-title:first-of-type {
+  margin-top: 8px;
+}
+
+.js .appear {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.js .appear.in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s var(--ease) calc(var(--i, 0) * 80ms), transform 0.6s var(--ease) calc(var(--i, 0) * 80ms);
+}
+
+.stat-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 940px) {
+  .stat-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat {
+  --accent: var(--ember);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.stat:nth-child(3n + 2) {
+  --accent: var(--rose);
+}
+
+.stat:nth-child(3n) {
+  --accent: var(--sun);
+}
+
+.stat-value {
+  display: inline-block;
+  align-self: flex-start;
+  margin: 0;
+  font-size: clamp(1.9rem, 7vw, 2.7rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 60%, transparent) 62%);
+}
+
+.stat-label {
+  margin: 4px 0 0;
+  font-weight: 800;
+}
+
+.stat-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.stat-source {
+  margin: auto 0 0;
+  padding-top: 8px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+.chart-card {
+  margin-top: 18px;
+  padding: 18px;
+  background: var(--surface);
+  border: var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.chart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.chart-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.chart-delta {
+  margin: 0;
+  padding: 2px 12px;
+  font-family: var(--mono);
+  font-weight: 900;
+  color: var(--on-accent);
+  background: var(--ember);
+  border: var(--line);
+  border-radius: 999px;
+}
+
+.chart-bars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: clamp(16px, 8vw, 72px);
+  height: 250px;
+  margin: 18px 0 8px;
+  padding: 0 clamp(0px, 4vw, 48px);
+  border-bottom: var(--line);
+}
+
+.bar-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.bar {
+  position: relative;
+  width: 100%;
+  height: var(--h);
+  background: linear-gradient(to top, var(--rose), var(--ember) 70%, var(--sun));
+  border: var(--line);
+  border-bottom: 0;
+  border-radius: 14px 14px 0 0;
+  transform: scaleY(0);
+  transform-origin: 50% 100%;
+}
+
+.chart-card.in .bar {
+  transform: scaleY(1);
+  transition: transform 1s var(--ease) 0.2s;
+}
+
+.chart-card.in .bar-col:nth-child(2) .bar {
+  transition-delay: 0.45s;
+}
+
+.bar-value {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: clamp(0.85rem, 3.4vw, 1.1rem);
+  font-weight: 900;
+  color: #14101a;
+}
+
+.bar-year {
+  display: block;
+  margin-top: 8px;
+  text-align: center;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.bar-col {
+  position: relative;
+}
+
+.bar-col .bar-year {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -34px;
+}
+
+.chart-bars {
+  margin-bottom: 44px;
+}
+
+.chart-source {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.timeline {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 31px;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  background: var(--border);
+  opacity: 0.5;
+}
+
+.t-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.t-year {
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  align-self: start;
+  height: 38px;
+  font-family: var(--mono);
+  font-weight: 900;
+  color: var(--inv-text);
+  background: var(--inv-bg);
+  border: var(--line);
+  border-radius: 10px;
+}
+
+.t-card {
+  padding: 14px 16px;
+  background: var(--surface);
+  border: var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.t-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin-bottom: 6px;
+}
+
+.t-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.t-chip {
+  padding: 1px 10px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #14101a;
+  background: var(--sun);
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.t-body {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.t-source {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.story {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 760px) {
+  .story {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.s-item {
+  padding: 16px 18px;
+  background: var(--surface);
+  border: var(--line);
+  border-left: 8px solid var(--ember);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.s-when {
+  display: inline-block;
+  padding: 0 8px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--inv-text);
+  background: var(--inv-bg);
+  border-radius: 6px;
+}
+
+.s-title {
+  margin: 8px 0 4px;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.s-body {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.promises {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+@media (min-width: 760px) {
+  .promises {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.promise {
+  padding: 14px 16px;
+  background: var(--surface-2);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.promise-title {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.promise-body {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.report-box {
+  margin-top: 18px;
+  padding: 18px 20px;
+  color: #14101a;
+  background: var(--sun);
+  border: var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.report-box h3 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.report-box ol {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 1.2em;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.sources {
+  margin-top: 18px;
+  font-size: 0.85rem;
+}
+
+.sources summary {
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.sources p {
+  margin: 8px 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.sources ul {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding-left: 1.1em;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .appear,
+  .js .appear.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .bar {
+    transform: none;
+  }
+}
+
+/* 한국어는 단어(띄어쓰기) 단위로 줄을 바꾸고, 공백 없는 긴 문자열만 강제로 꺾는다. */
+body {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.bubble,
+.rule-demo,
+pre,
+textarea,
+input {
+  word-break: normal;
+  overflow-wrap: anywhere;
 }

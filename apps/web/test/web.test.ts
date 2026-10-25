@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { STATS, TIMELINE, formatEok, formatMan, formatPercent, growthPercent } from '../src/background';
 import { wrapText } from '../src/card';
 import { resolveTheme } from '../src/theme';
 import { detectSmsPlatform, normalizePhone, smsBytes, smsHref, smsKind } from '../src/sms';
@@ -82,5 +83,36 @@ describe('resolveTheme', () => {
     expect(resolveTheme(null, true)).toBe('dark');
     expect(resolveTheme(null, false)).toBe('light');
     expect(resolveTheme('sepia', true)).toBe('dark');
+  });
+});
+
+describe('background helpers', () => {
+  it('formats 억 amounts with 조 and thousands separators', () => {
+    expect(formatEok(12578)).toBe('1조 2,578억');
+    expect(formatEok(8545)).toBe('8,545억');
+    expect(formatEok(337)).toBe('337억');
+    expect(formatEok(10000)).toBe('1조');
+    expect(formatEok(20001)).toBe('2조 1억');
+    expect(formatEok(0)).toBe('0억');
+  });
+
+  it('formats 만원 and percentages', () => {
+    expect(formatMan(5384)).toBe('5,384만원');
+    expect(formatPercent(43.2)).toBe('43%');
+  });
+
+  it('computes growth to one decimal place', () => {
+    expect(growthPercent(8545, 12578)).toBe(47.2);
+    expect(growthPercent(200, 100)).toBe(-50);
+    expect(growthPercent(100, 100)).toBe(0);
+  });
+
+  it('keeps every figure attributable and the timeline in order', () => {
+    for (const stat of STATS) {
+      expect(stat.source).not.toBe('');
+      expect(stat.format(stat.value)).not.toBe('');
+    }
+    expect(TIMELINE.map((item) => item.year)).toEqual(['2022', '2023', '2024', '2025', '2026']);
+    for (const item of TIMELINE) expect(item.source).not.toBe('');
   });
 });

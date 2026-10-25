@@ -38,6 +38,7 @@
       </a>
       <nav class="nav" aria-label="주요 메뉴">
         <a href="#composer">체험</a>
+        <a href="#why">배경</a>
         <a href="#reference">상황</a>
         <a href="#how">원리</a>
         <a href="#install">설치</a>
@@ -169,26 +170,54 @@
         <p class="fine">입력한 번호와 문자는 이 기기 밖으로 나가지 않습니다. 휴대폰이 아니거나 문자 앱이 열리지 않으면 복사해서 붙여넣으세요.</p>
       </section>
 
+      <section id="why" class="why reveal" aria-labelledby="h-why">
+        <h2 id="h-why" class="section-title"><span class="tag">02</span>왜 만들었나</h2>
+        <p class="lead">2022년부터 2026년까지 보이스피싱이 어떻게 달라졌는지, 그리고 장난으로 시작한 이 도구를 왜 다시 만들게 됐는지 정리했습니다.</p>
+
+        <h3 class="sub-title">숫자로 보는 보이스피싱</h3>
+        <div class="stat-grid" id="stat-grid"></div>
+        <div class="chart-card" id="loss-chart"></div>
+
+        <h3 class="sub-title">2022에서 2026까지, 한눈에</h3>
+        <ol class="timeline" id="timeline"></ol>
+
+        <h3 class="sub-title">SpamHell 이야기</h3>
+        <ol class="story" id="story"></ol>
+
+        <div class="promises" id="promises"></div>
+
+        <aside class="report-box" aria-labelledby="h-report">
+          <h3 id="h-report">먼저 해야 할 일</h3>
+          <ol id="report-steps"></ol>
+        </aside>
+
+        <details class="sources">
+          <summary>수치 출처와 읽는 법</summary>
+          <p>수치는 2026년 10월 기준으로 경찰과 금융당국의 발표를 인용한 언론 보도를 정리한 것입니다. 같은 해라도 집계 기관과 범위(발생 기준, 피해자 기준)에 따라 숫자가 다를 수 있어, 카드마다 보도한 매체와 날짜를 적었습니다. 정확한 값은 원 발표를 확인하세요.</p>
+          <ul id="source-list"></ul>
+        </details>
+      </section>
+
       <section id="reference" class="reference reveal" aria-labelledby="h-reference">
-        <h2 id="h-reference" class="section-title"><span class="tag">02</span>상황별 레퍼런스</h2>
+        <h2 id="h-reference" class="section-title"><span class="tag">03</span>상황별 레퍼런스</h2>
         <p class="lead" id="reference-lead"></p>
         <div class="ref-grid" id="ref-grid"></div>
       </section>
 
       <section id="how" class="how reveal" aria-labelledby="h-how">
-        <h2 id="h-how" class="section-title"><span class="tag">03</span>스팸체는 이렇게 만들어져요</h2>
+        <h2 id="h-how" class="section-title"><span class="tag">04</span>스팸체는 이렇게 만들어져요</h2>
         <div class="rules" id="rules"></div>
       </section>
 
       <section id="install" class="install reveal" aria-labelledby="h-install">
-        <h2 id="h-install" class="section-title"><span class="tag">04</span>어디서나 같은 결과</h2>
+        <h2 id="h-install" class="section-title"><span class="tag">05</span>어디서나 같은 결과</h2>
         <p class="lead">같은 엔진을 JavaScript, Python, CLI에서 쓰고, 같은 시드는 모두 같은 글을 만듭니다.</p>
         <div class="tabs-host" id="use-tabs"></div>
         <p class="fine">패키지는 npm과 PyPI 공개를 준비 중입니다. 공개 전에는 <a href="https://github.com/leejongyoung/SpamHell" target="_blank" rel="noopener">저장소</a>를 받아 사용하세요.</p>
       </section>
 
       <section id="ai" class="ai reveal" aria-labelledby="h-ai">
-        <h2 id="h-ai" class="section-title"><span class="tag">05</span>AI에 연결하기</h2>
+        <h2 id="h-ai" class="section-title"><span class="tag">06</span>AI에 연결하기</h2>
         <div class="ai-grid">
           <div>
             <p class="lead">MCP 서버(<code>spamhell-mcp</code>)를 연결하면 Claude 같은 AI 비서가 받은 문자를 읽고 알맞은 상황을 골라 답장을 만들어 줍니다. 네트워크나 파일 접근 없이 텍스트만 돌려줍니다.</p>
@@ -206,7 +235,7 @@
       </section>
 
       <section class="principles reveal" aria-labelledby="h-principles">
-        <h2 id="h-principles" class="section-title"><span class="tag">06</span>지키는 원칙</h2>
+        <h2 id="h-principles" class="section-title"><span class="tag">07</span>지키는 원칙</h2>
         <ul class="cards">
           <li><span data-icon="phone"></span><h3>보내는 건 사람이</h3><p>문자 앱을 본문이 채워진 채로 열 뿐입니다. 자동 전송, 대량 생성, 일괄 처리는 만들지 않습니다.</p></li>
           <li><span data-icon="shield"></span><h3>사칭하지 않기</h3><p>답장과 템플릿은 실제 기관이나 발신자를 사칭하지 않도록 씁니다. 풍자는 풍자로 남깁니다.</p></li>
