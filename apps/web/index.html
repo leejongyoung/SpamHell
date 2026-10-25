@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>SpamHell - 사기꾼에게는 텍스트 지옥을</title>
-    <meta name="description" content="보이스피싱범에게 보내는 역공 문자를 스팸체로 바꿔 주는 도구. 문자처럼 쓰고 내 문자 앱으로 보내세요. JavaScript, Python, CLI, AI(MCP)로도 쓸 수 있습니다." />
+    <meta name="description" content="보이스피싱범에게 보내는 역공 문자를 스팸체로 바꿔 주는 도구. 받은 문자에 맞는 상황별 답장을 골라 내 문자 앱으로 보내세요. JavaScript, Python, CLI, AI(MCP)로도 쓸 수 있습니다." />
     <meta name="theme-color" content="#FFF3E3" />
-    <meta name="color-scheme" content="light" />
+    <meta name="color-scheme" content="light dark" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="SpamHell - 사기꾼에게는 텍스트 지옥을" />
-    <meta property="og:description" content="문자처럼 쓰고, 스팸체로 바꿔, 내 문자 앱으로 보내세요." />
+    <meta property="og:description" content="문자처럼 쓰고, 상황에 맞게 골라, 내 문자 앱으로 보내세요." />
     <meta property="og:image" content="https://leejongyoung.github.io/SpamHell/og.png" />
     <meta property="og:url" content="https://leejongyoung.github.io/SpamHell/" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -17,6 +17,16 @@
     <link rel="icon" href="/favicon/favicon.ico" sizes="48x48" />
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
+    <script>
+      // 저장된 테마를 첫 페인트 전에 적용해 깜빡임을 막는다. 저장값이 없으면 시스템 설정을 따른다.
+      (function () {
+        try {
+          var saved = localStorage.getItem('spamhell-theme');
+          if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+        } catch (e) {}
+        document.documentElement.classList.add('js');
+      })();
+    </script>
   </head>
   <body>
     <a class="skip" href="#composer">본문으로 건너뛰기</a>
@@ -28,10 +38,12 @@
       </a>
       <nav class="nav" aria-label="주요 메뉴">
         <a href="#composer">체험</a>
+        <a href="#reference">상황</a>
         <a href="#how">원리</a>
         <a href="#install">설치</a>
         <a href="#ai">AI</a>
         <a class="nav-github" href="https://github.com/leejongyoung/SpamHell" target="_blank" rel="noopener">GitHub</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="테마 전환"></button>
       </nav>
     </header>
 
@@ -39,21 +51,37 @@
       <section class="hero">
         <div class="hero-art" aria-hidden="true">
           <span class="sticker sticker-a">[광.고]</span>
-          <img src="/logo.svg" alt="" width="240" height="240" />
+          <svg class="hero-logo" viewBox="0 0 128 128" width="240" height="240" focusable="false">
+            <defs>
+              <linearGradient id="hero-fire" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0" stop-color="#FF2E63" />
+                <stop offset="0.55" stop-color="#FF5B1F" />
+                <stop offset="1" stop-color="#FFC93C" />
+              </linearGradient>
+            </defs>
+            <path d="M36 12h56a26 26 0 0 1 26 26v34a26 26 0 0 1-26 26H64l-28 22c-2.200 1.700-5 .1-4.600-2.600L34 98A26 26 0 0 1 10 72V38a26 26 0 0 1 26-26z" fill="#FFF3E3" stroke="#14101A" stroke-width="7" stroke-linejoin="round" />
+            <g class="flame">
+              <path d="M64 24c3.500 11 18 21 18 40 0 13-8 22-18 22s-18-9-18-22c0-8.500 4.800-14 9-18.500.9 7.500 3.700 10.500 7 12C61 50 63 38 64 24z" fill="url(#hero-fire)" stroke="#14101A" stroke-width="4.500" stroke-linejoin="round" />
+              <path class="ember-core" d="M64 53c1.600 5.400 8.500 9 8.500 16 0 4.800-3.800 8.500-8.500 8.500s-8.500-3.700-8.500-8.500c0-3.200 1.900-5.400 3.500-7 .4 3 1.800 4.300 3.200 4.800C62.200 63.200 63 58.500 64 53z" fill="#FFF3E3" />
+            </g>
+          </svg>
           <span class="sticker sticker-b">입.금 ㅇㅏㄴㄴㅕㅇ</span>
           <span class="sticker sticker-c">080-철창행</span>
         </div>
-        <p class="kicker">보이스피싱 역공 문자 생성기</p>
-        <h1>사기꾼에게는<br /><span class="hl">텍스트 지옥</span>을.</h1>
-        <p class="lede">
-          한 줄만 쓰세요. 자음은 갈라지고 숫자는 둔갑하고 특수문자가 쏟아집니다.
+        <p class="kicker rise" style="--d: 0ms">보이스피싱 역공 문자 생성기</p>
+        <h1>
+          <span class="rise" style="--d: 80ms">사기꾼에게는</span><br />
+          <span class="rise" style="--d: 180ms"><span class="hl">텍스트 지옥</span>을.</span>
+        </h1>
+        <p class="lede rise" style="--d: 300ms">
+          받은 문자를 붙여넣으면 상황을 알아보고, 그에 맞는 답장을 스팸체로 만들어 줍니다.
           문자처럼 쓰고, 마음에 들면 <strong>내 문자 앱</strong>으로 보내세요.
         </p>
-        <div class="cta">
+        <div class="cta rise" style="--d: 400ms">
           <a class="btn btn-fire" href="#composer"><span data-icon="send"></span>지금 써보기</a>
           <a class="btn btn-paper" href="#install"><span data-icon="terminal"></span>설치하기</a>
         </div>
-        <ul class="stack" aria-label="지원하는 환경">
+        <ul class="stack rise" style="--d: 500ms" aria-label="지원하는 환경">
           <li>JavaScript</li>
           <li>Python</li>
           <li>CLI</li>
@@ -61,7 +89,14 @@
         </ul>
       </section>
 
-      <section id="composer" class="composer-section" aria-labelledby="h-composer">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>[광.고]</span><span>입.금 ㅇㅏㄴㄴㅕㅇ</span><span>◈ 080-철창행 ◈</span><span>(주)반성컴퍼니</span><span>▶ 무.료.수.신.거.부</span><span>O영O-l이3E사</span><span>[Web발신]</span><span>※ 지옥행 특급 ※</span>
+          <span>[광.고]</span><span>입.금 ㅇㅏㄴㄴㅕㅇ</span><span>◈ 080-철창행 ◈</span><span>(주)반성컴퍼니</span><span>▶ 무.료.수.신.거.부</span><span>O영O-l이3E사</span><span>[Web발신]</span><span>※ 지옥행 특급 ※</span>
+        </div>
+      </div>
+
+      <section id="composer" class="composer-section reveal" aria-labelledby="h-composer">
         <h2 id="h-composer" class="section-title"><span class="tag">01</span>문자처럼 써서 보내기</h2>
 
         <div class="phone">
@@ -70,15 +105,33 @@
             <input id="recipient" class="to-input" type="tel" inputmode="tel" autocomplete="off" placeholder="번호 (선택)" />
           </div>
 
+          <details class="paste">
+            <summary>받은 문자 붙여넣기</summary>
+            <div class="paste-body">
+              <label class="sr" for="incoming-input">받은 문자</label>
+              <textarea id="incoming-input" rows="3" placeholder="사기 문자를 붙여넣으면 상황을 찾아 줘요"></textarea>
+              <p class="paste-status" id="paste-status" aria-live="polite"></p>
+            </div>
+          </details>
+
           <div class="thread" aria-live="polite">
-            <p class="thread-hint">예시 수신 문자</p>
-            <div class="bubble bubble-in">고객님, 저금리 대환대출 승인 안내드립니다. 오늘 안에 연락 주세요.</div>
+            <p class="thread-hint" id="in-hint">예시 수신 문자</p>
+            <div class="bubble bubble-in" id="in-bubble"></div>
             <p class="thread-hint thread-hint-out" id="out-hint">스팸체 미리보기</p>
             <div class="bubble bubble-out is-empty" id="out-bubble">아래에 답장을 써 보세요</div>
             <p class="counter" id="counter"></p>
           </div>
 
-          <div class="templates" id="templates" role="group" aria-label="퀵 템플릿"></div>
+          <div class="chip-rows">
+            <div class="chip-row">
+              <span class="chip-label" id="situations-label">상황</span>
+              <div class="chips" id="situations" role="group" aria-labelledby="situations-label"></div>
+            </div>
+            <div class="chip-row">
+              <span class="chip-label" id="templates-label">스타일</span>
+              <div class="chips" id="templates" role="group" aria-labelledby="templates-label"></div>
+            </div>
+          </div>
 
           <form class="compose" id="compose">
             <label class="sr" for="source">보낼 메시지</label>
@@ -91,9 +144,11 @@
               <label><input type="radio" name="mode" value="spam" checked /><span>스팸체</span></label>
               <label><input type="radio" name="mode" value="korean" /><span>한국인체</span></label>
             </div>
-            <button class="tool" id="reroll" type="button"><span data-icon="dice"></span>다시 굴리기</button>
-            <button class="tool" id="copy" type="button"><span data-icon="copy"></span>복사</button>
-            <button class="tool" id="share" type="button"><span data-icon="image"></span>이미지</button>
+            <div class="tool-buttons">
+              <button class="tool" id="reroll" type="button" aria-label="다시 굴리기"><span data-icon="dice"></span>굴리기</button>
+              <button class="tool" id="copy" type="button"><span data-icon="copy"></span>복사</button>
+              <button class="tool" id="share" type="button"><span data-icon="image"></span>이미지</button>
+            </div>
           </div>
 
           <details class="advanced">
@@ -107,47 +162,55 @@
         </div>
 
         <ol class="steps">
-          <li><strong>쓰기</strong>답장을 입력하거나 템플릿을 고릅니다.</li>
-          <li><strong>굴리기</strong>마음에 들 때까지 다시 굴립니다.</li>
+          <li><strong>상황 고르기</strong>받은 문자를 붙여넣거나 상황을 직접 고릅니다.</li>
+          <li><strong>굴리기</strong>마음에 들 때까지 다시 굴립니다. 직접 고쳐 써도 됩니다.</li>
           <li><strong>보내기</strong>위쪽 화살표를 누르면 문자 앱이 열립니다. 전송은 문자 앱에서 직접 누르세요.</li>
         </ol>
         <p class="fine">입력한 번호와 문자는 이 기기 밖으로 나가지 않습니다. 휴대폰이 아니거나 문자 앱이 열리지 않으면 복사해서 붙여넣으세요.</p>
       </section>
 
-      <section id="how" class="how" aria-labelledby="h-how">
-        <h2 id="h-how" class="section-title"><span class="tag">02</span>스팸체는 이렇게 만들어져요</h2>
+      <section id="reference" class="reference reveal" aria-labelledby="h-reference">
+        <h2 id="h-reference" class="section-title"><span class="tag">02</span>상황별 레퍼런스</h2>
+        <p class="lead" id="reference-lead"></p>
+        <div class="ref-grid" id="ref-grid"></div>
+      </section>
+
+      <section id="how" class="how reveal" aria-labelledby="h-how">
+        <h2 id="h-how" class="section-title"><span class="tag">03</span>스팸체는 이렇게 만들어져요</h2>
         <div class="rules" id="rules"></div>
       </section>
 
-      <section id="install" class="install" aria-labelledby="h-install">
-        <h2 id="h-install" class="section-title"><span class="tag">03</span>어디서나 같은 결과</h2>
+      <section id="install" class="install reveal" aria-labelledby="h-install">
+        <h2 id="h-install" class="section-title"><span class="tag">04</span>어디서나 같은 결과</h2>
         <p class="lead">같은 엔진을 JavaScript, Python, CLI에서 쓰고, 같은 시드는 모두 같은 글을 만듭니다.</p>
         <div class="tabs-host" id="use-tabs"></div>
         <p class="fine">패키지는 npm과 PyPI 공개를 준비 중입니다. 공개 전에는 <a href="https://github.com/leejongyoung/SpamHell" target="_blank" rel="noopener">저장소</a>를 받아 사용하세요.</p>
       </section>
 
-      <section id="ai" class="ai" aria-labelledby="h-ai">
-        <h2 id="h-ai" class="section-title"><span class="tag">04</span>AI에 연결하기</h2>
+      <section id="ai" class="ai reveal" aria-labelledby="h-ai">
+        <h2 id="h-ai" class="section-title"><span class="tag">05</span>AI에 연결하기</h2>
         <div class="ai-grid">
           <div>
-            <p class="lead">MCP 서버(<code>spamhell-mcp</code>)를 연결하면 Claude 같은 AI 비서가 직접 스팸체를 만들어 줍니다. 네트워크 접근이나 파일 접근 없이 텍스트만 돌려줍니다.</p>
+            <p class="lead">MCP 서버(<code>spamhell-mcp</code>)를 연결하면 Claude 같은 AI 비서가 받은 문자를 읽고 알맞은 상황을 골라 답장을 만들어 줍니다. 네트워크나 파일 접근 없이 텍스트만 돌려줍니다.</p>
             <ul class="tools-list">
+              <li><code>spamhell_list_situations</code><span>상황 목록과 예시 문자 보기</span></li>
+              <li><code>spamhell_reply</code><span>상황에 맞는 답장을 스팸체로 생성</span></li>
               <li><code>spamhell_transform</code><span>글을 스팸체나 한국인체로 변환</span></li>
               <li><code>spamhell_template</code><span>풍자 템플릿 하나 가져오기</span></li>
               <li><code>spamhell_list_templates</code><span>템플릿 종류 보기</span></li>
             </ul>
-            <p class="prompt"><span data-icon="spark"></span>“이 문장을 시드 7로 스팸체로 바꿔줘: 입금 확인 바랍니다”</p>
+            <p class="prompt"><span data-icon="spark"></span>“이 문자에 맞는 답장을 스팸체로 만들어줘: 고객님 계좌가 정지될 예정입니다”</p>
           </div>
           <div class="tabs-host" id="ai-tabs"></div>
         </div>
       </section>
 
-      <section class="principles" aria-labelledby="h-principles">
-        <h2 id="h-principles" class="section-title"><span class="tag">05</span>지키는 원칙</h2>
+      <section class="principles reveal" aria-labelledby="h-principles">
+        <h2 id="h-principles" class="section-title"><span class="tag">06</span>지키는 원칙</h2>
         <ul class="cards">
           <li><span data-icon="phone"></span><h3>보내는 건 사람이</h3><p>문자 앱을 본문이 채워진 채로 열 뿐입니다. 자동 전송, 대량 생성, 일괄 처리는 만들지 않습니다.</p></li>
-          <li><span data-icon="shield"></span><h3>사칭하지 않기</h3><p>템플릿은 실제 기관이나 발신자를 사칭하지 않도록 씁니다. 풍자는 풍자로 남깁니다.</p></li>
-          <li><span data-icon="check"></span><h3>내 기기 안에서</h3><p>변환은 브라우저 안에서 일어납니다. 입력한 글과 번호를 서버로 보내지 않습니다.</p></li>
+          <li><span data-icon="shield"></span><h3>사칭하지 않기</h3><p>답장과 템플릿은 실제 기관이나 발신자를 사칭하지 않도록 씁니다. 풍자는 풍자로 남깁니다.</p></li>
+          <li><span data-icon="check"></span><h3>내 기기 안에서</h3><p>변환과 상황 찾기는 브라우저 안에서 일어납니다. 입력한 글과 번호를 서버로 보내지 않습니다.</p></li>
         </ul>
       </section>
     </main>

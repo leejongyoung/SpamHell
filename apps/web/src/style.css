@@ -1,21 +1,85 @@
-/* SpamHell: 종이(크림) 위에 잉크 외곽선과 단단한 그림자, 불꽃색 포인트. 모바일 우선. */
+/* SpamHell: 종이 위에 잉크 외곽선과 단단한 그림자, 불꽃색 포인트. 모바일 우선, 라이트/다크 지원. */
+
+/* ---- 토큰 ---------------------------------------------------------------- */
 :root {
-  --ink: #14101a;
-  --paper: #fff3e3;
-  --card: #ffffff;
+  --bg: #fff3e3;
+  --surface: #ffffff;
+  --surface-2: #efe9f3;
+  --surface-3: #fff3e3;
+  --text: #14101a;
+  --muted: #5d5466;
+  --border: #14101a;
+  --shadow-color: #14101a;
+  --inv-bg: #14101a;
+  --inv-text: #fff3e3;
+  --dots: rgba(20, 16, 26, 0.12);
+  --header-bg: rgba(255, 243, 227, 0.92);
+  --code-bg: #14101a;
+  --code-text: #ffc93c;
+  --footer-bg: #14101a;
+  --footer-text: #fff3e3;
+  --disabled-bg: #e9e1ee;
+  --disabled-text: rgba(20, 16, 26, 0.4);
+
   --ember: #ff5b1f;
   --rose: #ff2e63;
   --sun: #ffc93c;
-  --muted: #5d5466;
-  --line: 2.5px solid var(--ink);
-  --shadow: 5px 5px 0 var(--ink);
-  --shadow-sm: 3px 3px 0 var(--ink);
+  --on-accent: #14101a; /* 주황 위의 글자는 잉크색이 대비가 충분하다 */
+
+  --line: 2.5px solid var(--border);
+  --shadow: 5px 5px 0 var(--shadow-color);
+  --shadow-sm: 3px 3px 0 var(--shadow-color);
   --radius: 18px;
   --font: ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
   --mono: ui-monospace, 'SF Mono', 'D2Coding', Menlo, Consolas, monospace;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   color-scheme: light;
 }
 
+/* 다크: 저장된 선택이 없으면 시스템 설정을 따르고, data-theme이 있으면 그것이 우선한다. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #14101a;
+    --surface: #211a2b;
+    --surface-2: #2e2539;
+    --surface-3: #1a1422;
+    --text: #fff3e3;
+    --muted: #b9aec6;
+    --border: #e9dccb;
+    --shadow-color: #050308;
+    --inv-bg: #fff3e3;
+    --inv-text: #14101a;
+    --dots: rgba(255, 243, 227, 0.07);
+    --header-bg: rgba(20, 16, 26, 0.88);
+    --code-bg: #0b0810;
+    --footer-bg: #0b0810;
+    --disabled-bg: #2e2539;
+    --disabled-text: rgba(255, 243, 227, 0.38);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #14101a;
+  --surface: #211a2b;
+  --surface-2: #2e2539;
+  --surface-3: #1a1422;
+  --text: #fff3e3;
+  --muted: #b9aec6;
+  --border: #e9dccb;
+  --shadow-color: #050308;
+  --inv-bg: #fff3e3;
+  --inv-text: #14101a;
+  --dots: rgba(255, 243, 227, 0.07);
+  --header-bg: rgba(20, 16, 26, 0.88);
+  --code-bg: #0b0810;
+  --footer-bg: #0b0810;
+  --disabled-bg: #2e2539;
+  --disabled-text: rgba(255, 243, 227, 0.38);
+  color-scheme: dark;
+}
+
+/* ---- 기본 ---------------------------------------------------------------- */
 * {
   box-sizing: border-box;
 }
@@ -28,13 +92,21 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--paper);
-  background-image: radial-gradient(rgba(20, 16, 26, 0.12) 1px, transparent 1.2px);
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--dots) 1px, transparent 1.2px);
   background-size: 22px 22px;
-  color: var(--ink);
+  color: var(--text);
   font-family: var(--font);
   line-height: 1.6;
+  overflow-x: clip; /* 기울인 마키가 가로 스크롤을 만들지 않게 한다 */
   -webkit-tap-highlight-color: transparent;
+}
+
+/* 테마를 바꾸는 순간에만 색을 부드럽게 바꾼다 (평소 호버 전환을 방해하지 않도록). */
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s !important;
 }
 
 img,
@@ -50,7 +122,7 @@ a {
 code {
   font-family: var(--mono);
   font-size: 0.9em;
-  background: rgba(20, 16, 26, 0.08);
+  background: color-mix(in srgb, var(--text) 10%, transparent);
   padding: 0.1em 0.35em;
   border-radius: 6px;
 }
@@ -76,8 +148,8 @@ code {
   left: 8px;
   z-index: 100;
   padding: 10px 14px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--inv-bg);
+  color: var(--inv-text);
   border-radius: 10px;
 }
 
@@ -89,7 +161,7 @@ code {
   flex: none;
 }
 
-/* Header */
+/* ---- 헤더 ---------------------------------------------------------------- */
 .site-header {
   position: sticky;
   top: 0;
@@ -99,7 +171,7 @@ code {
   justify-content: space-between;
   gap: 12px;
   padding: 10px max(16px, env(safe-area-inset-right)) 10px max(16px, env(safe-area-inset-left));
-  background: rgba(255, 243, 227, 0.92);
+  background: var(--header-bg);
   backdrop-filter: blur(8px);
   border-bottom: var(--line);
 }
@@ -118,12 +190,6 @@ code {
   display: flex;
   align-items: center;
   gap: 4px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.nav::-webkit-scrollbar {
-  display: none;
 }
 
 .nav a {
@@ -136,32 +202,51 @@ code {
 }
 
 .nav a:hover {
-  background: rgba(20, 16, 26, 0.08);
+  background: color-mix(in srgb, var(--text) 10%, transparent);
 }
 
-.nav-github {
+.nav .nav-github {
   border: var(--line);
-  background: var(--card);
+  background: var(--surface);
 }
 
-@media (max-width: 520px) {
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-left: 4px;
+  padding: 0;
+  color: var(--text);
+  background: var(--surface);
+  border: var(--line);
+  border-radius: 50%;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.theme-toggle:active {
+  transform: scale(0.92) rotate(-20deg);
+}
+
+@media (max-width: 560px) {
   .nav a:not(.nav-github):not([href='#composer']) {
     display: none;
   }
 }
 
-/* Layout */
+/* ---- 레이아웃 ------------------------------------------------------------ */
 main > section {
   width: min(1080px, 100%);
   margin: 0 auto;
-  padding: 56px max(18px, env(safe-area-inset-right)) 8px max(18px, env(safe-area-inset-left));
+  padding: 64px max(18px, env(safe-area-inset-right)) 8px max(18px, env(safe-area-inset-left));
 }
 
 .section-title {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 0 0 20px;
+  margin: 0 0 22px;
   font-size: clamp(1.5rem, 5vw, 2.25rem);
   font-weight: 900;
   letter-spacing: -0.04em;
@@ -173,8 +258,8 @@ main > section {
   padding: 2px 9px;
   font-family: var(--mono);
   font-size: 0.8rem;
-  color: var(--paper);
-  background: var(--ink);
+  color: var(--inv-text);
+  background: var(--inv-bg);
   border-radius: 8px;
   transform: rotate(-4deg);
 }
@@ -191,7 +276,7 @@ main > section {
   color: var(--muted);
 }
 
-/* Buttons */
+/* ---- 버튼 ---------------------------------------------------------------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -203,31 +288,44 @@ main > section {
   font-size: 1rem;
   font-weight: 800;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--text);
   border: var(--line);
   border-radius: 14px;
   box-shadow: var(--shadow-sm);
   cursor: pointer;
   touch-action: manipulation;
-  transition: transform 0.08s, box-shadow 0.08s;
+  transition: transform 0.12s var(--ease), box-shadow 0.12s var(--ease);
 }
 
 .btn:active {
   transform: translate(3px, 3px);
-  box-shadow: 0 0 0 var(--ink);
+  box-shadow: 0 0 0 var(--shadow-color);
 }
 
 .btn-fire {
   background: var(--ember);
-  color: #fff;
+  color: var(--on-accent);
 }
 
 .btn-paper {
-  background: var(--card);
+  background: var(--surface);
 }
 
-/* Hero */
+@media (hover: hover) {
+  .btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--shadow-color);
+  }
+
+  .btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 var(--shadow-color);
+  }
+}
+
+/* ---- 히어로 -------------------------------------------------------------- */
 .hero {
+  position: relative;
   padding-top: 44px;
 }
 
@@ -237,6 +335,7 @@ main > section {
   padding: 4px 12px;
   font-size: 0.85rem;
   font-weight: 800;
+  color: #14101a;
   background: var(--sun);
   border: var(--line);
   border-radius: 999px;
@@ -252,14 +351,13 @@ main > section {
 }
 
 .hl {
+  display: inline-block;
   padding: 0 0.12em;
   color: #fff;
   background: var(--ember);
   border: var(--line);
   border-radius: 14px;
   box-shadow: var(--shadow);
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
 }
 
 .lede {
@@ -288,12 +386,48 @@ main > section {
   font-family: var(--mono);
   font-size: 0.8rem;
   font-weight: 700;
-  background: var(--card);
+  background: var(--surface);
   border: var(--line);
   border-radius: 999px;
 }
 
-/* Composer */
+.hero-art {
+  display: none;
+}
+
+/* ---- 마키 ---------------------------------------------------------------- */
+.marquee {
+  margin-top: 56px;
+  overflow: hidden;
+  color: var(--inv-text);
+  background: var(--inv-bg);
+  border-block: var(--line);
+  transform: rotate(-1deg) scale(1.02);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee-track span {
+  padding: 12px 28px;
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.marquee-track span:nth-child(3n) {
+  color: var(--ember);
+}
+
+.marquee-track span:nth-child(3n + 1) {
+  color: var(--sun);
+}
+
+/* ---- 문자 작성기 ---------------------------------------------------------- */
 .composer-section {
   display: grid;
   gap: 22px;
@@ -310,10 +444,10 @@ main > section {
   max-width: 440px;
   margin: 0 auto;
   overflow: hidden;
-  background: var(--card);
+  background: var(--surface);
   border: var(--line);
   border-radius: 28px;
-  box-shadow: 8px 8px 0 var(--ink);
+  box-shadow: 8px 8px 0 var(--shadow-color);
 }
 
 .phone-bar {
@@ -321,7 +455,7 @@ main > section {
   align-items: center;
   gap: 10px;
   padding: 12px 16px;
-  background: var(--paper);
+  background: var(--surface-3);
   border-bottom: var(--line);
 }
 
@@ -338,10 +472,10 @@ main > section {
   font: inherit;
   font-size: 1rem; /* 16px 미만이면 iOS가 입력 시 확대한다 */
   font-weight: 700;
-  color: var(--ink);
+  color: var(--text);
   background: transparent;
   border: 0;
-  border-bottom: 2px dashed rgba(20, 16, 26, 0.3);
+  border-bottom: 2px dashed color-mix(in srgb, var(--text) 30%, transparent);
   border-radius: 0;
 }
 
@@ -350,13 +484,58 @@ main > section {
   border-bottom-color: var(--ember);
 }
 
+.paste,
+.advanced {
+  font-size: 0.85rem;
+}
+
+.paste {
+  border-bottom: var(--line);
+  background: var(--surface);
+}
+
+.paste summary,
+.advanced summary {
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.paste-body {
+  display: grid;
+  gap: 6px;
+  padding: 0 16px 14px;
+}
+
+.paste-body textarea,
+.advanced-body input {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--text);
+  background: var(--surface-3);
+  border: var(--line);
+  border-radius: 12px;
+  resize: vertical;
+}
+
+.paste-status {
+  min-height: 1.2em;
+  margin: 0;
+  font-weight: 700;
+  color: var(--ember);
+}
+
 .thread {
   display: flex;
   flex-direction: column;
   gap: 6px;
   min-height: 250px;
   padding: 16px;
-  background: var(--card);
+  background: var(--surface);
 }
 
 .thread-hint {
@@ -371,7 +550,6 @@ main > section {
 }
 
 .bubble {
-  position: relative;
   max-width: 86%;
   padding: 10px 14px;
   font-size: 1rem;
@@ -384,20 +562,22 @@ main > section {
 
 .bubble-in {
   align-self: flex-start;
-  background: #efe9f3;
+  background: var(--surface-2);
   border-bottom-left-radius: 6px;
+  transform-origin: 0 100%;
 }
 
 .bubble-out {
   align-self: flex-end;
-  color: #fff;
+  color: var(--on-accent);
   background: var(--ember);
   border-bottom-right-radius: 6px;
   font-weight: 700;
+  transform-origin: 100% 100%;
 }
 
 .bubble-out.is-empty {
-  color: rgba(255, 255, 255, 0.8);
+  color: color-mix(in srgb, var(--on-accent) 70%, transparent);
   font-weight: 600;
   border-style: dashed;
 }
@@ -416,17 +596,43 @@ main > section {
   font-weight: 800;
 }
 
-.templates {
-  display: flex;
+.chip-rows {
+  display: grid;
   gap: 8px;
-  padding: 10px 16px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  background: var(--paper);
+  padding: 10px 0;
+  background: var(--surface-3);
   border-top: var(--line);
 }
 
-.templates::-webkit-scrollbar {
+.chip-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding-left: 16px;
+}
+
+.chip-label {
+  flex: none;
+  width: 2.6rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.chips {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  min-width: 0;
+  padding: 2px 16px 4px 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+  mask-image: linear-gradient(to right, transparent 0, #000 8px, #000 calc(100% - 20px), transparent 100%);
+}
+
+.chips::-webkit-scrollbar {
   display: none;
 }
 
@@ -437,17 +643,34 @@ main > section {
   font: inherit;
   font-size: 0.9rem;
   font-weight: 800;
-  color: var(--ink);
-  background: var(--card);
+  color: var(--text);
+  background: var(--surface);
   border: var(--line);
   border-radius: 999px;
   cursor: pointer;
   touch-action: manipulation;
+  scroll-snap-align: start;
+  transition: transform 0.12s var(--ease), background-color 0.12s;
+}
+
+.chip:active {
+  transform: scale(0.94);
 }
 
 .chip[aria-pressed='true'] {
-  color: #fff;
-  background: var(--ink);
+  color: var(--inv-text);
+  background: var(--inv-bg);
+}
+
+.chip-style[aria-pressed='true'] {
+  color: var(--on-accent);
+  background: var(--sun);
+}
+
+@media (hover: hover) {
+  .chip:hover:not([aria-pressed='true']) {
+    transform: translateY(-2px);
+  }
 }
 
 .compose {
@@ -466,8 +689,8 @@ main > section {
   font: inherit;
   font-size: 1rem; /* iOS 확대 방지 */
   line-height: 1.4;
-  color: var(--ink);
-  background: var(--card);
+  color: var(--text);
+  background: var(--surface);
   border: var(--line);
   border-radius: 22px;
   resize: none;
@@ -485,36 +708,43 @@ main > section {
   width: 46px;
   height: 46px;
   padding: 0;
-  color: #fff;
+  overflow: hidden;
+  color: var(--on-accent);
   background: var(--ember);
   border: var(--line);
   border-radius: 50%;
   cursor: pointer;
   touch-action: manipulation;
-  transition: transform 0.08s;
+  transition: transform 0.12s var(--ease);
 }
 
 .send:active:not(:disabled) {
-  transform: scale(0.92);
+  transform: scale(0.9);
 }
 
 .send:disabled {
-  color: rgba(20, 16, 26, 0.35);
-  background: #e9e1ee;
+  color: var(--disabled-text);
+  background: var(--disabled-bg);
   cursor: not-allowed;
 }
 
 .tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: grid;
+  gap: 10px;
   padding: 0 16px 14px;
 }
 
+.tool-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
 .segmented {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   padding: 3px;
-  background: #efe9f3;
+  background: var(--surface-2);
   border: var(--line);
   border-radius: 999px;
 }
@@ -532,17 +762,18 @@ main > section {
 
 .segmented span {
   display: block;
-  min-height: 34px;
-  padding: 0 14px;
-  font-size: 0.85rem;
+  min-height: 36px;
+  font-size: 0.88rem;
   font-weight: 800;
-  line-height: 34px;
+  line-height: 36px;
+  text-align: center;
   border-radius: 999px;
+  transition: background-color 0.15s, color 0.15s;
 }
 
 .segmented input:checked + span {
-  color: #fff;
-  background: var(--ink);
+  color: var(--inv-text);
+  background: var(--inv-bg);
 }
 
 .segmented input:focus-visible + span {
@@ -553,22 +784,26 @@ main > section {
 .tool {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  min-height: 42px;
-  padding: 0 14px;
+  min-height: 44px;
+  padding: 0 8px;
   font: inherit;
   font-size: 0.85rem;
   font-weight: 800;
-  color: var(--ink);
-  background: var(--card);
+  color: var(--text);
+  background: var(--surface);
   border: var(--line);
-  border-radius: 999px;
+  border-radius: 14px;
   cursor: pointer;
   touch-action: manipulation;
+  transition: transform 0.12s var(--ease), background-color 0.12s;
 }
 
 .tool:active:not(:disabled) {
   background: var(--sun);
+  color: #14101a;
+  transform: scale(0.95);
 }
 
 .tool:disabled {
@@ -576,29 +811,14 @@ main > section {
 }
 
 .advanced {
-  padding: 0 16px 16px;
-  font-size: 0.85rem;
-}
-
-.advanced summary {
-  cursor: pointer;
-  font-weight: 800;
-  color: var(--muted);
+  border-top: var(--line);
+  background: var(--surface-3);
 }
 
 .advanced-body {
   display: grid;
   gap: 6px;
-  margin-top: 8px;
-}
-
-.advanced-body input {
-  padding: 10px 12px;
-  font: inherit;
-  font-size: 1rem;
-  background: var(--paper);
-  border: var(--line);
-  border-radius: 12px;
+  padding: 0 16px 16px;
 }
 
 .advanced-body p {
@@ -609,6 +829,7 @@ main > section {
 .steps {
   display: grid;
   gap: 12px;
+  align-content: start;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -618,7 +839,7 @@ main > section {
 .steps li {
   position: relative;
   padding: 14px 16px 14px 60px;
-  background: var(--card);
+  background: var(--surface);
   border: var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
@@ -635,8 +856,8 @@ main > section {
   width: 34px;
   height: 34px;
   font-weight: 900;
-  color: #fff;
-  background: var(--ink);
+  color: var(--inv-text);
+  background: var(--inv-bg);
   border-radius: 50%;
 }
 
@@ -647,7 +868,7 @@ main > section {
 
 @media (min-width: 880px) {
   .composer-section {
-    grid-template-columns: minmax(0, 440px) 1fr;
+    grid-template-columns: minmax(0, 440px) minmax(0, 1fr);
     column-gap: 48px;
     align-items: start;
   }
@@ -661,7 +882,8 @@ main > section {
   }
 
   .steps {
-    align-self: center;
+    max-width: 460px;
+    padding-top: 12px;
   }
 
   .composer-section > .fine {
@@ -669,7 +891,7 @@ main > section {
   }
 }
 
-/* How */
+/* ---- 원리 ---------------------------------------------------------------- */
 .rules {
   display: grid;
   gap: 16px;
@@ -681,41 +903,62 @@ main > section {
   }
 }
 
-.rule {
+.rule,
+.cards li {
   padding: 18px;
-  background: var(--card);
+  background: var(--surface);
   border: var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
 }
 
-.rule h3 {
+@media (hover: hover) {
+  .rule:hover,
+  .cards li:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0 var(--shadow-color);
+  }
+}
+
+.rule h3,
+.cards h3 {
   margin: 0 0 6px;
   font-size: 1.15rem;
   font-weight: 900;
 }
 
-.rule p {
+.rule p,
+.cards p {
   margin: 0 0 12px;
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+.cards p {
+  margin: 0;
 }
 
 .rule .rule-demo {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 4px 10px;
   margin: 0;
   padding: 10px 12px;
-  color: var(--ink);
-  font-family: var(--mono);
-  font-size: 0.95rem;
-  background: var(--paper);
-  border: 2px dashed var(--ink);
+  color: var(--text);
+  font-size: 1rem;
+  background: var(--surface-3);
+  border: 2px dashed var(--border);
   border-radius: 12px;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
+}
+
+.rule-demo strong {
+  font-family: var(--font);
+  font-weight: 800;
+  letter-spacing: 0;
 }
 
 .rule-arrow {
@@ -723,7 +966,7 @@ main > section {
   font-weight: 900;
 }
 
-/* Install + AI */
+/* ---- 설치 / AI ----------------------------------------------------------- */
 .tabs-host {
   min-width: 0;
 }
@@ -741,28 +984,33 @@ main > section {
   font: inherit;
   font-size: 0.9rem;
   font-weight: 800;
-  color: var(--ink);
-  background: var(--card);
+  color: var(--text);
+  background: var(--surface);
   border: var(--line);
   border-radius: 999px;
   cursor: pointer;
   touch-action: manipulation;
+  transition: transform 0.12s var(--ease);
+}
+
+.tab:active {
+  transform: scale(0.95);
 }
 
 .tab[aria-selected='true'] {
-  color: #fff;
-  background: var(--ink);
+  color: var(--inv-text);
+  background: var(--inv-bg);
 }
 
 .tab-panel pre {
   margin: 0 0 10px;
   padding: 16px;
   overflow-x: auto;
-  color: var(--sun);
+  color: var(--code-text);
   font-family: var(--mono);
   font-size: 0.85rem;
   line-height: 1.6;
-  background: var(--ink);
+  background: var(--code-bg);
   border: var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
@@ -781,7 +1029,8 @@ main > section {
   font: inherit;
   font-size: 0.85rem;
   font-weight: 800;
-  background: var(--card);
+  color: var(--text);
+  background: var(--surface);
   border: var(--line);
   border-radius: 999px;
   cursor: pointer;
@@ -789,6 +1038,7 @@ main > section {
 }
 
 .code-copy:active {
+  color: #14101a;
   background: var(--sun);
 }
 
@@ -818,7 +1068,7 @@ main > section {
   align-items: baseline;
   gap: 4px 10px;
   padding: 10px 14px;
-  background: var(--card);
+  background: var(--surface);
   border: var(--line);
   border-radius: 14px;
 }
@@ -835,12 +1085,13 @@ main > section {
   margin: 0;
   padding: 12px 14px;
   font-weight: 700;
+  color: #14101a;
   background: var(--sun);
   border: var(--line);
   border-radius: 14px;
 }
 
-/* Principles */
+/* ---- 원칙 ---------------------------------------------------------------- */
 .cards {
   display: grid;
   gap: 16px;
@@ -855,14 +1106,6 @@ main > section {
   }
 }
 
-.cards li {
-  padding: 18px;
-  background: var(--card);
-  border: var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
 .cards .icon {
   width: 30px;
   height: 30px;
@@ -870,28 +1113,17 @@ main > section {
   color: var(--ember);
 }
 
-.cards h3 {
-  margin: 0 0 6px;
-  font-size: 1.1rem;
-  font-weight: 900;
-}
-
-.cards p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-/* Footer */
+/* ---- 푸터 / 토스트 -------------------------------------------------------- */
 .site-footer {
   display: grid;
   gap: 12px;
   justify-items: center;
   margin-top: 72px;
   padding: 36px 18px calc(36px + env(safe-area-inset-bottom));
-  color: var(--paper);
+  color: var(--footer-text);
   text-align: center;
-  background: var(--ink);
+  background: var(--footer-bg);
+  border-top: var(--line);
 }
 
 .footer-brand {
@@ -920,7 +1152,6 @@ main > section {
   opacity: 0.7;
 }
 
-/* Toast */
 .toast {
   position: fixed;
   left: 50%;
@@ -929,15 +1160,15 @@ main > section {
   max-width: calc(100% - 32px);
   padding: 12px 18px;
   font-weight: 800;
-  color: var(--paper);
-  background: var(--ink);
+  color: var(--inv-text);
+  background: var(--inv-bg);
   border: var(--line);
   border-radius: 14px;
   box-shadow: var(--shadow-sm);
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, 16px);
-  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity 0.2s, transform 0.25s var(--ease);
 }
 
 .toast.visible {
@@ -945,25 +1176,7 @@ main > section {
   transform: translate(-50%, 0);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  * {
-    transition: none !important;
-  }
-}
-
-/* Hero art (넓은 화면에서만) */
-.hero {
-  position: relative;
-}
-
-.hero-art {
-  display: none;
-}
-
+/* ---- 히어로 장식 (넓은 화면) ----------------------------------------------- */
 @media (min-width: 940px) {
   .hero-art {
     position: absolute;
@@ -974,13 +1187,14 @@ main > section {
     height: 340px;
   }
 
-  .hero-art img {
+  .hero-logo {
     position: absolute;
     inset: 40px 50px 30px 50px;
     width: 240px;
     height: 240px;
-    filter: drop-shadow(8px 8px 0 var(--ink));
+    filter: drop-shadow(8px 8px 0 var(--shadow-color));
     transform: rotate(7deg);
+    animation: float 6s ease-in-out infinite;
   }
 
   .sticker {
@@ -989,8 +1203,9 @@ main > section {
     font-family: var(--mono);
     font-size: 0.95rem;
     font-weight: 800;
+    color: #14101a;
     white-space: nowrap;
-    background: var(--card);
+    background: var(--surface);
     border: var(--line);
     border-radius: 12px;
     box-shadow: var(--shadow-sm);
@@ -1002,6 +1217,7 @@ main > section {
     color: #fff;
     background: var(--rose);
     transform: rotate(-8deg);
+    animation: bob 4.5s ease-in-out infinite;
   }
 
   .sticker-b {
@@ -1009,13 +1225,277 @@ main > section {
     bottom: 56px;
     background: var(--sun);
     transform: rotate(5deg);
+    animation: bob 5.2s ease-in-out -1.5s infinite;
   }
 
   .sticker-c {
     bottom: 4px;
     left: 22px;
-    color: #fff;
-    background: var(--ink);
+    color: var(--inv-text);
+    background: var(--inv-bg);
     transform: rotate(-3deg);
+    animation: bob 4.8s ease-in-out -3s infinite;
   }
+}
+
+/* ---- 애니메이션 ----------------------------------------------------------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: rotate(7deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(9deg) translateY(-10px);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1, 1) skewX(0deg);
+  }
+
+  25% {
+    transform: scale(1.04, 0.95) skewX(2deg);
+  }
+
+  55% {
+    transform: scale(0.97, 1.06) skewX(-2deg);
+  }
+
+  80% {
+    transform: scale(1.02, 0.98) skewX(1deg);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.4;
+  }
+
+  60% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes whoosh {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  40% {
+    transform: translateY(-160%);
+    opacity: 0;
+  }
+
+  41% {
+    transform: translateY(160%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.flame {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flicker 2.4s ease-in-out infinite;
+}
+
+.rise {
+  animation: rise 0.8s var(--ease) both;
+  animation-delay: var(--d, 0ms);
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.pop {
+  animation: pop 0.38s var(--ease);
+}
+
+.spin .icon {
+  animation: spin 0.55s var(--ease);
+}
+
+.whoosh .icon {
+  animation: whoosh 0.55s var(--ease);
+}
+
+.tab-panel:not([hidden]) {
+  animation: fade-in 0.28s var(--ease);
+}
+
+/* 움직임 줄이기: 모든 장식 애니메이션을 끄고 내용은 바로 보여 준다. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .marquee {
+    transform: none;
+  }
+
+  .marquee-track {
+    overflow-x: auto;
+    width: 100%;
+  }
+}
+
+/* ---- 상황 레퍼런스 -------------------------------------------------------- */
+.ref-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.ref-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: var(--surface);
+  border: var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+
+@media (hover: hover) {
+  .ref-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--shadow-color);
+  }
+}
+
+.ref-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.ref-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.ref-card blockquote {
+  flex: 1;
+  margin: 4px 0 0;
+  padding: 8px 12px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  background: var(--surface-2);
+  border-left: 5px solid var(--ember);
+  border-radius: 4px 12px 12px 4px;
+}
+
+.ref-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.ref-use {
+  min-height: 40px;
+  padding: 0 16px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--on-accent);
+  background: var(--ember);
+  border: var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.12s var(--ease);
+}
+
+.ref-use:active {
+  transform: scale(0.94);
 }

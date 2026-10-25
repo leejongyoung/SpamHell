@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { wrapText } from '../src/card';
+import { resolveTheme } from '../src/theme';
 import { detectSmsPlatform, normalizePhone, smsBytes, smsHref, smsKind } from '../src/sms';
 
 describe('smsHref', () => {
@@ -68,5 +69,18 @@ describe('wrapText', () => {
 
   it('never splits a surrogate pair', () => {
     expect(wrapText('😀😀😀', 20, measure)).toEqual(['😀😀', '😀']);
+  });
+});
+
+describe('resolveTheme', () => {
+  it('prefers a saved choice over the system setting', () => {
+    expect(resolveTheme('light', true)).toBe('light');
+    expect(resolveTheme('dark', false)).toBe('dark');
+  });
+
+  it('follows the system setting when nothing valid is saved', () => {
+    expect(resolveTheme(null, true)).toBe('dark');
+    expect(resolveTheme(null, false)).toBe('light');
+    expect(resolveTheme('sepia', true)).toBe('dark');
   });
 });
