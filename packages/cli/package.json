@@ -2,22 +2,43 @@
   "name": "spamhell-cli",
   "version": "1.0.0",
   "description": "Command-line interface for spamhell: transform text into spam-style (스팸체).",
-  "type": "module",
+  "keywords": [
+    "spam",
+    "korean",
+    "hangul",
+    "voice-phishing",
+    "anti-phishing",
+    "cli"
+  ],
+  "homepage": "https://leejongyoung.github.io/SpamHell/",
+  "bugs": "https://github.com/leejongyoung/SpamHell/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leejongyoung/SpamHell.git",
+    "directory": "packages/cli"
+  },
+  "author": "Lee Jongyoung",
   "license": "Apache-2.0",
-  "private": true,
+  "type": "module",
   "bin": {
     "spamhell": "./dist/bin.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "NOTICE"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json && chmod +x dist/bin.js"
+    "build": "tsc -p tsconfig.build.json && chmod +x dist/bin.js",
+    "prepack": "npm run build"
   },
   "dependencies": {
-    "spamhell": "1.0.0"
+    "spamhell": "^1.0.0"
   },
   "engines": {
     "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }

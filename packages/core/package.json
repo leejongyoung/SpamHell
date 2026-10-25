@@ -2,9 +2,24 @@
   "name": "spamhell",
   "version": "1.0.0",
   "description": "Spam-style (스팸체) text transformer for voice-phishing counter-messages.",
-  "type": "module",
+  "keywords": [
+    "spam",
+    "korean",
+    "hangul",
+    "voice-phishing",
+    "anti-phishing",
+    "text-transform"
+  ],
+  "homepage": "https://leejongyoung.github.io/SpamHell/",
+  "bugs": "https://github.com/leejongyoung/SpamHell/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leejongyoung/SpamHell.git",
+    "directory": "packages/core"
+  },
+  "author": "Lee Jongyoung",
   "license": "Apache-2.0",
-  "private": true,
+  "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -12,15 +27,22 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "NOTICE"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json"
+    "build": "tsc -p tsconfig.build.json",
+    "prepack": "npm run build"
   },
   "engines": {
     "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }
