@@ -3,3 +3,8 @@ dist
 *.tsbuildinfo
 .DS_Store
 *.log
+__pycache__/
+.pytest_cache/
+.venv/
+*.egg-info/
+packages/python/uv.lock

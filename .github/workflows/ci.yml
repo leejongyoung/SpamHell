@@ -19,6 +19,13 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: LICENSE/NOTICE copies match the root files
+        run: |
+          for dir in packages/*; do
+            diff -q LICENSE "$dir/LICENSE"
+            diff -q NOTICE "$dir/NOTICE"
+          done
+
       - uses: actions/setup-node@v7
         with:
           node-version: 22
@@ -29,15 +36,43 @@ jobs:
       - run: npm test
       - run: npm run build
 
+      - name: npm pack (dry run)
+        run: |
+          npm pack --dry-run -w spamhell
+          npm pack --dry-run -w spamhell-cli
+
       - name: Upload Pages artifact
         if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v5
         with:
           path: apps/web/dist
 
+  python:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.9", "3.13"]
+    defaults:
+      run:
+        working-directory: packages/python
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10
+
+      - name: Test (includes cross-language golden vectors)
+        run: uv run --python ${{ matrix.python }} --with pytest python -m pytest -q
+
+      - name: Build and check distributions
+        if: matrix.python == '3.13'
+        run: |
+          uv build
+          uvx twine check dist/*
+
   deploy:
     if: github.ref == 'refs/heads/main'
-    needs: build
+    needs: [build, python]
     runs-on: ubuntu-24.04
     permissions:
       pages: write
