@@ -327,3 +327,90 @@ main {
     width: 100%;
   }
 }
+
+/* Seed */
+.seed-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.seed-input {
+  width: 9rem;
+  padding: 6px 10px;
+}
+
+.seed-hint {
+  font-size: 0.7rem;
+  color: var(--text-gray);
+}
+
+/* Usage tabs */
+.lead {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.tab {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 6px 14px;
+  color: var(--text-gray);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tab[aria-selected='true'] {
+  color: #000;
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+}
+
+.code {
+  margin: 0 0 8px;
+  padding: 12px;
+  overflow-x: auto;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--primary-neon);
+  white-space: pre;
+}
+
+.code-copy {
+  width: 100%;
+}
+
+.note {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.note a {
+  color: var(--accent-blue);
+}
+
+.note code {
+  font-family: 'Courier New', monospace;
+  color: var(--text-white);
+}
+
+[hidden] {
+  display: none !important;
+}

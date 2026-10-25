@@ -33,6 +33,12 @@
           <label class="visually-hidden" for="text-source">변환할 메시지</label>
           <textarea class="input" id="text-source" rows="3" placeholder="메시지 입력..."></textarea>
 
+          <div class="seed-row">
+            <label class="sub-label" for="seed">시드 (선택)</label>
+            <input class="input seed-input" id="seed" type="text" inputmode="text" autocomplete="off" placeholder="비우면 매번 다르게" />
+            <span class="seed-hint">같은 시드면 npm과 Python에서도 같은 결과</span>
+          </div>
+
           <div class="actions">
             <button type="button" class="btn btn-primary" data-mode="spam">스팸체 변환</button>
             <button type="button" class="btn btn-outline" data-mode="korean">한국인 최적화</button>
@@ -54,6 +60,14 @@
             <div class="mms-content" id="preview-text-target">변환된 메시지 미리보기</div>
           </div>
           <button type="button" class="btn btn-primary full" id="btn-save-image">이미지 저장</button>
+        </section>
+
+        <section class="card" aria-labelledby="h-use">
+          <h2 class="section-label" id="h-use">어디서나 사용하기</h2>
+          <p class="lead">같은 엔진을 CLI, JavaScript, Python에서 쓸 수 있고, 같은 시드는 세 곳에서 같은 결과를 냅니다.</p>
+          <div class="tabs" id="use-tabs" role="tablist" aria-label="사용 방법"></div>
+          <div id="use-panels"></div>
+          <p class="note">패키지는 npm과 PyPI 공개를 준비 중입니다. 공개 전에는 <a href="https://github.com/leejongyoung/SpamHell" target="_blank" rel="noopener">저장소</a>를 받아 <code>npm run build</code>(JS) 또는 <code>pip install ./packages/python</code>(Python)으로 설치하세요.</p>
         </section>
       </main>
 
