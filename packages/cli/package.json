@@ -1,0 +1,23 @@
+{
+  "name": "spamhell-cli",
+  "version": "1.0.0",
+  "description": "Command-line interface for spamhell: transform text into spam-style (스팸체).",
+  "type": "module",
+  "license": "UNLICENSED",
+  "private": true,
+  "bin": {
+    "spamhell": "./dist/bin.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && chmod +x dist/bin.js"
+  },
+  "dependencies": {
+    "spamhell": "1.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
