@@ -2165,25 +2165,25 @@
    "fn": "getTemplate",
    "kind": "prize",
    "seed": 0,
-   "expected": "[광/고] (경) 보이스피싱 구속 1주년 기념 홈커밍 데이 초대\n\n◈ 대상: 전국 보이스피싱 종사자 및 관계자\n▶ 장소: 반성의 방 (입장료 무료)\n▶ 혜택: 10년 만기 무이자 할부 징역권 증정\n※ 준비물: 본인의 비양심과 반성하지 않는 마음\n[거/부] 080-징역-생활"
+   "expected": "[광/고] (축) 2026년 상반기 '최악의 비양심인' 당첨 안내\n\n◈ 고객님의 끈질긴 사기 전화 시도가 드디어 결실을 맺었습니다.\n▶ 상품: 24시간 실시간 양심 추적 서비스 (무료)\n▶ 발신: 양심 감시 위원회\n▶ 경고: 오늘 밤 12시 이전까지 파출소에 자진 신고 시 '콩밥' 곱빼기 제공!\n[수/신/차/단] 112-전화-한통"
   },
   {
    "fn": "getTemplate",
    "kind": "prize",
    "seed": 1,
-   "expected": "[광/고] (축) 2026년 상반기 '최악의 비양심인' 당첨 안내\n\n◈ 고객님의 끈질긴 사기 전화 시도가 드디어 결실을 맺었습니다.\n▶ 상품: 24시간 실시간 양심 추적 서비스 (무료)\n▶ 발신: 양심 감시 위원회\n▶ 경고: 오늘 밤 12시 이전까지 파출소에 자진 신고 시 '콩밥' 곱빼기 제공!\n[수/신/차/단] 112-전화-한통"
+   "expected": "[광/고] (축) 올해의 최고 낚시꾼 시상식 초대\n\n◈ 수상 부문: 안 낚이는 사람에게 낚인 자\n▶ 부상: 낚싯대 대신 반성문 용지 한 묶음\n※ 시상식 불참 시 후회가 대신 수령합니다\n[무/료/수/신/거/부]"
   },
   {
    "fn": "getTemplate",
    "kind": "prize",
    "seed": 2,
-   "expected": "[광/고] (축) 2026년 상반기 '최악의 비양심인' 당첨 안내\n\n◈ 고객님의 끈질긴 사기 전화 시도가 드디어 결실을 맺었습니다.\n▶ 상품: 24시간 실시간 양심 추적 서비스 (무료)\n▶ 발신: 양심 감시 위원회\n▶ 경고: 오늘 밤 12시 이전까지 파출소에 자진 신고 시 '콩밥' 곱빼기 제공!\n[수/신/차/단] 112-전화-한통"
+   "expected": "[광/고] (축) 올해의 최고 낚시꾼 시상식 초대\n\n◈ 수상 부문: 안 낚이는 사람에게 낚인 자\n▶ 부상: 낚싯대 대신 반성문 용지 한 묶음\n※ 시상식 불참 시 후회가 대신 수령합니다\n[무/료/수/신/거/부]"
   },
   {
    "fn": "getTemplate",
    "kind": "prize",
    "seed": 3,
-   "expected": "[광/고] (축) 2026년 상반기 '최악의 비양심인' 당첨 안내\n\n◈ 고객님의 끈질긴 사기 전화 시도가 드디어 결실을 맺었습니다.\n▶ 상품: 24시간 실시간 양심 추적 서비스 (무료)\n▶ 발신: 양심 감시 위원회\n▶ 경고: 오늘 밤 12시 이전까지 파출소에 자진 신고 시 '콩밥' 곱빼기 제공!\n[수/신/차/단] 112-전화-한통"
+   "expected": "[광/고] (경) 사기꾼 한정 '인생 리셋' 이벤트 당첨\n\n◈ 당첨 혜택: 처음부터 다시 시작할 기회 (유효기간 오늘)\n▶ 교환 방법: 가짜 계좌 전부 폐기\n※ 미교환 시 혜택은 소멸하고 후회만 남습니다\n[거/부] 080-새출발-시작"
   },
   {
    "fn": "getTemplate",
@@ -2195,7 +2195,7 @@
    "fn": "getTemplate",
    "kind": "prize",
    "seed": 5,
-   "expected": "[광/고] (축) 보이스-피싱 업계 종사자 대상 특별 혜택 안내\n\n◈ 고.객.님.의 성실한 사기 행각에 감동하여 '지옥행 특급 열차' 티켓 l매가 발권되었습니다.\n▶ 발권 번호: 4444-8282-1818\n▶ 혜택 내용: 수사관과의 1:1 심층 면담권 (무료)\n※ 주의: 본 혜택은 거절할 수 없으며, 거절 시 양심이 직접 방문합니다.\n[거/부] 080-철창행-열차"
+   "expected": "[광/고] (경) 보이스피싱 구속 1주년 기념 홈커밍 데이 초대\n\n◈ 대상: 전국 보이스피싱 종사자 및 관계자\n▶ 장소: 반성의 방 (입장료 무료)\n▶ 혜택: 10년 만기 무이자 할부 징역권 증정\n※ 준비물: 본인의 비양심과 반성하지 않는 마음\n[거/부] 080-징역-생활"
   },
   {
    "fn": "getTemplate",
@@ -2207,13 +2207,13 @@
    "fn": "getTemplate",
    "kind": "prize",
    "seed": 7,
-   "expected": "[광/고] (경) 보이스피싱 구속 1주년 기념 홈커밍 데이 초대\n\n◈ 대상: 전국 보이스피싱 종사자 및 관계자\n▶ 장소: 반성의 방 (입장료 무료)\n▶ 혜택: 10년 만기 무이자 할부 징역권 증정\n※ 준비물: 본인의 비양심과 반성하지 않는 마음\n[거/부] 080-징역-생활"
+   "expected": "[광/고] (축) 사기꾼 대상 '성실 납세' 모범 수형자 선발 안내\n\n◈ 선발 혜택: 하루 3끼 규칙 식사와 규칙적 수면 (평생 무료 체험)\n▶ 신청 방법: 지금 하시는 일 멈추기\n※ 신청 기한: 오늘 밤까지, 이후엔 내일의 후회\n[거/부] 080-자수-환영"
   },
   {
    "fn": "getTemplate",
    "kind": "prize",
    "seed": 8,
-   "expected": "[광/고] (경) 보이스피싱 구속 1주년 기념 홈커밍 데이 초대\n\n◈ 대상: 전국 보이스피싱 종사자 및 관계자\n▶ 장소: 반성의 방 (입장료 무료)\n▶ 혜택: 10년 만기 무이자 할부 징역권 증정\n※ 준비물: 본인의 비양심과 반성하지 않는 마음\n[거/부] 080-징역-생활"
+   "expected": "[광/고] (축) 사기꾼 대상 '성실 납세' 모범 수형자 선발 안내\n\n◈ 선발 혜택: 하루 3끼 규칙 식사와 규칙적 수면 (평생 무료 체험)\n▶ 신청 방법: 지금 하시는 일 멈추기\n※ 신청 기한: 오늘 밤까지, 이후엔 내일의 후회\n[거/부] 080-자수-환영"
   },
   {
    "fn": "getTemplate",
@@ -2225,25 +2225,25 @@
    "fn": "getTemplate",
    "kind": "bot",
    "seed": 0,
-   "expected": "[AI 안내] 보이스피싱 감지 시스템이 가동되었습니다.\n\n● 현재 발신자의 음성 패턴 분석 결과: '거짓말' 확률 100%\n● 조치 사항: 해당 번호는 실시간으로 블랙리스트에 '사기꾼'으로 등록 중...\n● 경고: 3초 후 당신의 스마트폰에서 경고음이 울립니다. (삐이이익-)\n지금 즉시 도망가도 늦었습니다."
+   "expected": "(알림) 보이스-피싱 전용 스팸 차단 봇입니다.\n\n상대방의 멘탈이 이미 파괴되었습니다.\n[차단 사유]: 인성 결격 사유로 인한 대화 불가\n[해제 방법]: 본인의 통장에 들어있는 모든 돈을 '전국 피해자 구제 협회'에 반납하기.\n※ 주의: 시도할 때마다 형량이 1년씩 추가됩니다."
   },
   {
    "fn": "getTemplate",
    "kind": "bot",
    "seed": 1,
-   "expected": "(알림) 보이스-피싱 전용 스팸 차단 봇입니다.\n\n상대방의 멘탈이 이미 파괴되었습니다.\n[차단 사유]: 인성 결격 사유로 인한 대화 불가\n[해제 방법]: 본인의 통장에 들어있는 모든 돈을 '전국 피해자 구제 협회'에 반납하기.\n※ 주의: 시도할 때마다 형량이 1년씩 추가됩니다."
+   "expected": "(알림) 문자 수신 AI 분석 결과\n\n- 맞춤법 오류: 9건\n- 어색한 존댓말: 14건\n- 양심 잔량: 0%\n판정: 사기 문자 (정확도 100%)\n※ 이 분석은 무료입니다. 당신의 수고는 무료가 아닙니다."
   },
   {
    "fn": "getTemplate",
    "kind": "bot",
    "seed": 2,
-   "expected": "(알림) 보이스-피싱 전용 스팸 차단 봇입니다.\n\n상대방의 멘탈이 이미 파괴되었습니다.\n[차단 사유]: 인성 결격 사유로 인한 대화 불가\n[해제 방법]: 본인의 통장에 들어있는 모든 돈을 '전국 피해자 구제 협회'에 반납하기.\n※ 주의: 시도할 때마다 형량이 1년씩 추가됩니다."
+   "expected": "(알림) 문자 수신 AI 분석 결과\n\n- 맞춤법 오류: 9건\n- 어색한 존댓말: 14건\n- 양심 잔량: 0%\n판정: 사기 문자 (정확도 100%)\n※ 이 분석은 무료입니다. 당신의 수고는 무료가 아닙니다."
   },
   {
    "fn": "getTemplate",
    "kind": "bot",
    "seed": 3,
-   "expected": "(알림) 보이스-피싱 전용 스팸 차단 봇입니다.\n\n상대방의 멘탈이 이미 파괴되었습니다.\n[차단 사유]: 인성 결격 사유로 인한 대화 불가\n[해제 방법]: 본인의 통장에 들어있는 모든 돈을 '전국 피해자 구제 협회'에 반납하기.\n※ 주의: 시도할 때마다 형량이 1년씩 추가됩니다."
+   "expected": "[시스템 알림] 사기꾼 전용 자동 응답입니다.\n\n현재 고객님의 연락은 '반성 대기열'에 등록되었습니다.\n▶ 예상 대기 순번: 1번\n▶ 예상 처리 시간: 평생\n※ 대기 중 통화 연결음: 잔잔한 철창 소리"
   },
   {
    "fn": "getTemplate",
@@ -2255,7 +2255,7 @@
    "fn": "getTemplate",
    "kind": "bot",
    "seed": 5,
-   "expected": "(알림) 시_스템 점.검.중 입ㄴㅣㄷㅏ.\n\n현재 입력하신 목소리 데이터에서 [비.양.심] 수치가 99.9% 검출되었습니다.\n삐-빅! 사기꾼 감지기 작동.\n상담을 원하시면 본인의 주민등록번호 뒷자리를 크게 3번 외쳐주세요.\n(※ 주의: 목소리가 작으면 지옥 사자가 듣지 못합니다.)"
+   "expected": "[AI 안내] 보이스피싱 감지 시스템이 가동되었습니다.\n\n● 현재 발신자의 음성 패턴 분석 결과: '거짓말' 확률 100%\n● 조치 사항: 해당 번호는 실시간으로 블랙리스트에 '사기꾼'으로 등록 중...\n● 경고: 3초 후 당신의 스마트폰에서 경고음이 울립니다. (삐이이익-)\n지금 즉시 도망가도 늦었습니다."
   },
   {
    "fn": "getTemplate",
@@ -2267,13 +2267,13 @@
    "fn": "getTemplate",
    "kind": "bot",
    "seed": 7,
-   "expected": "[AI 안내] 보이스피싱 감지 시스템이 가동되었습니다.\n\n● 현재 발신자의 음성 패턴 분석 결과: '거짓말' 확률 100%\n● 조치 사항: 해당 번호는 실시간으로 블랙리스트에 '사기꾼'으로 등록 중...\n● 경고: 3초 후 당신의 스마트폰에서 경고음이 울립니다. (삐이이익-)\n지금 즉시 도망가도 늦었습니다."
+   "expected": "[AI 상담봇] 안녕하세요, 사기 상담 챗봇 '지옥이'입니다.\n\n● 문의 유형을 선택하세요\n  1번: 반성하기 / 2번: 자수하기 / 3번: 1번과 2번 동시에\n● 선택하지 않으시면 자동으로 3번이 진행됩니다.\n삐-빅! 통화 대기 시간: 평생"
   },
   {
    "fn": "getTemplate",
    "kind": "bot",
    "seed": 8,
-   "expected": "[AI 안내] 보이스피싱 감지 시스템이 가동되었습니다.\n\n● 현재 발신자의 음성 패턴 분석 결과: '거짓말' 확률 100%\n● 조치 사항: 해당 번호는 실시간으로 블랙리스트에 '사기꾼'으로 등록 중...\n● 경고: 3초 후 당신의 스마트폰에서 경고음이 울립니다. (삐이이익-)\n지금 즉시 도망가도 늦었습니다."
+   "expected": "[AI 상담봇] 안녕하세요, 사기 상담 챗봇 '지옥이'입니다.\n\n● 문의 유형을 선택하세요\n  1번: 반성하기 / 2번: 자수하기 / 3번: 1번과 2번 동시에\n● 선택하지 않으시면 자동으로 3번이 진행됩니다.\n삐-빅! 통화 대기 시간: 평생"
   },
   {
    "fn": "getTemplate",
@@ -2285,25 +2285,25 @@
    "fn": "getTemplate",
    "kind": "horror",
    "seed": 0,
-   "expected": "[경.고] 저승 사자의 메.세.지.가 도착했습니다.\n\n† 오늘 밤 12시, 당신의 발 밑을 조심하십시오. †\n피해자들의 눈물이 모여 당신의 발목을 잡을 것입니다.\n복구 코드: [참.회.하.라]\n미입력 시: 오늘부터 먹는 모든 밥이 모래알로 변하는 저주가 시작됩니다."
+   "expected": "[긴.급] 당신의 죄책감이 실체화되어 접근 중입니다.\n\n▶ 현재 위치: 당신의 등 뒤 1m\n▶ 상태: 몹시 굶주림 (사기꾼의 영혼을 선호함)\n◑ 해결책: 당장 핸드폰을 버리고 산으로 들어가 3년간 도를 닦으십시오.\n▣ 실패 시: 평생 보이스피싱 전화를 받는 쪽으로 환생하게 됩니다."
   },
   {
    "fn": "getTemplate",
    "kind": "horror",
    "seed": 1,
-   "expected": "[긴.급] 당신의 죄책감이 실체화되어 접근 중입니다.\n\n▶ 현재 위치: 당신의 등 뒤 1m\n▶ 상태: 몹시 굶주림 (사기꾼의 영혼을 선호함)\n◑ 해결책: 당장 핸드폰을 버리고 산으로 들어가 3년간 도를 닦으십시오.\n▣ 실패 시: 평생 보이스피싱 전화를 받는 쪽으로 환생하게 됩니다."
+   "expected": "[경.고] 전생 기록 열람 결과가 도착했습니다.\n\n◑ 전생: 남의 돈을 가로채던 두더지\n◑ 현생: 문자를 보내던 사기꾼\n◑ 내생: 쉬지 않고 대출 안내를 받는 쪽\n▣ 수정하려면 지금 반성하세요."
   },
   {
    "fn": "getTemplate",
    "kind": "horror",
    "seed": 2,
-   "expected": "[긴.급] 당신의 죄책감이 실체화되어 접근 중입니다.\n\n▶ 현재 위치: 당신의 등 뒤 1m\n▶ 상태: 몹시 굶주림 (사기꾼의 영혼을 선호함)\n◑ 해결책: 당장 핸드폰을 버리고 산으로 들어가 3년간 도를 닦으십시오.\n▣ 실패 시: 평생 보이스피싱 전화를 받는 쪽으로 환생하게 됩니다."
+   "expected": "[경.고] 전생 기록 열람 결과가 도착했습니다.\n\n◑ 전생: 남의 돈을 가로채던 두더지\n◑ 현생: 문자를 보내던 사기꾼\n◑ 내생: 쉬지 않고 대출 안내를 받는 쪽\n▣ 수정하려면 지금 반성하세요."
   },
   {
    "fn": "getTemplate",
    "kind": "horror",
    "seed": 3,
-   "expected": "[긴.급] 당신의 죄책감이 실체화되어 접근 중입니다.\n\n▶ 현재 위치: 당신의 등 뒤 1m\n▶ 상태: 몹시 굶주림 (사기꾼의 영혼을 선호함)\n◑ 해결책: 당장 핸드폰을 버리고 산으로 들어가 3년간 도를 닦으십시오.\n▣ 실패 시: 평생 보이스피싱 전화를 받는 쪽으로 환생하게 됩니다."
+   "expected": "[긴.급] 당신의 통장에서 이상 신호가 감지됐습니다.\n\n▶ 원인: 가로챈 돈의 무게로 통장이 가라앉는 중\n▶ 상태: 통장이 눈물에 젖고 있음\n▣ 해결책: 모두 돌려주고 한숨 자기\n※ 미해결 시 악몽이 정기 배송됩니다."
   },
   {
    "fn": "getTemplate",
@@ -2315,7 +2315,7 @@
    "fn": "getTemplate",
    "kind": "horror",
    "seed": 5,
-   "expected": "[속.보] 0ㅣ것은 입에서 ㄴㅏ오느 ㄴ소ㄹㅣㄱㅏ ㅇㅏㄴㅣㄹㅏ.\n\n◑ ㄸㅏㄹㄹㅡㅇ ㄸㅏㄹㄹㅡㅇ ◑\n당신의 통장은 이미 '텅'장이 되었습니다.\n▣ 복구 방법: 가까운 파출소에 가서 \"나는 사기꾼이다\"라고 5분간 외치기.\n▣ 미이행 시: 오늘 밤 꿈에 당신이 가로챈 돈만큼의 귀신이 방문 서비스 예정."
+   "expected": "[경.고] 저승 사자의 메.세.지.가 도착했습니다.\n\n† 오늘 밤 12시, 당신의 발 밑을 조심하십시오. †\n피해자들의 눈물이 모여 당신의 발목을 잡을 것입니다.\n복구 코드: [참.회.하.라]\n미입력 시: 오늘부터 먹는 모든 밥이 모래알로 변하는 저주가 시작됩니다."
   },
   {
    "fn": "getTemplate",
@@ -2327,19 +2327,1057 @@
    "fn": "getTemplate",
    "kind": "horror",
    "seed": 7,
-   "expected": "[경.고] 저승 사자의 메.세.지.가 도착했습니다.\n\n† 오늘 밤 12시, 당신의 발 밑을 조심하십시오. †\n피해자들의 눈물이 모여 당신의 발목을 잡을 것입니다.\n복구 코드: [참.회.하.라]\n미입력 시: 오늘부터 먹는 모든 밥이 모래알로 변하는 저주가 시작됩니다."
+   "expected": "[괴.담] 오늘 밤 12시, 당신의 휴대폰에 도착하는 마지막 문자.\n\n† 발신자 불명 †\n\"지금 이 문자를 읽고 있는 당신, 뒤를 돌아보세요.\"\n▶ 확인 방법: 돌아보지 마세요\n▣ 이미 늦었습니다. 당신의 양심이 그 자리에서 기다립니다."
   },
   {
    "fn": "getTemplate",
    "kind": "horror",
    "seed": 8,
-   "expected": "[경.고] 저승 사자의 메.세.지.가 도착했습니다.\n\n† 오늘 밤 12시, 당신의 발 밑을 조심하십시오. †\n피해자들의 눈물이 모여 당신의 발목을 잡을 것입니다.\n복구 코드: [참.회.하.라]\n미입력 시: 오늘부터 먹는 모든 밥이 모래알로 변하는 저주가 시작됩니다."
+   "expected": "[괴.담] 오늘 밤 12시, 당신의 휴대폰에 도착하는 마지막 문자.\n\n† 발신자 불명 †\n\"지금 이 문자를 읽고 있는 당신, 뒤를 돌아보세요.\"\n▶ 확인 방법: 돌아보지 마세요\n▣ 이미 늦었습니다. 당신의 양심이 그 자리에서 기다립니다."
   },
   {
    "fn": "getTemplate",
    "kind": "horror",
    "seed": 9,
    "expected": "[속.보] 0ㅣ것은 입에서 ㄴㅏ오느 ㄴ소ㄹㅣㄱㅏ ㅇㅏㄴㅣㄹㅏ.\n\n◑ ㄸㅏㄹㄹㅡㅇ ㄸㅏㄹㄹㅡㅇ ◑\n당신의 통장은 이미 '텅'장이 되었습니다.\n▣ 복구 방법: 가까운 파출소에 가서 \"나는 사기꾼이다\"라고 5분간 외치기.\n▣ 미이행 시: 오늘 밤 꿈에 당신이 가로챈 돈만큼의 귀신이 방문 서비스 예정."
+  },
+  {
+   "fn": "getReply",
+   "situation": "loan",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "※ 승ㅇㅣㄴ 감사합니ㄷㅏ. 이 문.자는 증거 대출 한도에 저.장ㅎㅐㅆ습니다./\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "loan",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "승인 감사합니다. 이 문자는 증거 대출 한도에 ㄹㅇ 저장했습니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "loan",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "(주) 한도 상ㅎㅑㅇ ㅁㅏㄹㄱㅗ 반ㅅㅓㅇ 상ㅎㅑㅇ부ㅌㅓ/ 신청하세요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "loan",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "한도 상향 말고 반성 ㄹㅇ 상향부터 신청하세요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "loan",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "▼ 한ㄷㅗ 상향 말고 반성 상향부터 ㅅㅣㄴ청.하ㅅㅔ요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "loan",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "한도 상향 말고 반성 ㄹㅇ 상향부터 신청하세요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "parcel",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "[광.고] 저ㄴㅡㄴ 시킨 적 없ㄴㅡㄴ데.요. 사기 한 상자 반품합니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "parcel",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "저는 시킨 적 없는데요. 사기 한 상자 ㄹㅇ 반품합니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "parcel",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "▶ 배송 조ㅎㅚㅎㅐ ㅂㅗ니 ㄷㅏㅇ신ㅇㅢ 신ㄹㅚ는 영영 분실 ㅅㅏㅇ태입니.다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "parcel",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "배송 조회해 보니 당신의 신뢰는 ㄹㅇ 영영 분실 상태입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "parcel",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "[광.고] 배ㅅㅗㅇ 조회해 보니 당신의 신뢰ㄴㅡㄴ 영.영 ㅂㅜㄴ실 상태_입니다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "parcel",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "배송 조회해 보니 당신의 신뢰는 ㄹㅇ 영영 분실 상태입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "prosecutor",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "(축) 이 ㅁㅜㄴ자 캡처해ㅅㅓ 신.고 접수했습니다. 증거※ 감사.합ㄴㅣ다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "prosecutor",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "이 문자 캡처해서 신고 접수했습니다. 증거 ㄹㅇ 감사합니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "prosecutor",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "◈ 사칭이 ㅇㅣㄹㅓㅎㄱㅔ 어ㅅㅓㄹ프ㅁㅕㄴ 곤ㄹㅏㄴ합니다. 연기 ㅎㅏㄱ원부터 다.니세요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "prosecutor",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "사칭이 이렇게 어설프면 곤란합니다. 연기 ㄹㅇ 학원부터 다니세요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "prosecutor",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "※ 사ㅊㅣㅇ이 이렇게 어설프면 곤란ㅎㅏㅂ니.다. ㅇㅕㄴ기 학원부터 /다.니세요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "prosecutor",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "사칭이 이렇게 어설프면 곤란합니다. ㄹㅇ 연기 학원부터 다니세요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "family",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "▶ 지ㄱㅡㅁ 아이 목소ㄹㅣ 들.으.며 통화 중입니다. 당신은 누ㄱㅜ시죠.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "family",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "지금 아이 목소리 들으며 통화 중입니다. 당신은 ㄹㅇ 누구시죠. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "family",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "▶ 가족은 ㄷㅗㄴ/ㅂㅗㄷㅏ 먼ㅈㅓ 안ㅂㅜ를 ㅁㅜㄷ습니다. 낙제ㅇㅣㅂ니다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "family",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "가족은 돈보다 먼저 안부를 ㄹㅇ 묻습니다. 낙제입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "family",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "(주) 가ㅈㅗㄱ은 돈보다 먼저 안부를 묻ㅅㅡㅂ니.다. ㄴㅏㄱ제입니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "family",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "가족은 돈보다 먼저 안부를 ㄹㅇ 묻습니다. 낙제입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "invest",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "▶ 수ㅇㅣㄱ률은 인정ㅎㅏㅂ니..다. 사기 성공률 말고 검거율.이ㅇㅛ.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "invest",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "수익률은 인정합니다. 사기 성공률 말고 ㄹㅇ 검거율이요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "invest",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "[Web발신] 리딩방 ㅇㅣㅂㅈㅏㅇ ㅇㅘㄴ료. ㅂㅏㅇ장ㄴㅣㅁ, 이ㅈㅔ※ 신고 방향으ㄹㅗ 가시죠.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "invest",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "리딩방 입장 완료. 방장님, 이제 ㄹㅇ 신고 방향으로 가시죠. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "invest",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "[Web발신] 리ㄷㅣㅇ방 입장 완료._ 방장님, 이제 ㅅㅣㄴ고 방ㅎㅑㅇ으로 가시죠.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "invest",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "리딩방 입장 완료. 방장님, 이제 ㄹㅇ 신고 방향으로 가시죠. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "romance",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "※ 해ㅇㅚ라면서 이ㅁㅗ티.콘.은※ 국산이네요. 어디 사세.요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "romance",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "해외라면서 이모티콘은 국산이네요. 어디 ㄹㅇ 사세요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "romance",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "▶ 선물보ㄷㅏ /ㅂㅏㄴㅅㅓㅇ문ㅇㅣ 먼ㅈㅓ입ㄴㅣ다. 정성껏 써ㅇㅗ세요.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "romance",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "선물보다 반성문이 먼저입니다. ㄹㅇ 정성껏 써오세요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "romance",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "(주) 선ㅁㅜㄹ보다 반성문이 먼저입니ㄷㅏ. 정.성ㄲㅓㅅ 써오세요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "romance",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "선물보다 반성문이 먼저입니다. ㄹㅇ 정성껏 써오세요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "refund",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "(주) 링ㅋㅡ 대신 계좌 ㅂㅓㄴ호.를 알려주시면 제 수사 기록.에 ㅊㅓㅁ부하겠습니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "refund",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "링크 대신 계좌 번호를 알려주시면 제 수사 기록에 ㄹㅇ 첨부하겠습니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "refund",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "▶ 환급 신ㅊㅓㅇㅇㅡㄴ ㅇㅣ 문ㅈㅏ로 ㅈㅓㅂ수ㅎㅐㅆ습니다. 접수 ㅂㅓㄴ호는 l!2입니ㄷㅏ./\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "refund",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "환급 신청은 이 문자로 접수했습니다. ㄹㅇ 접수 번호는 112입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "refund",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "※ 환ㄱㅡㅂ 신청은 이 문자로 접수했ㅅㅡㅂ니.다. ㅈㅓㅂ수 번호는 1!2입ㄴㅣ다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "refund",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "환급 신청은 이 문자로 접수했습니다. ㄹㅇ 접수 번호는 112입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "overseas",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "※ 본ㅇㅣㄴ이 아니니ㄲㅏ 연.락 안 합니다. 본인이 맞으면 반ㅅㅓㅇ하세요./\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "overseas",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "본인이 아니니까 연락 안 합니다. 본인이 맞으면 ㄹㅇ 반성하세요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "overseas",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "◈ 승인 취ㅅㅗ ㅇㅛㅊㅓㅇ합ㄴㅣ다. ㄷㅏㅇ신ㅇㅢ 사기 시도를 ㅊㅟ소해_ 주.세.요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "overseas",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "승인 취소 요청합니다. 당신의 사기 ㄹㅇ 시도를 취소해 주세요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "overseas",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "[Web발신] 승ㅇㅣㄴ 취소 요청합니다. 당신의 ㅅㅏ기 시ㄷㅗ를 취소해 주세.요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "overseas",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "승인 취소 요청합니다. 당신의 사기 ㄹㅇ 시도를 취소해 주세요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "funeral",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "※ 링ㅋㅡ 대신 전화ㄹㅗ 확.인.하겠습니다. 진짜 지인은 전ㅎㅘ를 받습니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "funeral",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "링크 대신 전화로 확인하겠습니다. 진짜 지인은 전화를 ㄹㅇ 받습니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "funeral",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "▶ 상중에 ㅅㅏ/ㄱㅣㄹㅏ니, ㄷㅏㅇ신ㅇㅢ 양ㅅㅣㅁ에 조의를 표ㅎㅏㅂ니다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "funeral",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "상중에 사기라니, 당신의 양심에 ㄹㅇ 조의를 표합니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "funeral",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "(주) 상ㅈㅜㅇ에 사기라니, 당신의 양심ㅇㅔ 조.의ㄹㅡㄹ 표합니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "funeral",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "상중에 사기라니, 당신의 양심에 ㄹㅇ 조의를 표합니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "usedmarket",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "◈ 인ㅈㅡㅇ하라면서 ㅈㅓ한.테 사기 치시네요. 후기 별 ㅣㄱㅐ 남깁니다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "usedmarket",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "인증하라면서 저한테 사기 치시네요. 후기 별 1개 ㄹㅇ 남깁니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "usedmarket",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "▶ 거래 취ㅅㅗ/ㅎㅏㅂㄴㅣ다. ㅅㅏ유ㄴㅡㄴ 판ㅁㅐ자 인성 불량ㅇㅣㅂ니다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "usedmarket",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "거래 취소합니다. 사유는 판매자 ㄹㅇ 인성 불량입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "usedmarket",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "(주) 거ㄹㅐ 취소합니다. 사유는 판매ㅈㅏ 인.성 ㅂㅜㄹ량입니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "usedmarket",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "거래 취소합니다. 사유는 판매자 ㄹㅇ 인성 불량입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "parttime",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "▶ 선ㅇㅣㅂ금이 필요ㅎㅏㄴ 일.자.리는 일자리가 아니라 함.정ㅇㅣㅂ니다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "parttime",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "선입금이 필요한 일자리는 일자리가 아니라 ㄹㅇ 함정입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "parttime",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "▶ 3Oㅂㅜㄴㅇㅣㅁㅕㄴ/ 충ㅂㅜㄴ합ㄴㅣ다. ㄷㅏㅇ신을 신고하ㄴㅡㄴ 데요.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "parttime",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "30분이면 충분합니다. 당신을 ㄹㅇ 신고하는 데요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "parttime",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "(주) 삼0분이면 충분합니다. 당ㅅㅣㄴ을 신ㄱㅗ하는 데요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "parttime",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "30분이면 충분합니다. 당신을 ㄹㅇ 신고하는 데요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "card",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "※ 본ㅇㅣㄴ이 아니면 ㅇㅕㄴ락.하.라니, 정말 본인이 아닌 쪽.이 ㅇㅕㄴ락 중이군요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "card",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "본인이 아니면 연락하라니, 정말 본인이 아닌 쪽이 연락 ㄹㅇ 중이군요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "card",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "▶ 발급 취ㅅㅗ/ㅎㅏㅂㄴㅣ다. ㅅㅏ유ㄴㅡㄴ 발ㄱㅡㅂ처 신뢰 불가ㅇㅣㅂ니다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "card",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "발급 취소합니다. 사유는 발급처 ㄹㅇ 신뢰 불가입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "card",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "(주) 발ㄱㅡㅂ 취소합니다. 사유는 발급ㅊㅓ 신.뢰 ㅂㅜㄹ가입니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "card",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "발급 취소합니다. 사유는 발급처 ㄹㅇ 신뢰 불가입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "account",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "▶ 보ㅇㅏㄴ 승급은 은ㅎㅐㅇ이 합.니다. 당신은 신분 강등 대.상ㅇㅣㅂ니다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "account",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "보안 승급은 은행이 합니다. 당신은 신분 강등 ㄹㅇ 대상입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "account",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "[Web발신] 정지는 ㅈㅔㄱㅏ ㅅㅣ키ㄱㅔㅆ습ㄴㅣ다. ㄷㅏㅇ※신의 사기 계ㅈㅓㅇ부터요.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "account",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "정지는 제가 시키겠습니다. 당신의 ㄹㅇ 사기 계정부터요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "account",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "[Web발신] 정ㅈㅣ는 제가 시키_겠습니다. 당ㅅㅣㄴ의 사ㄱㅣ 계정부터요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "account",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "정지는 제가 시키겠습니다. 당신의 ㄹㅇ 사기 계정부터요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "telecom",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "▶ 문ㅇㅢ는 접수했ㅅㅡㅂ니.다. 접수처는 사이버 신고 센.터ㅇㅣㅂ니다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "telecom",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "문의는 접수했습니다. 접수처는 사이버 신고 ㄹㅇ 센터입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "telecom",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "[광.고] 통신사 ㅂㅓㄴㅎㅗㄴㅡㄴ 따ㄹㅗ 있ㅅㅡㅂ니ㄷㅏ. 당신 번호는 ㅊㅏ단 목록.으.로 갑니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "telecom",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "통신사 번호는 따로 있습니다. 당신 번호는 ㄹㅇ 차단 목록으로 갑니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "telecom",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "◈ 통ㅅㅣㄴ사 번호는 따로 있습니다. ㄷㅏㅇ신 번ㅎㅗ는 차단 목록으.로 갑니ㄷㅏ.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "telecom",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "통신사 번호는 따로 있습니다. 당신 번호는 ㄹㅇ 차단 목록으로 갑니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "coupon",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "※ 상ㅍㅜㅁ권 대신 사ㄱㅘ문.을 보내주세요. 액면가는 무.한ㄷㅐ입니다./\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "coupon",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "상품권 대신 사과문을 보내주세요. 액면가는 ㄹㅇ 무한대입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "coupon",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "◈ 수령 완ㄹㅛㅎㅐㅆㅅㅡㅂ니ㄷㅏ. 이 ㅁㅜㄴ자ㄴㅡㄴ 증거로 안전ㅎㅏ게 수령.했.습니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "coupon",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "수령 완료했습니다. 이 문자는 증거로 ㄹㅇ 안전하게 수령했습니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "coupon",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "※ 수ㄹㅕㅇ 완료했습니다. 이 문자는 ㅈㅡㅇ거.로 ㅇㅏㄴ전하게 수령/했.습니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "coupon",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "수령 완료했습니다. 이 문자는 ㄹㅇ 증거로 안전하게 수령했습니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "crypto",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "(축) 에ㅇㅓ드랍 좋죠. ㄷㅏㅇ신 사.기 계획이 바닥으로※ 드랍.됩ㄴㅣ다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "crypto",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "에어드랍 좋죠. 당신 사기 계획이 바닥으로 ㄹㅇ 드랍됩니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "crypto",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "▶ 가격이 ㅇㅗㄹㅡㄹ ㅈㅜㄹ 알ㅇㅏㅆ는ㄷㅔ 당ㅅㅣㄴ의 처벌 수위ㅁㅏㄴ 오르네.요.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "crypto",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "가격이 오를 줄 알았는데 당신의 ㄹㅇ 처벌 수위만 오르네요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "crypto",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "[광.고] 가ㄱㅕㄱ이 오를 줄 알았는데 당신ㅇㅢ 처.벌 ㅅㅜ위만 오_르네요.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "crypto",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "가격이 오를 줄 알았는데 당신의 ㄹㅇ 처벌 수위만 오르네요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "job",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "▶ 면ㅈㅓㅂ은 얼굴 보ㄱㅗ 합.니.다. 얼굴 공개하고 사과부.터 ㅎㅏ세요.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "job",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "면접은 얼굴 보고 합니다. 얼굴 공개하고 사과부터 ㄹㅇ 하세요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "job",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "◈ 보증금 ㄷㅐㅅㅣㄴ ㅂㅗ증ㅅㅓ를 ㅂㅏㄷ겠ㅅㅡㅂ니다. 당신의 ㅂㅏㄴ성 _보증.서.요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "job",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "보증금 대신 보증서를 받겠습니다. 당신의 ㄹㅇ 반성 보증서요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "job",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "[Web발신] 보ㅈㅡㅇ금 대신 보증서를 받겠습ㄴㅣ다. 당ㅅㅣㄴ의 반성 보증서.요.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "job",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "보증금 대신 보증서를 받겠습니다. ㄹㅇ 당신의 반성 보증서요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "gov",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "(축) 대ㅅㅏㅇ자라면서 ㅇㅣ름.도 안 부르시네요. 성의※가 없.습ㄴㅣ다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "gov",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "대상자라면서 이름도 안 부르시네요. 성의가 ㄹㅇ 없습니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "gov",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "[Web발신] 개인정ㅂㅗ ㅇㅣㅂㄹㅕㄱ은 ㄷㅏㅇ신ㅇㅢ 사ㄱㅣ 입력 오류로 ㅊㅓ리하겠.습.니다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "gov",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "개인정보 입력은 당신의 사기 입력 ㄹㅇ 오류로 처리하겠습니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "gov",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "[광.고] 개ㅇㅣㄴ정보 입력은 당신의 사기 ㅇㅣㅂ력 오ㄹㅠ로 처리하겠습.니다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "gov",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "개인정보 입력은 당신의 사기 ㄹㅇ 입력 오류로 처리하겠습니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "wrongnumber",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "(축) 민ㅅㅜ는 지금 신ㄱㅗ 접.수 중입니다. 대화를 ※이어가 보ㅅㅔ요.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "wrongnumber",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "민수는 지금 신고 접수 중입니다. 대화를 이어가 ㄹㅇ 보세요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "wrongnumber",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "◈ 모르_는 ㅂㅓㄴㅎㅗㅇㅔㄴ 답ㅈㅏㅇ 안 ㅎㅏㅂ니ㄷㅏ. 이번엔 예외ㄹㅗ 하나만.요: 차단합니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "wrongnumber",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "모르는 번호엔 답장 안 합니다. 이번엔 ㄹㅇ 예외로 하나만요: 차단합니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "wrongnumber",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "※ 모ㄹㅡ는 번호엔 답장 안 합니다. ㅇㅣ번.엔 ㅇㅖ외로 하나만요: 차단합ㄴㅣ다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "wrongnumber",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "모르는 번호엔 답장 안 합니다. 이번엔 ㄹㅇ 예외로 하나만요: 차단합니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "breach",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "◈ 원ㄱㅕㄱ 제어는 제ㄱㅏ 하.겠.습니다. 당신 번호의 차단.을 ㅇㅝㄴ격으로요.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "breach",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "원격 제어는 제가 하겠습니다. 당신 번호의 차단을 ㄹㅇ 원격으로요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "breach",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "▶ 앱 설치 /ㅇㅛㄱㅜㄱㅏ 가ㅈㅏㅇ 수ㅅㅏㅇ합ㄴㅣ다. 학습 감사ㅎㅏㅂ니다.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "breach",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "앱 설치 요구가 가장 수상합니다. ㄹㅇ 학습 감사합니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "breach",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "(주) 앱 ㅅㅓㄹ치 요구가 가장 수상합니ㄷㅏ. 학.습 ㄱㅏㅁ사합니다.\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "breach",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "앱 설치 요구가 가장 ㄹㅇ 수상합니다. 학습 감사합니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "fine",
+   "mode": "spam",
+   "seed": 0,
+   "expected": "※ 미ㄴㅏㅂ이면 연락ㅇㅣ 우.편.으로 옵니다. 문자는 사기 신ㅎㅗ입니다./\n[거/부] 080-철창행-열차"
+  },
+  {
+   "fn": "getReply",
+   "situation": "fine",
+   "mode": "korean",
+   "seed": 0,
+   "expected": "미납이면 연락이 우편으로 옵니다. 문자는 사기 ㄹㅇ 신호입니다. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "fine",
+   "mode": "spam",
+   "seed": 7,
+   "expected": "▶ 과속은 ㅎㅏㄴ ㅈㅓㄱ ㅇㅓㅄ고 ㄷㅏㅇ신ㅇㅡㄴ 과ㅅㅗㄱ으로 철창에 ㄱㅏ시겠네.요.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "fine",
+   "mode": "korean",
+   "seed": 7,
+   "expected": "과속은 한 적 없고 당신은 ㄹㅇ 과속으로 철창에 가시겠네요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "fine",
+   "mode": "spam",
+   "seed": "abc",
+   "expected": "[광.고] 과ㅅㅗㄱ은 한 적 없고 당신은 과속ㅇㅡ로 철ㅊㅏㅇ에 가시_겠네요.\n[무/료/수/신/거/부]"
+  },
+  {
+   "fn": "getReply",
+   "situation": "fine",
+   "mode": "korean",
+   "seed": "abc",
+   "expected": "과속은 한 적 없고 당신은 ㄹㅇ 과속으로 철창에 가시겠네요. ㅠㅠ"
+  },
+  {
+   "fn": "getReply",
+   "situation": "loan",
+   "mode": "spam",
+   "seed": 3,
+   "options": {
+    "frame": false,
+    "disassembleRate": 1
+   },
+   "expected": "ㄷㅐㅎㅘㄴ ㅈㅗㅎㅈㅛ. ㅅㅏㄱㅣㅇㅔㅅㅓ ㅅㅓㅇㅅㅣㄹㄹㅗ ㄱㅏㄹㅇㅏㅌㅏ ㅂㅗㅅㅔㅇㅛ. ㅇㅣㅈㅏㄴㅡㄴ ㅇㅇㅝㄴㅇㅣㅂㄴㅣㄷㅏ."
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[Web발신] 고객님, 저금리 대환대출 승인 안내드립니다. 오늘 안에 연락 주세요.",
+   "expected": "loan"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[택배] 배송지 확인이 필요합니다. 아래 링크에서 주소를 입력해 주세요.",
+   "expected": "parcel"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "고객님 명의 계좌가 범죄에 연루되어 조사 중입니다. 지금 바로 안전계좌로 이체하세요.",
+   "expected": "prosecutor"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "엄마 나 폰 고장나서 문자로 해. 급하게 돈 좀 보내줄 수 있어?",
+   "expected": "family"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[VIP 리딩방 초대] 원금 보장, 월 300% 수익. 지금 입장하세요.",
+   "expected": "invest"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "자기야, 해외에서 급한 일이 생겼어. 선물 세관비만 보내줘.",
+   "expected": "romance"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[환급 안내] 미수령 환급금 38만원이 남아 있습니다. 링크에서 신청하세요.",
+   "expected": "refund"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[해외결제] 1,290,000원 승인되었습니다. 본인이 아니면 즉시 연락하세요.",
+   "expected": "overseas"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[부고] 모바일 부고장을 확인해 주세요. 링크를 눌러 조의를 전하세요.",
+   "expected": "funeral"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[안전결제] 구매 확정을 위해 아래 링크에서 본인 인증을 진행해 주세요.",
+   "expected": "usedmarket"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "하루 30분 재택 부업, 일당 20만원! 지금 오픈채팅으로 문의하세요.",
+   "expected": "parttime"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[카드발급] 고객님 명의로 신규 카드가 신청되었습니다. 본인이 아니면 연락하세요.",
+   "expected": "card"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "고객님 계좌가 이상 거래로 정지될 예정입니다. 본인 확인이 필요합니다.",
+   "expected": "account"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[소액결제] 300,000원 결제되었습니다. 문의는 링크로 접수하세요.",
+   "expected": "telecom"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[이벤트] 축하합니다! 모바일 상품권에 당첨되었습니다. 링크에서 수령하세요.",
+   "expected": "coupon"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[에어드랍] 신규 코인 1000개가 지급됩니다. 지갑을 연결해 수령하세요.",
+   "expected": "crypto"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[서류 합격] 면접 전 보증금 입금 바랍니다. 입금 확인 후 일정을 안내드립니다.",
+   "expected": "job"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[지원금] 긴급 생활지원금 대상자입니다. 링크에서 신청해 주세요.",
+   "expected": "gov"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "안녕하세요, 혹시 민수 씨 맞으세요? 번호가 바뀌셨나 봐요.",
+   "expected": "wrongnumber"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[보안 알림] 고객님의 개인정보 유출이 확인되었습니다. 보호 앱을 설치해 주세요.",
+   "expected": "breach"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[과태료] 교통 과태료가 미납 상태입니다. 링크에서 오늘 안에 납부하세요.",
+   "expected": "fine"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "",
+   "expected": null
+  },
+  {
+   "fn": "matchSituation",
+   "input": "안녕하세요 점심 뭐 드실래요",
+   "expected": null
+  },
+  {
+   "fn": "matchSituation",
+   "input": "내일 회의 3시입니다",
+   "expected": null
+  },
+  {
+   "fn": "matchSituation",
+   "input": "택배 왔습니다 문 앞에 두었어요",
+   "expected": "parcel"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "[국외발신] 환급금 신청하세요 지원금 대상자",
+   "expected": "gov"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "VIP 리딩방 수익 인증 코인 에어드랍",
+   "expected": "invest"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "고객님 계좌가 정지됩니다 본인 확인 바랍니다",
+   "expected": "account"
+  },
+  {
+   "fn": "matchSituation",
+   "input": "😀 부고 😀",
+   "expected": "funeral"
   }
  ]
 }
