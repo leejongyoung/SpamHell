@@ -1,0 +1,46 @@
+{
+  "name": "spamhell-mcp",
+  "version": "1.0.0",
+  "description": "MCP (Model Context Protocol) stdio server for spamhell: let AI assistants transform text into spam-style (스팸체).",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "spam",
+    "korean",
+    "hangul",
+    "voice-phishing",
+    "anti-phishing"
+  ],
+  "homepage": "https://leejongyoung.github.io/SpamHell/",
+  "bugs": "https://github.com/leejongyoung/SpamHell/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leejongyoung/SpamHell.git",
+    "directory": "packages/mcp"
+  },
+  "author": "Lee Jongyoung",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": {
+    "spamhell-mcp": "./dist/bin.js"
+  },
+  "files": [
+    "dist",
+    "NOTICE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && chmod +x dist/bin.js",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "spamhell": "^1.0.0",
+    "zod": "^4.6.7"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
