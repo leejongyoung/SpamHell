@@ -32,14 +32,15 @@ uv run --with pytest python -m pytest   # golden 포함
 
 ## 가장 중요한 규칙: 두 구현은 늘 같아야 합니다
 
-변환 규칙이나 템플릿을 바꾸면 **TypeScript(`packages/core/src`)와 Python(`packages/python/src/spamhell`)을 함께** 고쳐야 합니다. 같은 시드에서 어디서나 같은 결과가 나오는 것이 이 프로젝트의 약속입니다.
+변환 규칙이나 상황, 템플릿을 바꾸면 **TypeScript(`packages/core/src`)와 Python(`packages/python/src/spamhell`)을 함께** 고쳐야 합니다. 같은 시드에서 어디서나 같은 결과가 나오는 것이 이 프로젝트의 약속입니다.
 
-1. 두 구현을 같은 방식으로 수정합니다. 난수를 소비하는 순서까지 같아야 합니다.
-2. 의도한 동작 변경이면 골든 파일을 다시 만듭니다.
+1. 로직(`transform`, 난수를 소비하는 순서 등)을 바꾸면 두 구현을 같은 방식으로 수정합니다. 상황과 템플릿 **데이터**는 TypeScript만 고치면 되고 Python 쪽은 생성합니다(아래 참고).
+2. 의도한 동작 변경이면 생성물과 골든 파일을 다시 만듭니다.
    ```bash
-   npm run build -w spamhell && node scripts/gen-golden.mjs
+   npm run build -w spamhell
+   node scripts/gen-python-data.mjs && node scripts/gen-golden.mjs
    ```
-3. `npm test`와 Python 테스트가 모두 통과하는지 확인합니다. 한쪽만 고치면 다른 쪽 골든 테스트가 실패합니다.
+3. `npm test`와 Python 테스트가 모두 통과하는지 확인합니다. 한쪽만 고치면 다른 쪽 골든 테스트가 실패하고, CI가 `_data.py`가 최신인지(`gen-python-data.mjs --check`)도 확인합니다.
 4. 골든 파일이 바뀐 이유를 PR 설명에 적어 주세요.
 
 그 밖에 지킬 것이 있습니다.
@@ -57,12 +58,20 @@ uv run --with pytest python -m pytest   # golden 포함
 - **스팸 필터 우회 목적**의 기능이나 옵션.
 - 서버 전송, 추적, 분석(telemetry) 코드. 변환은 항상 사용자의 기기 안에서 일어납니다.
 
-## 템플릿 기여
+## 상황과 템플릿 기여
 
-템플릿은 `packages/core/src/templates.ts`와 `packages/python/src/spamhell/_templates.py`에 같은 순서로 넣습니다.
+데이터의 기준은 TypeScript입니다. Python의 `_data.py`는 생성물이라 직접 고치지 않습니다.
 
-- 풍자로 읽혀야 합니다. 협박이나 욕설, 개인정보, 실제 전화번호와 주소는 넣지 않습니다.
-- 종류(`prize`, `bot`, `horror`)마다 변형을 추가하되, 기존 변형의 순서를 바꾸면 같은 시드의 결과가 달라집니다. 새 변형은 맨 뒤에 추가하세요.
+- **상황 추가**: `packages/core/src/situations.ts`의 `SITUATIONS` 맨 뒤에 항목(`id`, `label`, `description`, `incoming`, `replies`)을 넣고, `SITUATION_KEYWORDS`에도 같은 `id`의 키워드를 넣습니다(타입이 빠뜨리면 막아 줍니다). 답장은 변환 전의 평문으로 쓰고 6개 안팎을 권합니다. 테스트가 `incoming`이 자기 상황으로 분류되는지 확인하니, 다른 상황과 겹치지 않는 키워드를 고르세요.
+- **템플릿 추가**: `packages/core/src/templates.ts`의 종류(`prize`, `bot`, `horror`)별 배열 맨 뒤에 넣습니다.
+- 그다음 데이터를 다시 만듭니다.
+  ```bash
+  npm run build -w spamhell
+  node scripts/gen-python-data.mjs   # packages/python/src/spamhell/_data.py 생성
+  node scripts/gen-golden.mjs        # testdata/golden.json 갱신
+  ```
+- 풍자로 읽혀야 합니다. 협박, 욕설, 개인정보, 실제 전화번호와 주소는 넣지 않습니다. 수신 예시(`incoming`)도 가상의 문구여야 하고 실제 기관이나 번호를 쓰지 않습니다.
+- 기존 항목의 순서를 바꾸거나 중간에 끼우면 같은 시드의 결과가 달라집니다. 새 항목은 맨 뒤에 추가하세요.
 
 ## 풀 리퀘스트
 
