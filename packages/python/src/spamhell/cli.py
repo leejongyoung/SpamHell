@@ -8,6 +8,7 @@ from typing import IO, List, Optional
 from . import __version__
 from ._templates import TEMPLATE_KINDS, TEMPLATE_LABELS, get_template
 from ._transform import to_korean, to_spam
+from ._situations import SITUATION_IDS, SITUATIONS, get_reply
 
 MODES = ("spam", "korean")
 
@@ -32,6 +33,8 @@ def _build_parser() -> argparse.ArgumentParser:
     parser.add_argument("-t", "--template", help="Print a template instead: " + ", ".join(TEMPLATE_KINDS))
     parser.add_argument("-s", "--seed", help="Make the output reproducible")
     parser.add_argument("--list-templates", action="store_true", help="List template kinds")
+    parser.add_argument("-c", "--situation", help="Print a reply for a scam situation: " + ", ".join(SITUATION_IDS))
+    parser.add_argument("--list-situations", action="store_true", help="List situations")
     parser.add_argument("-h", "--help", action="store_true", help="Show this help")
     parser.add_argument("-v", "--version", action="store_true", help="Show version")
     return parser
@@ -64,6 +67,11 @@ def run(
     if args.version:
         stdout.write("%s\n" % __version__)
         return 0
+    if args.list_situations:
+        for situation in SITUATIONS:
+            stdout.write("%s\t%s\n" % (situation.id, situation.label))
+        return 0
+
     if args.list_templates:
         for kind in TEMPLATE_KINDS:
             stdout.write("%s\t%s\n" % (kind, TEMPLATE_LABELS[kind]))
@@ -71,6 +79,16 @@ def run(
 
     if args.mode not in MODES:
         return fail("invalid mode '%s' (expected %s)" % (args.mode, " or ".join(MODES)))
+
+    if args.situation is not None:
+        if args.text:
+            return fail("--situation cannot be combined with input text")
+        if args.template is not None:
+            return fail("--situation cannot be combined with --template")
+        if args.situation not in SITUATION_IDS:
+            return fail("unknown situation '%s' (expected %s)" % (args.situation, ", ".join(SITUATION_IDS)))
+        stdout.write("%s\n" % get_reply(args.situation, mode=args.mode, seed=args.seed))
+        return 0
 
     if args.template is not None:
         if args.text:

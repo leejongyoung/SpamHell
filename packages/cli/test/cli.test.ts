@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { TEMPLATE_KINDS, getTemplate, toKorean, toSpam } from 'spamhell';
+import { SITUATION_IDS, SITUATIONS, TEMPLATE_KINDS, getReply, getTemplate, toKorean, toSpam } from 'spamhell';
 import { run, type CliIo } from '../src/cli.js';
 
 const TTY: CliIo = {
@@ -38,6 +38,20 @@ describe('spamhell cli', () => {
     expect(result.stdout).toBe(`${toKorean('지금 바로 입금', { seed: '5' })}\n`);
   });
 
+  it('prints a situation reply, reproducibly with a seed, in both modes', async () => {
+    const spam = await run(['--situation', 'loan', '--seed', '7'], TTY);
+    expect(spam).toEqual({ code: 0, stdout: `${getReply('loan', { seed: '7' })}\n`, stderr: '' });
+    const korean = await run(['-c', 'loan', '-m', 'korean', '-s', '7'], TTY);
+    expect(korean.stdout).toBe(`${getReply('loan', { mode: 'korean', seed: '7' })}\n`);
+  });
+
+  it('lists situations as tab-separated id and label', async () => {
+    const result = await run(['--list-situations'], TTY);
+    const lines = result.stdout.trimEnd().split('\n');
+    expect(lines.map((line) => line.split('\t')[0])).toEqual([...SITUATION_IDS]);
+    expect(lines).toEqual(SITUATIONS.map((s) => `${s.id}\t${s.label}`));
+  });
+
   it('prints a template, reproducibly with a seed', async () => {
     const result = await run(['--template', 'horror', '--seed', '2'], TTY);
     expect(result.stdout).toBe(`${getTemplate('horror', { seed: '2' })}\n`);
@@ -53,6 +67,9 @@ describe('spamhell cli', () => {
     [['--mode', 'loud', 'x'], /invalid mode/],
     [['--template', 'nope'], /unknown template/],
     [['--template', 'prize', 'text'], /cannot be combined/],
+    [['--situation', 'nope'], /unknown situation 'nope' \(expected /],
+    [['--situation', 'loan', 'text'], /cannot be combined/],
+    [['--situation', 'loan', '--template', 'prize'], /cannot be combined/],
     [['--bogus'], /bogus/],
   ])('rejects bad usage %j with exit code 2 and nothing on stdout', async (args, message) => {
     const result = await run(args, TTY);

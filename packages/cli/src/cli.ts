@@ -5,6 +5,10 @@ import {
   TEMPLATE_LABELS,
   getTemplate,
   isTemplateKind,
+  SITUATIONS,
+  SITUATION_IDS,
+  getReply,
+  isSituationId,
   toKorean,
   toSpam,
 } from 'spamhell';
@@ -28,8 +32,10 @@ Transform text into spam-style (스팸체). Reads stdin when no text is given.
 Options:
   -m, --mode <spam|korean>   Transformation mode (default: spam)
   -t, --template <kind>      Print a template instead: ${TEMPLATE_KINDS.join(', ')}
+  -c, --situation <id>       Print a reply for a scam situation: ${SITUATION_IDS.join(', ')}
   -s, --seed <value>         Make the output reproducible
       --list-templates       List template kinds
+      --list-situations      List situations
   -h, --help                 Show this help
   -v, --version              Show version
 
@@ -37,6 +43,7 @@ Examples:
   spamhell "입금 확인 바랍니다"
   echo "지금 바로 입금하세요" | spamhell --mode korean --seed 7
   spamhell --template prize
+  spamhell --situation loan --seed 7
 `;
 
 const MODES = ['spam', 'korean'] as const;
@@ -61,6 +68,8 @@ export async function run(argv: string[], io: CliIo): Promise<CliResult> {
         template: { type: 'string', short: 't' },
         seed: { type: 'string', short: 's' },
         'list-templates': { type: 'boolean' },
+        situation: { type: 'string', short: 'c' },
+        'list-situations': { type: 'boolean' },
         help: { type: 'boolean', short: 'h' },
         version: { type: 'boolean', short: 'v' },
       },
@@ -72,6 +81,10 @@ export async function run(argv: string[], io: CliIo): Promise<CliResult> {
 
   if (values.help) return { code: 0, stdout: HELP, stderr: '' };
   if (values.version) return { code: 0, stdout: `${version()}\n`, stderr: '' };
+  if (values['list-situations']) {
+    const lines = SITUATIONS.map((situation) => `${situation.id}\t${situation.label}`);
+    return { code: 0, stdout: `${lines.join('\n')}\n`, stderr: '' };
+  }
   if (values['list-templates']) {
     const lines = TEMPLATE_KINDS.map((kind) => `${kind}\t${TEMPLATE_LABELS[kind]}`);
     return { code: 0, stdout: `${lines.join('\n')}\n`, stderr: '' };
@@ -82,6 +95,15 @@ export async function run(argv: string[], io: CliIo): Promise<CliResult> {
     return usageError(`invalid mode '${mode}' (expected ${MODES.join(' or ')})`);
   }
   const seed = values.seed;
+
+  if (values.situation !== undefined) {
+    if (positionals.length > 0) return usageError('--situation cannot be combined with input text');
+    if (values.template !== undefined) return usageError('--situation cannot be combined with --template');
+    if (!isSituationId(values.situation)) {
+      return usageError(`unknown situation '${values.situation}' (expected ${SITUATION_IDS.join(', ')})`);
+    }
+    return { code: 0, stdout: `${getReply(values.situation, { mode: mode as (typeof MODES)[number], seed })}\n`, stderr: '' };
+  }
 
   if (values.template !== undefined) {
     if (positionals.length > 0) return usageError('--template cannot be combined with input text');

@@ -2,7 +2,7 @@ import io
 
 import pytest
 
-from spamhell import TEMPLATE_KINDS, get_template, to_korean, to_spam
+from spamhell import SITUATION_IDS, SITUATIONS, TEMPLATE_KINDS, get_reply, get_template, to_korean, to_spam
 from spamhell.cli import run
 
 
@@ -40,12 +40,27 @@ def test_list_templates():
     assert [line.split("\t")[0] for line in out.splitlines()] == list(TEMPLATE_KINDS)
 
 
+def test_situation_reply_is_reproducible_in_both_modes():
+    assert call(["--situation", "loan", "--seed", "7"]) == (0, get_reply("loan", seed="7") + "\n", "")
+    assert call(["-c", "loan", "-m", "korean", "-s", "7"])[1] == get_reply("loan", mode="korean", seed="7") + "\n"
+
+
+def test_list_situations():
+    _, out, _ = call(["--list-situations"])
+    assert out.splitlines() == ["%s\t%s" % (s.id, s.label) for s in SITUATIONS]
+    assert [line.split("\t")[0] for line in out.splitlines()] == list(SITUATION_IDS)
+
+
+
 @pytest.mark.parametrize(
     "args, message",
     [
         (["--mode", "loud", "x"], "invalid mode"),
         (["--template", "nope"], "unknown template"),
         (["--template", "prize", "text"], "cannot be combined"),
+        (["--situation", "nope"], "unknown situation 'nope' (expected "),
+        (["--situation", "loan", "text"], "cannot be combined"),
+        (["--situation", "loan", "--template", "prize"], "cannot be combined"),
         (["--bogus"], "bogus"),
         ([], "no input text"),
     ],

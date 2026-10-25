@@ -32,6 +32,8 @@ Claude Desktop의 `claude_desktop_config.json`, 또는 stdio MCP 서버를 지�
 | `spamhell_transform` | 문장을 스팸체(`spam`) 또는 띄어쓰기 변환(`korean`)으로 바꿉니다. |
 | `spamhell_template` | 종류별 템플릿 메시지 하나를 돌려줍니다. |
 | `spamhell_list_templates` | 템플릿 종류와 한국어 이름을 나열합니다. |
+| `spamhell_reply` | 상황 id에 맞는 풍자 답장을 변환해 돌려줍니다. |
+| `spamhell_list_situations` | 상황 id, 이름, 설명, 예시 수신 문자를 나열합니다. |
 
 모든 도구는 읽기 전용이며 같은 입력과 시드에서 같은 결과를 냅니다. 결과는 텍스트뿐이고, 잘못된 입력은 오류 없이 `isError` 결과로 알립니다.
 
@@ -69,6 +71,25 @@ Claude Desktop의 `claude_desktop_config.json`, 또는 stdio MCP 서버를 지�
 ### `spamhell_list_templates`
 
 인자가 없으며 `종류: 한국어 이름` 형식으로 한 줄씩 돌려줍니다.
+
+### `spamhell_reply`
+
+`situation`(필수), `mode`(`spam` 기본 또는 `korean`), `seed`, `frame`을 받아 그 상황에 맞는 답장 하나를 변환해 돌려줍니다. 받은 사기 문자와 가장 비슷한 상황 id를 골라 호출하세요. 답장은 풍자 텍스트일 뿐이며 기관을 사칭하지 않습니다.
+
+```json
+{ "name": "spamhell_reply", "arguments": { "situation": "loan", "seed": 7 } }
+```
+
+결과:
+
+```text
+(주) 한도 상ㅎㅑㅇ ㅁㅏㄹㄱㅗ 반ㅅㅓㅇ 상ㅎㅑㅇ부ㅌㅓ/ 신청하세요.
+[거/부] 080-철창행-열차
+```
+
+### `spamhell_list_situations`
+
+인자가 없으며 상황마다 `id`, `label`, `description`, 그리고 예시 수신 문자(`example incoming message`)를 돌려줍니다. 모델은 받은 문자와 가장 맞는 id를 고른 뒤 `spamhell_reply`를 호출합니다.
 
 ## 사용 원칙
 

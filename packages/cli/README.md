@@ -16,14 +16,25 @@ spamhell "입금 확인 바랍니다"
 echo "지금 바로 입금하세요" | spamhell --mode korean --seed 7
 spamhell --template prize --seed 7
 spamhell --list-templates
+spamhell --situation loan --seed 7
+spamhell --list-situations
 ```
 
 | 옵션 | 설명 |
 | :--- | :--- |
 | `-m, --mode <spam\|korean>` | 변환 방식 (기본 `spam`) |
 | `-t, --template <kind>` | 입력 대신 템플릿 출력 (`prize`, `bot`, `horror`) |
+| `-c, --situation <id>` | 사기 상황에 맞는 답장 출력 (`--list-situations`로 목록 확인). 입력 글, `--template`과 함께 쓸 수 없음 |
 | `-s, --seed <value>` | 재현 가능한 결과 |
+| `--list-templates`, `--list-situations` | 템플릿 종류, 상황 목록을 `id<TAB>이름`으로 출력 |
 | `-h`, `-v` | 도움말, 버전 |
+
+`--situation loan --seed 7`의 결과:
+
+```text
+(주) 한도 상ㅎㅑㅇ ㅁㅏㄹㄱㅗ 반ㅅㅓㅇ 상ㅎㅑㅇ부ㅌㅓ/ 신청하세요.
+[거/부] 080-철창행-열차
+```
 
 결과는 표준 출력에만 쓰고, 사용법 오류는 표준 오류와 종료 코드 `2`로 알립니다.
 

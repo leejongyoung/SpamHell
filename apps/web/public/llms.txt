@@ -10,7 +10,8 @@ SpamHell never sends messages. The web demo only opens the user's own SMS app wi
 - JavaScript/TypeScript: npm `spamhell` (`toSpam`, `toKorean`, `getTemplate`)
 - CLI: npm `spamhell-cli` or PyPI `spamhell` (command `spamhell`)
 - Python: PyPI `spamhell` (`to_spam`, `to_korean`, `get_template`)
-- AI assistants (MCP, stdio): npm `spamhell-mcp` with tools `spamhell_transform`, `spamhell_template`, `spamhell_list_templates`
+- AI assistants (MCP, stdio): npm `spamhell-mcp` with tools `spamhell_transform`, `spamhell_template`, `spamhell_list_templates`, `spamhell_reply` (pick the situation id that best matches an incoming scam message, then get a satirical reply), `spamhell_list_situations` (ids, labels, descriptions, example incoming messages)
+- Situation replies: `spamhell --situation <id>` (list with `--list-situations`), `getReply(id)` in JS, `get_reply(id)` in Python
 
 ## Source
 

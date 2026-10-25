@@ -25,6 +25,17 @@ get_template("prize", seed=1)               # 템플릿 종류: prize, bot, horr
 - `seed`(int 또는 str)를 주면 결과가 항상 같습니다. `42`와 `"42"`는 같은 시드입니다. `rng`로 난수 함수를 직접 넣을 수도 있습니다.
 - `to_spam` 옵션: `disassemble_rate`, `dot_rate`, `number_rate`, `noise_rate`(각 0~1, 벗어나면 `ValueError`), `frame`(머리말과 꼬리말 여부).
 
+### 상황별 답장
+
+`SITUATIONS`(상황 21개: `id`, `label`, `description`, `incoming`, `replies`), `SITUATION_IDS`, `is_situation_id`, `get_situation`, `get_reply_line`, `get_reply`를 제공합니다. 알 수 없는 id나 mode는 `ValueError`입니다.
+
+```python
+from spamhell import get_reply
+
+get_reply("loan", seed=7)
+# '(주) 한도 상ㅎㅑㅇ ㅁㅏㄹㄱㅗ 반ㅅㅓㅇ 상ㅎㅑㅇ부ㅌㅓ/ 신청하세요.\n[거/부] 080-철창행-열차'
+```
+
 ## CLI
 
 ```bash
@@ -32,6 +43,8 @@ spamhell "입금 확인 바랍니다"
 echo "지금 바로 입금하세요" | spamhell --mode korean --seed 7
 spamhell --template prize --seed 7
 spamhell --list-templates
+spamhell --situation loan --seed 7
+spamhell --list-situations
 python -m spamhell --help
 ```
 

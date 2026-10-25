@@ -1,7 +1,16 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
-import { TEMPLATE_KINDS, TEMPLATE_LABELS, getTemplate, toKorean, toSpam } from 'spamhell';
+import {
+  SITUATIONS,
+  SITUATION_IDS,
+  TEMPLATE_KINDS,
+  TEMPLATE_LABELS,
+  getReply,
+  getTemplate,
+  toKorean,
+  toSpam,
+} from 'spamhell';
 import { createServer } from '../src/server.js';
 
 const closers: Array<() => Promise<void>> = [];
@@ -26,11 +35,13 @@ async function call(client: Client, name: string, args: Record<string, unknown>)
 }
 
 describe('spamhell-mcp', () => {
-  it('lists the three tools as read-only and idempotent', async () => {
+  it('lists the five tools as read-only and idempotent', async () => {
     const client = await connect();
     const { tools } = await client.listTools();
     expect(tools.map((tool) => tool.name).sort()).toEqual([
+      'spamhell_list_situations',
       'spamhell_list_templates',
+      'spamhell_reply',
       'spamhell_template',
       'spamhell_transform',
     ]);
@@ -79,6 +90,31 @@ describe('spamhell-mcp', () => {
     expect(result.text.split('\n')).toEqual(TEMPLATE_KINDS.map((kind) => `${kind}: ${TEMPLATE_LABELS[kind]}`));
   });
 
+  it('spamhell_reply equals the core output for a given seed', async () => {
+    const client = await connect();
+    for (const situation of SITUATION_IDS) {
+      const result = await call(client, 'spamhell_reply', { situation, seed: 7 });
+      expect(result.isError).toBe(false);
+      expect(result.text).toBe(getReply(situation, { seed: 7 }));
+    }
+    const korean = await call(client, 'spamhell_reply', { situation: 'loan', mode: 'korean', seed: 'a' });
+    expect(korean.text).toBe(getReply('loan', { mode: 'korean', seed: 'a' }));
+    const bare = await call(client, 'spamhell_reply', { situation: 'loan', seed: 3, frame: false });
+    expect(bare.text).toBe(getReply('loan', { seed: 3, frame: false }));
+  });
+
+  it('spamhell_list_situations shows id, label, description and example for each situation', async () => {
+    const client = await connect();
+    const result = await call(client, 'spamhell_list_situations', {});
+    expect(result.isError).toBe(false);
+    for (const s of SITUATIONS) {
+      expect(result.text).toContain(`id: ${s.id}\n`);
+      expect(result.text).toContain(s.label);
+      expect(result.text).toContain(s.description);
+      expect(result.text).toContain(s.incoming);
+    }
+  });
+
   it('reports invalid input as isError instead of throwing', async () => {
     const client = await connect();
     const cases: Array<[string, Record<string, unknown>]> = [
@@ -87,6 +123,8 @@ describe('spamhell-mcp', () => {
       ['spamhell_transform', { text: '입금', dotRate: 1.5 }],
       ['spamhell_transform', { text: '입금', mode: 'other' }],
       ['spamhell_template', { kind: 'unknown' }],
+      ['spamhell_reply', { situation: 'unknown' }],
+      ['spamhell_reply', { situation: 'loan', mode: 'other' }],
     ];
     for (const [name, args] of cases) {
       const result = await call(client, name, args);

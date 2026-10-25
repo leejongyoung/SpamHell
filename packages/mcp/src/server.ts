@@ -1,6 +1,15 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
-import { TEMPLATE_KINDS, TEMPLATE_LABELS, getTemplate, toKorean, toSpam } from 'spamhell';
+import {
+  SITUATIONS,
+  SITUATION_IDS,
+  TEMPLATE_KINDS,
+  TEMPLATE_LABELS,
+  getReply,
+  getTemplate,
+  toKorean,
+  toSpam,
+} from 'spamhell';
 import { z } from 'zod';
 
 const VERSION = '1.0.0';
@@ -94,6 +103,43 @@ export function createServer(): McpServer {
       annotations: READ_ONLY,
     },
     () => text(TEMPLATE_KINDS.map((kind) => `${kind}: ${TEMPLATE_LABELS[kind]}`).join('\n')),
+  );
+
+  server.registerTool(
+    'spamhell_reply',
+    {
+      title: 'Reply to a scam situation',
+      description:
+        'Return a satirical reply for a given voice-phishing or smishing situation. Choose the situation id that best ' +
+        'matches the incoming scam message (call spamhell_list_situations to see each situation with an example message), ' +
+        `then call this tool with that id. Replies are satirical text only and never impersonate institutions. ${PRINCIPLE}`,
+      inputSchema: {
+        situation: z.enum(SITUATION_IDS).describe(`Situation id: ${SITUATION_IDS.join(', ')}.`),
+        mode: z.enum(['spam', 'korean']).default('spam').describe("'spam' (default) or 'korean'."),
+        seed: seedSchema,
+        frame: z.boolean().optional().describe('Spam mode only: wrap the result in the decorative frame (default true).'),
+      },
+      annotations: READ_ONLY,
+    },
+    ({ situation, mode, seed, frame }) => safely(() => getReply(situation, { mode, seed, frame })),
+  );
+
+  server.registerTool(
+    'spamhell_list_situations',
+    {
+      title: 'List scam situations',
+      description:
+        'List every situation with its id, Korean label, description and an example incoming scam message, so you can ' +
+        `choose the id that best matches a scam message you were shown and then call spamhell_reply. ${PRINCIPLE}`,
+      inputSchema: {},
+      annotations: READ_ONLY,
+    },
+    () =>
+      text(
+        SITUATIONS.map(
+          (s) => `id: ${s.id}\nlabel: ${s.label}\ndescription: ${s.description}\nexample incoming message: ${s.incoming}`,
+        ).join('\n\n'),
+      ),
   );
 
   return server;
