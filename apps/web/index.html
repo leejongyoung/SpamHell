@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SpamHell - 스팸체 변환 데모</title>
+    <meta name="description" content="보이스피싱범에게 보내는 역공 메시지를 스팸체로 바꿔 주는 데모. 변환 엔진은 spamhell 패키지와 CLI로도 쓸 수 있습니다." />
+    <meta name="theme-color" content="#0a0b0d" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+  </head>
+  <body>
+    <div class="layout">
+      <header class="header">
+        <div class="brand">
+          <h1 class="brand-logo">SpamHell</h1>
+          <span class="brand-note">DEMO</span>
+        </div>
+        <a class="header-link" href="https://github.com/leejongyoung/SpamHell" target="_blank" rel="noopener">GitHub</a>
+      </header>
+
+      <main>
+        <section class="card" aria-labelledby="h-input">
+          <h2 class="section-label" id="h-input">메시지 입력</h2>
+
+          <div class="template-row">
+            <span class="sub-label" id="template-label">퀵 템플릿</span>
+            <div class="template-list" id="template-list" role="group" aria-labelledby="template-label"></div>
+          </div>
+
+          <label class="visually-hidden" for="text-source">변환할 메시지</label>
+          <textarea class="input" id="text-source" rows="3" placeholder="메시지 입력..."></textarea>
+
+          <div class="actions">
+            <button type="button" class="btn btn-primary" data-mode="spam">스팸체 변환</button>
+            <button type="button" class="btn btn-outline" data-mode="korean">한국인 최적화</button>
+            <button type="button" class="btn btn-outline" id="btn-reset">초기화</button>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="h-result">
+          <h2 class="section-label accent" id="h-result">변환 결과</h2>
+          <label class="visually-hidden" for="text-transformed">변환된 메시지</label>
+          <textarea class="input result" id="text-transformed" rows="3" readonly placeholder="변환 대기 중..."></textarea>
+          <button type="button" class="btn btn-accent full" id="btn-copy">복사</button>
+        </section>
+
+        <section class="card" aria-labelledby="h-image">
+          <h2 class="section-label accent" id="h-image">이미지 카드</h2>
+          <div id="combined-card-area" class="mms-card">
+            <div class="mms-photo"><img src="/police.webp" alt="" width="512" height="512" /></div>
+            <div class="mms-content" id="preview-text-target">변환된 메시지 미리보기</div>
+          </div>
+          <button type="button" class="btn btn-primary full" id="btn-save-image">이미지 저장</button>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>보이스피싱 근절을 응원합니다. 변환 엔진은 <code>spamhell</code> 패키지와 CLI로도 사용할 수 있습니다.</p>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
