@@ -1,61 +1,79 @@
-# 🚨 SpamHell - Anti-Phishing Workbench
+# SpamHell
 
-**SpamHell**은 보이스피싱범들을 당혹스럽게 만들고 역공하기 위한 **'스팸체 생성기'**이자 **'사이버 보안 워크벤치'**입니다. 래거시 프로젝트를 현대적인 Vanilla JS와 세련된 Cyber-UI로 전면 개편하여, 실질적인 대응 도구로 재탄생시켰습니다.
+보이스피싱범에게 보내는 역공 메시지를 **스팸체**로 바꿔 주는 도구 모음입니다. 자음 분리, 숫자 변형, 특수문자 삽입 같은 스팸 문자의 시각적 특징을 재현하고, 미리 만든 풍자 템플릿을 제공합니다.
 
-## ✨ 주요 기능 (Key Features)
+변환 엔진 하나를 세 가지 방식으로 쓸 수 있습니다.
 
-- **스팸체 변환 프로토콜:** 한글 자음 분리, 교묘한 숫자 변형, 특수문자 과다 사용 등 스팸의 시각적 요소를 완벽하게 구현합니다.
-- **퀵 템플릿 시스템:** 당첨형, AI 봇 코스프레형, 정신 공격형 등 검증된 3가지 유형의 역공 멘트를 무작위로 생성합니다.
-- **MMS 이미지 카드 제작:** 생성된 텍스트와 포돌이(Police) 이미지를 결합한 직사각형 카드를 실시간으로 미리보고 이미지로 저장할 수 있습니다.
-- **Single-Screen UI:** PC 화면에서 스크롤 없이 모든 작업(입력-결과-저장)을 한눈에 처리할 수 있는 컴팩트한 레이아웃을 제공합니다.
-- **모바일 최적화:** 블로그 스타일의 세로형 배치를 통해 모바일 환경에서도 쾌적한 사용이 가능합니다.
+| 구성 | 경로 | 용도 |
+| :--- | :--- | :--- |
+| 라이브러리 `spamhell` | [`packages/core`](./packages/core) | 코드에서 변환 함수 호출 (TypeScript, 의존성 없음) |
+| CLI `spamhell-cli` | [`packages/cli`](./packages/cli) | 터미널과 파이프에서 변환 |
+| 웹 데모 | [`apps/web`](./apps/web) | 브라우저 체험, 이미지 카드 저장 · [leejongyoung.github.io/SpamHell](https://leejongyoung.github.io/SpamHell/) |
 
-## 🛠️ 스팸체 핵심 공식 (Visual Identity)
+## 라이브러리
 
-1.  **특수문자 남용:** `[광.고]`, `◈`, `▶`, `※` 등을 문장 앞뒤와 중간에 전략적으로 배치합니다.
-2.  **강제 자음 분리:** `안녕` → `안ㄴㅕㅇ`과 같이 확률적으로 자음을 분리하거나 `입.금` 처럼 점을 삽입합니다.
-3.  **교묘한 숫자 변형:** `0` → `O/영`, `1` → `l/!` 등 가독성을 해치지 않으면서 필터를 피하는 변형을 적용합니다.
+```ts
+import { toSpam, toKorean, getTemplate } from 'spamhell';
 
-## 🚀 시작하기 (How to Use)
+toSpam('입금 확인 바랍니다', { seed: 42 });
+// -> "▼ 입금 확.ㅇㅣㄴ ㅂㅏ랍.니다_\n[거/부] 080-철창행-열차"
 
-1.  `index.html` 파일을 웹 브라우저로 엽니다.
-2.  **메시지 입력하기:** 사기꾼에게 보낼 멘트를 직접 입력하거나 **퀵 템플릿** 중 하나를 선택합니다.
-3.  **변환 및 복사:** `스팸체 변환` 버튼을 누르고 결과물을 복사하여 문자로 전송합니다.
-4.  **이미지 저장:** 하단의 **이미지 출력 결과**에서 생성된 카드를 `이미지 저장` 버튼으로 다운로드하여 MMS에 첨부합니다.
-
-## 🏗️ 프로젝트 구조 (Project Structure)
-
-```text
-/
-├── index.html          # 메인 레이아웃 및 대시보드 구조
-├── css/
-│   └── style.css       # 사이버 보안 테마 및 반응형 디자인
-├── js/
-│   ├── spammaker.js    # 스팸 변환 핵심 로직 엔진
-│   └── main.js         # UI 인터랙션 및 이미지 캡처 제어
-└── assets/
-    ├── images/
-    │   └── police.png  # 정의구현 포돌이 공식 이미지
-    └── favicon/        # 프로젝트 파비콘 에셋
+toKorean('지금 바로 입금하세요', { seed: 1 });  // -> "지금 바로 ㄹㅇ 입금하세요 ㅠㅠ"
+getTemplate('prize', { seed: 1 });             // 템플릿 종류: prize, bot, horror
 ```
 
-## 🛠️ 기술 스택 (Tech Stack)
+- 같은 `seed`와 입력이면 결과가 항상 같습니다. 숫자 `42`와 문자열 `"42"`는 같은 시드입니다. `rng`로 난수 함수를 직접 넣을 수도 있습니다.
+- `toSpam` 옵션은 `disassembleRate`, `dotRate`, `numberRate`, `noiseRate`(각 0~1), `frame`(머리말과 꼬리말 여부)입니다. 범위를 벗어나면 `RangeError`입니다.
+- 한글 처리는 완성형 음절(가-힣)만 대상으로 하고, 이모지 같은 비BMP 문자는 그대로 보존합니다.
 
-- **Frontend:** HTML5, CSS3 (Vanilla), JavaScript (Vanilla)
-- **Library:** 
-  - [jQuery](https://jquery.com/) (DOM Control)
-  - [Bootstrap 5](https://getbootstrap.com/) (Grid System)
-  - [Clipboard.js](https://clipboardjs.com/) (Text Copy)
-  - [html2canvas](https://html2canvas.hertzen.com/) (Image Generation)
+## CLI
 
-## 👮‍♂️ 저작권 및 응원 (Copyright)
+```bash
+spamhell "입금 확인 바랍니다"                 # 인자로 입력
+echo "지금 바로 입금하세요" | spamhell -m korean   # 표준 입력
+spamhell --template prize --seed 7            # 템플릿 출력
+spamhell --list-templates
+```
 
-© 2026 **SPAMHELL**. All Rights Reserved.
-이 프로젝트는 보이스피싱 근절을 진심으로 응원합니다.
+| 옵션 | 설명 |
+| :--- | :--- |
+| `-m, --mode <spam\|korean>` | 변환 방식 (기본 `spam`) |
+| `-t, --template <kind>` | 입력 대신 템플릿 출력 |
+| `-s, --seed <value>` | 재현 가능한 결과 |
+| `-h`, `-v` | 도움말, 버전 |
 
-## 🙏 감사의 글 (Acknowledgment)
+결과는 표준 출력에만 쓰고, 사용법 오류는 표준 오류와 종료 코드 `2`로 알립니다.
 
-이 프로젝트는 **[밍피디(mingpd)](https://github.com/mingpd)**님의 **[spammaker](https://github.com/mingpd/spammaker)** 프로젝트에서 영감을 받아 제작되었으며, 기존 로직을 기반으로 현대적인 웹 기술과 새로운 UI/UX를 적용하여 개편되었습니다. 멋진 아이디어를 공유해주신 밍피디님께 감사드립니다.
+## 개발
+
+Node.js 20 이상 (CI는 22).
+
+```bash
+npm ci
+npm run typecheck   # 소스와 테스트 타입 검사
+npm test            # vitest (core, cli)
+npm run build       # core -> cli -> web 순서로 빌드
+npm run dev -w @spamhell/web   # 웹 데모 개발 서버 (먼저 build 필요)
+```
+
+처음 클론한 뒤에는 `npm run build`를 한 번 실행하고 `npm install`을 다시 실행해야 `spamhell` 명령이 `node_modules/.bin`에 연결됩니다. 연결 없이 쓰려면 `node packages/cli/dist/bin.js`를 실행하면 됩니다.
+
+`main`에 push하면 GitHub Actions가 검사와 테스트, 빌드를 거쳐 `apps/web/dist`를 GitHub Pages에 배포합니다.
+
+## 사용 원칙
+
+이 프로젝트는 보이스피싱에 대한 풍자적 대응 도구입니다. 스팸 필터를 우회해 실제 스팸을 보내는 용도로 쓰지 않습니다. 그래서 발송, 대량 생성, 일괄 처리 기능은 의도적으로 제공하지 않습니다. 템플릿은 실제 기관의 이름이나 발신자를 사칭하지 않도록 작성합니다.
+
+## 권리 관련 메모
+
+- 패키지는 라이선스가 정해지기 전까지 `UNLICENSED`와 `private`입니다. 공개 배포는 라이선스를 정한 뒤에 합니다.
+- 웹 데모의 카드 이미지(포돌이)는 경찰청 캐릭터입니다. 이용 조건을 확인하기 전에는 공개 배포 대상에 포함하지 않습니다.
+- 원작 `mingpd/spammaker`의 라이선스는 확인하지 못했습니다. 공개 전에 정리가 필요합니다.
+
+## 감사의 글
+
+이 프로젝트는 [밍피디(mingpd)](https://github.com/mingpd)님의 `spammaker`에서 영감을 받았습니다. 멋진 아이디어를 공유해 주셔서 감사합니다.
 
 ---
-*Developed by [leejongyoung](https://github.com/leejongyoung)*
+
+Developed by [leejongyoung](https://github.com/leejongyoung)
