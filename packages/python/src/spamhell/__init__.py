@@ -20,7 +20,7 @@ from ._situations import (
 from ._templates import TEMPLATE_KINDS, TEMPLATE_LABELS, get_template, is_template_kind
 from ._transform import to_korean, to_spam
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 __all__ = [
     "Rng",

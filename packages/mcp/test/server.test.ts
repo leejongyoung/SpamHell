@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it } from 'vitest';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
@@ -35,6 +36,12 @@ async function call(client: Client, name: string, args: Record<string, unknown>)
 }
 
 describe('spamhell-mcp', () => {
+  it('reports the same version as its package.json', async () => {
+    const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')) as { version: string };
+    const client = await connect();
+    expect(client.getServerVersion()?.version).toBe(pkg.version);
+  });
+
   it('lists the five tools as read-only and idempotent', async () => {
     const client = await connect();
     const { tools } = await client.listTools();

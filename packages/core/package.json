@@ -1,6 +1,6 @@
 {
   "name": "spamhell",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Spam-style (스팸체) text transformer for voice-phishing counter-messages.",
   "keywords": [
     "spam",

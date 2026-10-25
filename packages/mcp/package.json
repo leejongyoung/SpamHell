@@ -1,6 +1,6 @@
 {
   "name": "spamhell-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP (Model Context Protocol) stdio server for spamhell: let AI assistants transform text into spam-style (스팸체).",
   "keywords": [
     "mcp",

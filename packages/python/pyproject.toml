@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "spamhell"
-version = "1.0.0"
+version = "1.0.1"
 description = "Spam-style (스팸체) text transformer for voice-phishing counter-messages."
 readme = "README.md"
 license = "Apache-2.0"

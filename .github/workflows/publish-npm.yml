@@ -1,0 +1,46 @@
+name: Publish npm packages
+
+# npm Trusted Publishing(OIDC)으로 올린다. 토큰과 OTP를 저장소에 두지 않고, provenance가 자동으로 붙는다.
+# 각 패키지에 신뢰 관계를 한 번 등록해야 한다:
+#   npm trust github <패키지> --file publish-npm.yml --repo leejongyoung/SpamHell --env npm
+# 버전을 올린 커밋을 main에 올리고 Actions에서 수동 실행한다. 이미 올라간 버전은 건너뛴다.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+
+      # Trusted Publishing은 npm 11.5.1 이상이 필요하다 (Node 24에 포함).
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+      - name: Publish (core first, then the packages that depend on it)
+        run: |
+          set -euo pipefail
+          for entry in spamhell:core spamhell-cli:cli spamhell-mcp:mcp; do
+            pkg="${entry%%:*}"
+            dir="packages/${entry##*:}"
+            version="$(node -p "require('./$dir/package.json').version")"
+            if npm view "$pkg@$version" version >/dev/null 2>&1; then
+              echo "skip $pkg@$version (already published)"
+              continue
+            fi
+            echo "publish $pkg@$version"
+            npm publish -w "$pkg"
+          done

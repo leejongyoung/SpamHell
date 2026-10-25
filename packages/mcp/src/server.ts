@@ -12,7 +12,7 @@ import {
 } from 'spamhell';
 import { z } from 'zod';
 
-const VERSION = '1.0.0';
+const VERSION = '1.0.1';
 
 /** 풍자 도구라는 원칙을 모든 도구 설명에 공통으로 붙인다. */
 const PRINCIPLE =
