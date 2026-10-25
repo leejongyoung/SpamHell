@@ -21,7 +21,7 @@
   "license": "Apache-2.0",
   "type": "module",
   "bin": {
-    "spamhell": "./dist/bin.js"
+    "spamhell": "dist/bin.js"
   },
   "files": [
     "dist",

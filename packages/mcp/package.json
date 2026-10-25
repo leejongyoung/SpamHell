@@ -22,7 +22,7 @@
   "license": "Apache-2.0",
   "type": "module",
   "bin": {
-    "spamhell-mcp": "./dist/bin.js"
+    "spamhell-mcp": "dist/bin.js"
   },
   "files": [
     "dist",
