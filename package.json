@@ -1,0 +1,22 @@
+{
+  "name": "spamhell-monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w spamhell && npm run build -w spamhell-cli && npm run build -w @spamhell/web",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "~5.9.3",
+    "vitest": "^4.0.0"
+  }
+}

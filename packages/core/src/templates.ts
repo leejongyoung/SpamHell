@@ -1,0 +1,97 @@
+import { pick, resolveRng, type Rng } from './rng.js';
+
+export const TEMPLATE_KINDS = ['prize', 'bot', 'horror'] as const;
+
+export type TemplateKind = (typeof TEMPLATE_KINDS)[number];
+
+/** 템플릿 종류별 표시 이름. */
+export const TEMPLATE_LABELS: Readonly<Record<TemplateKind, string>> = {
+  prize: '당첨',
+  bot: 'AI',
+  horror: '공포',
+};
+
+const TEMPLATES: Readonly<Record<TemplateKind, readonly string[]>> = {
+  prize: [
+    `[광/고] (축) 보이스-피싱 업계 종사자 대상 특별 혜택 안내
+
+◈ 고.객.님.의 성실한 사기 행각에 감동하여 '지옥행 특급 열차' 티켓 l매가 발권되었습니다.
+▶ 발권 번호: 4444-8282-1818
+▶ 혜택 내용: 수사관과의 1:1 심층 면담권 (무료)
+※ 주의: 본 혜택은 거절할 수 없으며, 거절 시 양심이 직접 방문합니다.
+[거/부] 080-철창행-열차`,
+    `[광/고] (경) 보이스피싱 구속 1주년 기념 홈커밍 데이 초대
+
+◈ 대상: 전국 보이스피싱 종사자 및 관계자
+▶ 장소: 반성의 방 (입장료 무료)
+▶ 혜택: 10년 만기 무이자 할부 징역권 증정
+※ 준비물: 본인의 비양심과 반성하지 않는 마음
+[거/부] 080-징역-생활`,
+    `[광/고] (축) 2026년 상반기 '최악의 비양심인' 당첨 안내
+
+◈ 고객님의 끈질긴 사기 전화 시도가 드디어 결실을 맺었습니다.
+▶ 상품: 24시간 실시간 양심 추적 서비스 (무료)
+▶ 발신: 양심 감시 위원회
+▶ 경고: 오늘 밤 12시 이전까지 파출소에 자진 신고 시 '콩밥' 곱빼기 제공!
+[수/신/차/단] 112-전화-한통`,
+  ],
+
+  bot: [
+    `(알림) 시_스템 점.검.중 입ㄴㅣㄷㅏ.
+
+현재 입력하신 목소리 데이터에서 [비.양.심] 수치가 99.9% 검출되었습니다.
+삐-빅! 사기꾼 감지기 작동.
+상담을 원하시면 본인의 주민등록번호 뒷자리를 크게 3번 외쳐주세요.
+(※ 주의: 목소리가 작으면 지옥 사자가 듣지 못합니다.)`,
+    `[AI 안내] 보이스피싱 감지 시스템이 가동되었습니다.
+
+● 현재 발신자의 음성 패턴 분석 결과: '거짓말' 확률 100%
+● 조치 사항: 해당 번호는 실시간으로 블랙리스트에 '사기꾼'으로 등록 중...
+● 경고: 3초 후 당신의 스마트폰에서 경고음이 울립니다. (삐이이익-)
+지금 즉시 도망가도 늦었습니다.`,
+    `(알림) 보이스-피싱 전용 스팸 차단 봇입니다.
+
+상대방의 멘탈이 이미 파괴되었습니다.
+[차단 사유]: 인성 결격 사유로 인한 대화 불가
+[해제 방법]: 본인의 통장에 들어있는 모든 돈을 '전국 피해자 구제 협회'에 반납하기.
+※ 주의: 시도할 때마다 형량이 1년씩 추가됩니다.`,
+  ],
+
+  horror: [
+    `[속.보] 0ㅣ것은 입에서 ㄴㅏ오느 ㄴ소ㄹㅣㄱㅏ ㅇㅏㄴㅣㄹㅏ.
+
+◑ ㄸㅏㄹㄹㅡㅇ ㄸㅏㄹㄹㅡㅇ ◑
+당신의 통장은 이미 '텅'장이 되었습니다.
+▣ 복구 방법: 가까운 파출소에 가서 "나는 사기꾼이다"라고 5분간 외치기.
+▣ 미이행 시: 오늘 밤 꿈에 당신이 가로챈 돈만큼의 귀신이 방문 서비스 예정.`,
+    `[경.고] 저승 사자의 메.세.지.가 도착했습니다.
+
+† 오늘 밤 12시, 당신의 발 밑을 조심하십시오. †
+피해자들의 눈물이 모여 당신의 발목을 잡을 것입니다.
+복구 코드: [참.회.하.라]
+미입력 시: 오늘부터 먹는 모든 밥이 모래알로 변하는 저주가 시작됩니다.`,
+    `[긴.급] 당신의 죄책감이 실체화되어 접근 중입니다.
+
+▶ 현재 위치: 당신의 등 뒤 1m
+▶ 상태: 몹시 굶주림 (사기꾼의 영혼을 선호함)
+◑ 해결책: 당장 핸드폰을 버리고 산으로 들어가 3년간 도를 닦으십시오.
+▣ 실패 시: 평생 보이스피싱 전화를 받는 쪽으로 환생하게 됩니다.`,
+  ],
+};
+
+export function isTemplateKind(value: string): value is TemplateKind {
+  return (TEMPLATE_KINDS as readonly string[]).includes(value);
+}
+
+export interface TemplateOptions {
+  seed?: number | string;
+  rng?: Rng;
+}
+
+/** 종류별 템플릿 중 하나를 무작위로 돌려준다. 알 수 없는 종류는 `TypeError`. */
+export function getTemplate(kind: TemplateKind, options: TemplateOptions = {}): string {
+  if (!isTemplateKind(kind)) {
+    throw new TypeError(`Unknown template kind: ${String(kind)} (expected one of ${TEMPLATE_KINDS.join(', ')})`);
+  }
+  return pick(resolveRng(options), TEMPLATES[kind]);
+}
