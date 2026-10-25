@@ -1,0 +1,17 @@
+# SpamHell
+
+> Satirical counter-tool against voice phishing. Turns a short text into "spam style" (스팸체): Hangul jamo splitting, dots between syllables, digit substitution, noise symbols, spam header/footer. Same seed gives the same output in every implementation.
+
+SpamHell never sends messages. The web demo only opens the user's own SMS app with a prefilled draft; the user presses send. There is no bulk, batch, or automatic sending, and templates do not impersonate real institutions.
+
+## Use it
+
+- Web demo: https://leejongyoung.github.io/SpamHell/
+- JavaScript/TypeScript: npm `spamhell` (`toSpam`, `toKorean`, `getTemplate`)
+- CLI: npm `spamhell-cli` or PyPI `spamhell` (command `spamhell`)
+- Python: PyPI `spamhell` (`to_spam`, `to_korean`, `get_template`)
+- AI assistants (MCP, stdio): npm `spamhell-mcp` with tools `spamhell_transform`, `spamhell_template`, `spamhell_list_templates`
+
+## Source
+
+- Repository: https://github.com/leejongyoung/SpamHell (Apache-2.0)

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="t">
+  <title id="t">SpamHell</title>
+  <defs>
+    <linearGradient id="fire" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#FF2E63"/>
+      <stop offset="0.55" stop-color="#FF5B1F"/>
+      <stop offset="1" stop-color="#FFC93C"/>
+    </linearGradient>
+  </defs>
+  <!-- 말풍선: 크림 면 + 잉크 외곽선(밝은 배경과 어두운 배경 모두에서 보인다) -->
+  <path d="M36 12h56a26 26 0 0 1 26 26v34a26 26 0 0 1-26 26H64l-28 22c-2.200 1.700-5 .1-4.600-2.600L34 98A26 26 0 0 1 10 72V38a26 26 0 0 1 26-26z"
+        fill="#FFF3E3" stroke="#14101A" stroke-width="7" stroke-linejoin="round"/>
+  <!-- 불꽃 -->
+  <path d="M64 24c3.500 11 18 21 18 40 0 13-8 22-18 22s-18-9-18-22c0-8.500 4.800-14 9-18.500.9 7.500 3.700 10.500 7 12C61 50 63 38 64 24z"
+        fill="url(#fire)" stroke="#14101A" stroke-width="4.500" stroke-linejoin="round"/>
+  <!-- 불씨 -->
+  <path d="M64 53c1.600 5.400 8.500 9 8.500 16 0 4.800-3.800 8.500-8.500 8.500s-8.500-3.700-8.500-8.500c0-3.200 1.900-5.400 3.500-7 .4 3 1.800 4.300 3.200 4.800C62.200 63.200 63 58.500 64 53z"
+        fill="#FFF3E3"/>
+</svg>
