@@ -176,14 +176,12 @@ npm run build && npm install -g ./packages/cli   # CLI (core는 같은 저장소
 
 ### 릴리스
 
-네 패키지의 버전(`packages/core`, `packages/cli`, `packages/mcp`, `packages/python`의 `pyproject.toml`과 `__init__.py`)을 맞추고 CI가 통과한 상태에서 합니다. `spamhell`이 먼저 올라가야 `spamhell-cli`와 `spamhell-mcp`가 설치됩니다.
+네 패키지의 버전(`packages/core`, `packages/cli`, `packages/mcp`, `packages/python`의 `pyproject.toml`과 `__init__.py`)을 맞추고, `packages/mcp/src/server.ts`의 `VERSION`도 같이 올립니다. 버전을 올린 커밋이 `main`에서 CI를 통과하면 Actions의 **Publish npm packages**를 수동 실행합니다.
 
-```bash
-npm publish -w spamhell && npm publish -w spamhell-cli && npm publish -w spamhell-mcp
-```
-
-- npm 계정의 2단계 인증이 패스키이면 터미널에서 OTP를 받을 수 없으므로, TTY 안에서 웹 인증으로 올립니다: `script -q /dev/null npm publish -w <패키지> --auth-type=web`. 출력된 주소를 브라우저에서 열어 패스키로 인증하며, 주소는 몇 분만 유효합니다.
-- `package.json`의 `bin` 경로는 `./`로 시작하면 안 됩니다(`dist/bin.js`). npm이 게시할 때 그런 항목을 조용히 지웁니다. 올리기 전에 `npm publish -w <패키지> --dry-run`에 `auto-corrected` 경고가 없는지 확인하세요.
+- npm은 Trusted Publishing(OIDC)으로 올라가므로 토큰이나 OTP가 필요 없고 provenance가 자동으로 붙습니다. 워크플로가 `spamhell`, `spamhell-cli`, `spamhell-mcp` 순서로 올리고, 이미 올라간 버전은 건너뜁니다.
+- 패키지마다 신뢰 관계가 한 번 등록돼 있습니다(`npm trust github <패키지> --file publish-npm.yml --repo leejongyoung/SpamHell --env npm --allow-publish`). 등록과 변경에는 npm 계정의 패스키 인증이 필요합니다.
+- 직접 올려야 할 때: 패스키는 OTP를 받을 수 없으므로 TTY 안에서 웹 인증으로 올립니다(`script -q /dev/null npm publish -w <패키지> --auth-type=web`). 출력된 주소를 브라우저에서 열어 패스키로 인증하며 주소는 몇 분만 유효합니다.
+- `package.json`의 `bin` 경로는 `./`로 시작하면 안 됩니다(`dist/bin.js`). npm이 게시할 때 그런 항목을 조용히 지웁니다. `npm publish -w <패키지> --dry-run`에 `auto-corrected` 경고가 없는지 확인하세요.
 
 PyPI는 토큰 대신 Trusted Publishing을 씁니다. PyPI에서 Publisher(저장소 `leejongyoung/SpamHell`, 워크플로 `publish-python.yml`, 환경 `pypi`)를 등록한 뒤 Actions의 **Publish Python package**를 수동 실행하면 테스트, 빌드, 공개를 합니다. 아직 등록 전이라 PyPI 공개는 보류 중입니다.
 
