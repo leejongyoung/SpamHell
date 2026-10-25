@@ -174,12 +174,8 @@ PyPI는 토큰 대신 Trusted Publishing을 씁니다. PyPI에서 Publisher(저�
 
 소스 코드는 [Apache License 2.0](./LICENSE)을 따릅니다. 저작권 고지는 [NOTICE](./NOTICE)에 있습니다.
 
-원작 `mingpd/spammaker`(블로그 데모)에는 라이선스가 없습니다. 현재 소스 트리와 배포 패키지에는 원작 코드가 들어 있지 않고, 아이디어에서 영감을 받아 새로 구현했습니다. 다만 초기 커밋 이력에는 원작에서 가져온 파일이 남아 있으므로, 저장소를 공개하기 전에 이력 정리가 필요합니다.
+## 출처와 감사
 
-## 감사의 글
+이 프로젝트는 [밍피디(mingpd)](https://github.com/mingpd)님이 2019년에 블로그에 공개한 스팸체 변환 데모 `spammaker`에서 아이디어를 얻었습니다. 멋진 아이디어를 공유해 주셔서 감사합니다.
 
-이 프로젝트는 [밍피디(mingpd)](https://github.com/mingpd)님의 `spammaker`에서 영감을 받았습니다. 멋진 아이디어를 공유해 주셔서 감사합니다.
-
----
-
-Developed by [leejongyoung](https://github.com/leejongyoung)
+원작은 사용 조건(라이선스)을 따로 밝히지 않았으므로 원작의 소스 코드는 가져오지 않았습니다. 이 저장소의 현재 소스와 배포 패키지(npm, PyPI)는 TypeScript와 Python으로 새로 작성한 구현이며, 템플릿과 웹 화면도 이 프로젝트에서 새로 만들었습니다.
