@@ -1,0 +1,32 @@
+name: Publish Python package
+
+# PyPI Trusted Publishing(OIDC)으로 올린다. 토큰을 저장소에 두지 않는다.
+# PyPI에서 먼저 Publisher를 등록해야 한다: 저장소 leejongyoung/SpamHell, workflow publish-python.yml, environment pypi.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    environment: pypi
+    permissions:
+      id-token: write
+    defaults:
+      run:
+        working-directory: packages/python
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10.3.2
+
+      - name: Test before publishing
+        run: uv run --python 3.13 --with pytest python -m pytest -q
+
+      - name: Build
+        run: uv build
+
+      - name: Publish to PyPI
+        run: uv publish --trusted-publishing always
